@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="11px" viewBox="0 0 32 11" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>IMEI</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#AAABB3" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#AAABB3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Identifiers" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="Add-Identifier-Type" transform="translate(-554.000000, -485.000000)" fill="url(#linearGradient-1)">
+            <g id="pop-up" transform="translate(100.000000, 61.000000)">
+                <g id="IMEI" transform="translate(454.000000, 413.000000)">
+                    <path d="M0,11 L3.38531692,11 L3.38531692,21.2289102 L0,21.2289102 L0,11 Z M4.84450524,11 L8.43410853,11 L10.9730962,16.3406293 L13.497492,11 L17.0870953,11 L17.0870953,21.2289102 L14.124943,21.2289102 L14.124943,15.625627 L12.0674875,20.2366621 L9.86411309,20.2366621 L7.80665755,15.625627 L7.80665755,21.2289102 L4.84450524,21.2289102 L4.84450524,11 Z M18.5462836,11 L27.1992704,11 L27.1992704,13.5681715 L21.9316005,13.5681715 L21.9316005,14.8230734 L26.7177383,14.8230734 L26.7177383,17.3912449 L21.9316005,17.3912449 L21.9316005,18.6607387 L27.3305974,18.6607387 L27.3305974,21.2289102 L18.5462836,21.2289102 L18.5462836,11 Z M28.6146831,11 L32,11 L32,21.2289102 L28.6146831,21.2289102 L28.6146831,11 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

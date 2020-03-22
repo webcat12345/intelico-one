@@ -1,0 +1,14 @@
+<div class="right-sidebar form-group">
+  <label class="control-label">Postal Code</label>
+  <input (ngModelChange)="addToAddrs($event)" [(ngModel)]="postalCode" [list-formatter]="myListFormatter"
+         [source]="observableSource.bind(this)"
+         [value-formatter]="myValueFormatter"
+         auto-complete
+         class="form-control"
+         placeholder="Postal Code">
+</div>
+
+<div class="right-sidebar form-group">
+  <label class="control-label">Address</label>
+  <input [value]="address || ''" class="form-control" placeholder="Address" readonly>
+</div>

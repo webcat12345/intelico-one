@@ -1,0 +1,9 @@
+<one-admin-loader *ngIf="alertsReportLoading" [whiteOverlay]="true"></one-admin-loader>
+<div class="col-xs-12 timeline-table">
+  <div *ngIf="isChart" [chart]="activityOptions" class="graph"></div>
+  <div *ngIf="isChart" class="from-to load-more-wrap">
+    <span class="from">From <span>{{ startTime }} </span></span>
+    <span class="middle">{{ ' - ' }}</span>
+    <span class="to">To <span>{{ endTime }}</span></span>
+  </div>
+</div>

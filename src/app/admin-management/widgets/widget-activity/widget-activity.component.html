@@ -1,0 +1,92 @@
+<one-admin-sidebar-window (toggleOverlaySidebar)="toggleOverlaySidebar($event)"
+                          [headerTemplateRef]="header"
+                          [notificationTemplateRef]="newItemsNotification"
+                          [sidebarTemplateRef]="sidebar"
+                          [tableTemplateRef]="main">
+  <ng-template #header>
+    <h1 class="pull-left activity-header">Activity<span *ngIf="totalCount"
+                                                        class="badge">{{ totalCount | number }}</span></h1>
+    <button (click)="toggleCurrentView(View.ReportsView)" [class.active]="currentView === View.ReportsView" class="action-btn graph-view-btn pull-right" container="body"
+            placement="bottom" tooltip="Reports View"
+            type="button">Reports View
+    </button>
+    <button (click)="toggleCurrentView(View.MapView)" [class.active]="currentView === View.MapView" class="action-btn map-view-btn pull-right" container="body"
+            placement="bottom" tooltip="Map View"
+            type="button">Map View
+    </button>
+    <button (click)="toggleCurrentView(View.ListView)" [class.active]="currentView === View.ListView" class="action-btn list-view-btn pull-right" container="body"
+            placement="bottom" tooltip="List View"
+            type="button">List View
+    </button>
+    <div class="global-search pull-right" style="margin-right: 21px;">
+      <one-admin-search-key-filter (changeFilter)="changeSearchKeyFilter($event)"
+                                   (changeFilterClearAll)="changeFilterClearAll($event)"
+                                   (changeFilterPressKey)="changeFilterSearchPressKey($event)"
+                                   [fields]="['identifier']"
+                                   [noLabel]="true">
+      </one-admin-search-key-filter>
+    </div>
+  </ng-template>
+
+  <ng-template #newItemsNotification>
+    <div class="alert-banner-wrap">
+      <div (click)="viewNewItems()" *ngIf="newActivityCount" class="alert-banner">{{ newActivityCount }} new
+        activities
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #main>
+    <ng-container *ngIf="currentView === View.ListView">
+      <one-admin-activity-table (closeSidebar)="closeSidebar($event)"
+                                (newActivityArrived)="newActivityArrived()"
+                                (openDetail)="openDetail($event)"
+                                (openImage)="openImage($event)"
+                                [history]="histories">
+      </one-admin-activity-table>
+      <div *ngIf="isShowLoadMoreHistory >= 19" class="load-more-wrap">
+        <button (click)="loadMoreHistory()"><span>Load More</span></button>
+      </div>
+      <!--<pagination [boundaryLinks]="true" [totalItems]="histories.length" [maxSize]="10" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="15"></pagination>-->
+    </ng-container>
+    <one-admin-activity-map (newActivityArrived)="newActivityArrived()" *ngIf="currentView === View.MapView"
+                            [searchKeyFilter]="searchKeyFilter"
+                            [sidebarFilter]="sideBarFilter"></one-admin-activity-map>
+    <one-admin-activity-reports (currentViewReports)="currentViewReports = $event"
+                                *ngIf="currentView === View.ReportsView"
+                                [customDate]="getCustomDate"
+                                [date]="getDate"
+                                [locationFilter]="locationInfo"
+                                [isCustomDate]="getIsCustomDate"
+                                [typeInfo]="getTypeInfo">
+    </one-admin-activity-reports>
+  </ng-template>
+  <ng-template #sidebar>
+    <one-admin-activity-filter (changeCustomFilter)="changeCustomFilter($event)"
+                               (changeFilter)="changeFilter($event)"
+                               (changeFilterPeopleId)="changeFilterPeopleId($event)"
+                               (changeFilterBtn)="changeFilterBtn($event)"
+                               (changeFilterGraph)="changeFilterGraph($event)"
+                               (customFilterSelected)="customFilterSelected($event)"
+                               (resetGraph)="resetGraph($event)"
+                               (scrollToBottom)="sidebarWindowRef.scrollToBottomSidebar()"
+                               (searchGraph)="searchGraph($event)"
+                               (changeLocationFilter)="locationInfo = $event"
+                               [currentViewReports]="getCurrentViewReports"
+                               [currentView]="getCurrentView"></one-admin-activity-filter>
+  </ng-template>
+</one-admin-sidebar-window>
+
+<one-admin-loader *ngIf="isLoading" [size]="'sm'" [whiteOverlay]="true"></one-admin-loader>
+
+<!--Modal No data-->
+<div *ngIf="showNoDataModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center" style="width: 500px;">
+      <h3 style="color: #2B3036">No data available.</h3>
+      <p style="color: #929394; font-size: 14.6px">The date range is currently ‘Today’ - you can change this using the
+        <span><a (click)="showSideBar()">filter.</a></span></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="right-sidebar form-group">
+  <label class="control-label">Select Site</label>
+  <select (ngModelChange)="onSiteChange()" [(ngModel)]="selectedSite" class="form-control">
+    <option disabled hidden selected value="undefined">Select Site</option>
+    <option *ngFor="let site of sites" [value]="site.id">{{ site.name }}</option>
+  </select>
+  <one-admin-loader *ngIf="isLoading" [whiteOverlay]="true"></one-admin-loader>
+</div>
+
+<div class="right-sidebar form-group">
+  <label class="control-label">Select Area</label>
+  <select (ngModelChange)="onAreaChange()" [(ngModel)]="selectedArea" class="form-control">
+    <option disabled hidden selected value="undefined">Select Area</option>
+    <option *ngFor="let area of areas | layerParent : selectedSite" [value]="area.id">{{ area.name }}</option>
+  </select>
+  <one-admin-loader *ngIf="isLoading" [whiteOverlay]="true"></one-admin-loader>
+</div>
+
+<div class="right-sidebar form-group">
+  <label class="control-label">Select Zone</label>
+  <select (ngModelChange)="onZoneChange($event)" [(ngModel)]="selectedZone" class="form-control">
+    <option disabled hidden selected value="undefined">Select Zone</option>
+    <option *ngFor="let zone of zones | layerParent : selectedArea" [value]="zone.id">{{ zone.name }}</option>
+  </select>
+  <one-admin-loader *ngIf="isLoading" [whiteOverlay]="true"></one-admin-loader>
+</div>

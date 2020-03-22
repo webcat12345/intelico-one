@@ -1,0 +1,50 @@
+<div [class.info-pages]="showLogout || idleShow" id="wrapper">
+  <!--<div class="overlay-bg" [ngStyle]="{'background-image':'url(' + settings?.bgImg?.url + ')'}"></div>-->
+  <div class="overlay-bg" style="background-image: url(assets/bg_images/bg.jpg);"></div>
+  <div [hidden]="showLogout || idleShow">
+    <div class="home-logo"><a (click)="openStandardWindows('logo')" container="body" placement="right"
+                              tooltip="Show desktop">intelico one</a></div>
+    <div class="welcome-note hidden">
+      <div id="bodymovin"></div>
+      <h1>Good {{ greeting }},<br>{{ commonService.currentUser.firstName }}</h1>
+    </div>
+
+    <div class="beta-note hidden">
+      <h6>Intelico One Beta Note</h6>
+      <p>We are currently migrating to new servers and are also slowly releasing new feature updates - for more
+        information, please email <a href="mailto: one@intelico.com">one@intelico.com</a></p>
+    </div>
+
+    <one-admin-admin-chat-bot></one-admin-admin-chat-bot>
+
+    <one-admin-admin-settings-menu (logout)="showLogoutModal(true)"
+                                   (openWindow)="openStandardWindows($event)"></one-admin-admin-settings-menu>
+
+    <one-admin-one-notifications></one-admin-one-notifications>
+
+    <!--main viewport area-->
+    <one-admin-admin-viewport [boxes]="boxes" [openedWindows]="opened_windows"></one-admin-admin-viewport>
+
+    <!--alert menu items-->
+    <one-admin-admin-alerts-menu (openAlertsWindow)="openStandardWindows('alerts')"
+                                 [settings]="settings"></one-admin-admin-alerts-menu>
+
+    <div [ngClass]="{'left': settings.menuPosition === 'left', 'show-featured-menu': showFeaturedMenu.mouse || showFeaturedMenu.timer}"
+         class="bottom-nav">
+      <one-admin-admin-features-menu (clickMenuEntry)="openStandardWindows($event)" (logout)="showLogoutModal(true)" (mouseenter)="mouseActFeaturedMenu(true)"
+                                     (mouseleave)="mouseActFeaturedMenu(false)"
+                                     [boxes]="boxes"
+                                     [openedWindows]="opened_windows"></one-admin-admin-features-menu>
+    </div>
+    <one-admin-admin-nav></one-admin-admin-nav>
+  </div>
+
+  <ng-container *ngIf="showLogout">
+    <one-admin-admin-logout-modal (cancelLogout)="showLogoutModal(false)" (doLogout)="doLogout()"
+                                  (doSelectOrg)="doSelectOrg()"></one-admin-admin-logout-modal>
+  </ng-container>
+
+  <!-- <ng-container *ngIf="idleShow">
+     <one-admin-admin-idle-modal [idleCountDown]="idleCountdown" [bImage]="settings?.bgImg?.url" (resetIdleMode)="resetIdleChecker()"></one-admin-admin-idle-modal>
+   </ng-container>-->
+</div> <!-- end wrapper widgets -->

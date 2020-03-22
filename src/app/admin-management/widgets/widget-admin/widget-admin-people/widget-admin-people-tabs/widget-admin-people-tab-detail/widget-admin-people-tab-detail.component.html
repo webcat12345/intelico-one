@@ -1,0 +1,36 @@
+<form #peopleForm="ngForm">
+  <div class="nice-scroll">
+    <div class="right-sidebar form-group">
+      <label class="control-label">First Name</label>
+      <input [(ngModel)]="people.firstName" class="form-control" name="first_name" placeholder="First Name" type="text">
+    </div>
+    <div class="right-sidebar form-group">
+      <label class="control-label">last Name</label>
+      <input [(ngModel)]="people.lastName" class="form-control" name="last_name" placeholder="Last Name" type="text">
+    </div>
+    <div class="right-sidebar form-group">
+      <label class="control-label">Gender</label>
+      <select (ngModelChange)="people.metadata.gender.name = $event" [ngModel]="(people)?.metadata.gender.name" class="form-control"
+              name="gender">
+        <option disabled value="">Select Gender</option>
+        <option *ngFor="let item of genderType" [value]="item.name">{{ item.name }}</option>
+      </select>
+    </div>
+    <!--<div class="form-group">
+          <label>EMAIL:</label>
+          <input type="text" class="form-control" placeholder="email@gmail.com" name="email" [(ngModel)]="people.email">
+  </div>-->
+    <div class="right-sidebar form-group">
+      <label class="control-label">Date of Birth</label>
+      <input [(ngModel)]="people.metadata.birthday" [bsConfig]="{ dateInputFormat: 'D MMM, YYYY', containerClass: 'theme-blue', minDate: minDate }" autocomplete="off"
+             bsDatepicker
+             class="form-control"
+             name="date_of_birth" placeholder="Date - Picker" type="text">
+    </div>
+    <one-admin-address-auto-complete-input (addressChange)="onAddressChanged($event)" *ngIf="animationDone"
+                                           [address]="people?.metadata.address?.addressPeople"
+                                           [postalCode]="people?.metadata.address?.postCode"></one-admin-address-auto-complete-input>
+  </div>
+  <button (click)="nextStepPerson()" [disabled]="!peopleForm.form.valid" class="btn btn-primary btn-block"
+          type="button">{{ 'Continue' }}</button>
+</form>

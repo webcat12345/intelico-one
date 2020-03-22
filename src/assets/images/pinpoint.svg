@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Location" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Location-Details" transform="translate(-945.000000, -295.000000)" stroke="#1B84FA" stroke-width="2">
+            <g id="Group-2" transform="translate(915.000000, 212.000000)">
+                <g id="Group" transform="translate(30.000000, 82.000000)">
+                    <circle id="Oval" cx="10" cy="11" r="9"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,12 @@
+<one-admin-layer-selector (filterSourceChanged)="filterSourceChanged.emit($event)"
+                          (select)="changeFilter.emit($event)"
+                          (selectForMapData)="selectForMapData.emit($event)"
+                          [canBeDisabled]="canBeDisabled"
+                          [isAreas]="isAreas"
+                          [isDisabled]="isDisabled"
+                          [isSource]="isSource"
+                          [isFilter]="true"
+                          [isShowLabel]="false"
+                          [isSites]="isSites"
+                          [isZones]="isZones">
+</one-admin-layer-selector>

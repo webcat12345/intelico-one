@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Location" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-930.000000, -530.000000)" fill="#acb3bf" id="Navbar">
+            <g transform="translate(447.000000, 431.000000)">
+                <path d="M499.00741,113.648165 L502.718491,117.359246 C503.093836,117.734591 503.093836,118.343146 502.718491,118.718491 C502.343146,119.093836 501.734591,119.093836 501.359246,118.718491 L497.648165,115.00741 C496.103827,116.253758 494.139061,117 492,117 C487.029437,117 483,112.970563 483,108 C483,103.029437 487.029437,99 492,99 C496.970563,99 501,103.029437 501,108 C501,110.139061 500.253758,112.103827 499.00741,113.648165 Z M492,115 C495.865993,115 499,111.865993 499,108 C499,104.134007 495.865993,101 492,101 C488.134007,101 485,104.134007 485,108 C485,111.865993 488.134007,115 492,115 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

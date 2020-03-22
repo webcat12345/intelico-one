@@ -1,0 +1,85 @@
+.cleaner-list {
+    list-style: none;
+    padding: 15px 0;
+    margin: 0;
+}
+
+.cleaner-list li {
+    display: block;
+    padding: 0 30px;
+    position: relative;
+    cursor: pointer;
+    border-bottom: #E4E8F0 1px solid;
+}
+
+.cleaner-list .vehicle-icon {
+    position: absolute;
+    left: 30px;
+    top: 26px;
+}
+
+.cleaner-list h5 {
+    color: #1F2226;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 15px 0 5px 44px;
+}
+
+.cleaner-list p {
+    color: #ACB3BF;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    padding: 0 0 15px 44px;
+}
+
+.cleaner-list li:hover,
+.cleaner-list li.active {
+	background-color: #1B84FA;
+}
+
+.cleaner-list li:hover h5,
+.cleaner-list li.active h5 {
+    color: #fff;
+}
+
+.cleaner-list li:hover p,
+.cleaner-list li.active p {
+    color: rgba(255,255,255,0.4);
+}
+
+.cleaner-list li:hover .vehicle-icon,
+.cleaner-list li.active .vehicle-icon {
+    background-image: url(../images/vehicle-icon-active.svg);
+}
+
+.cleaner-detail-wrapper {
+    flex: 1;
+    overflow: auto;
+}
+
+.cleaner-detail-wrapper .img {
+    height: calc(100% - 170px);
+}
+
+.cleaner-detail-wrapper .img img {
+    height: 110%;
+}
+
+.cleaner-detail-wrapper .form-group {
+    margin: 0;
+    padding: 30px 30px 0;
+}
+
+.cleaner-detail-wrapper .form-group .form-control {
+    margin: 0 0 20px;
+}
+
+.cleaner-detail-wrapper .form-group .btn {
+    height: 46px;
+}
+
+.cleaner-detail-wrapper .flex-form-row .btn {
+    margin: 0;
+}

@@ -1,0 +1,40 @@
+<h3 class="color-white">{{ person.firstName + ' ' + person.lastName }}</h3>
+<form [formGroup]="selectProductName" style="height: auto">
+  <div class="right-sidebar form-group has-btn" style="margin-bottom: 0;">
+    <label class="control-label">Product Name</label>
+    <select class="form-control" formControlName="product_name"
+            style="max-width: 80%;">
+      <option disabled selected value="default">Select Product</option>
+      <option *ngFor="let item of productNames" [hidden]="item.value === ''"
+              [value]="item.value">{{ item.value }}</option>
+    </select>
+    <button (click)="addProductName()" [disabled]="selectedProductName === ''" class="btn btn-primary pull-left"
+            type="button">Add
+    </button>
+  </div>
+</form>
+<button (click)="nextStepPerson()"
+        *ngIf="!widgetAdminPeopleStateService.isUpdateProducts"
+        class="btn btn-primary btn-block"
+        type="button">{{ 'Continue' }}</button>
+<button (click)="updateProducts()"
+        *ngIf="widgetAdminPeopleStateService.isUpdateProducts"
+        class="btn btn-primary btn-block"
+        type="button">{{ 'Update Products' }}</button>
+<hr>
+
+<one-admin-frozen-header-table (remove)="onRemove($event)" [data]="data"
+                               [info]="info"
+                               [isPeopleTable]="true"></one-admin-frozen-header-table>
+<!--Modal Confirm-->
+<div *ngIf="showConfirmModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p>Are you sure you want to delete this Product ?</p>
+      <button (click)="onDelete(true)" class="btn btn-primary" type="button">Yes</button>
+      <button (click)="onDelete(false)" class="btn btn-secondry" type="button">No</button>
+    </div>
+  </div>
+</div>
+

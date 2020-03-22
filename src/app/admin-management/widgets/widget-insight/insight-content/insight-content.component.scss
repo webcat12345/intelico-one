@@ -1,0 +1,153 @@
+.alert-stats-wrap {
+  background-color: #0077BE;
+  border-radius: 6px;
+  padding: 12px 15px 15px;
+  position: relative;
+  margin: 15px 0 0;
+
+  h4 {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 300;
+    padding: 0 0 13px;
+  }
+
+  h2 {
+    font-size: 32px;
+    color: #fff;
+    font-family: 'PT Mono', monospace;
+    padding: 0 0 5px;
+  }
+
+  .progress {
+    height: 10px;
+    margin: 0;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: none;
+
+    .progress-bar {
+      text-shadow: none;
+    }
+  }
+}
+
+.time-analysis {
+  background-color: #666F80;
+  border-radius: 6px;
+  padding: 20.5px 15px;
+  margin: 0 0 10px;
+
+  h6 {
+    font-size: 14px;
+    color: #fff;
+    padding: 0 0 15px;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: 32px;
+    color: #fff;
+    font-family: 'PT Mono', monospace;
+    padding: 0;
+  }
+}
+
+.custom-progress {
+  height: 14px;
+  border-radius: 100px;
+  box-shadow: none;
+  margin: 10px 0;
+  position: relative;
+  border: rgba(0, 0, 0, 0.1) 1px solid;
+  background: #fff;
+}
+
+.graph {
+  margin: 9px 0 0;
+  height: 300px;
+}
+
+.timeline-table {
+  position: relative;
+  /*height: 315px;*/
+
+  .from-to {
+    text-align: center;
+    margin-top: 20px;
+
+    .from {
+      font-weight: 600;
+
+      span {
+        font-weight: 300;
+        color: #6F6F74
+      }
+    }
+
+    .to {
+      font-weight: 600;
+
+      span {
+        font-weight: 300;
+        color: #6F6F74
+      }
+    }
+
+    .middle {
+      margin: 5px;
+    }
+  }
+
+  .premium-feature {
+    top: 10px;
+    right: 5px;
+    left: 5px;
+    bottom: 8px;
+    border-radius: 8px;
+  }
+}
+
+.insight-dashboard {
+  /*background: #fff;
+  padding: 10px 10px 0;
+  border-radius: 6px;
+  border: rgba(0, 0, 0, 0.1) 1px solid;*/
+}
+
+.dashboard-activity-type {
+  background: #fff;
+  border: rgba(0, 0, 0, 0.1) 1px solid;
+  border-radius: 6px;
+  padding: 0 20px;
+  margin: 0 0 10px;
+  color: #2B3036;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 165px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  font-family: 'SF-Pro-Medium';
+}
+
+.dashboard-activity-type span {
+  display: block;
+  font-size: 12px;
+  font-family: 'SF-Pro-Light';
+  color: #7A7A7A;
+}
+
+.dashboard-activity-type:hover {
+  background-color: #0077BE;
+  border-color: #0077BE;
+  color: #fff;
+}
+
+.dashboard-activity-type:hover span {
+  color: #fff;
+}

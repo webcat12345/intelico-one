@@ -1,0 +1,35 @@
+<a (click)="close.emit(false)" class="clear-icon">Close</a>
+<h5 class="color-white">{{isNew ? 'Add' : 'Edit'}} Site</h5>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="siteForm">
+  <div class="tab-content">
+    <div class="tab-pane active" id="site-detail-tab" role="tabpanel">
+      <div class="right-sidebar form-group">
+        <label class="control-label">Name</label>
+        <input class="form-control" formControlName="name" placeholder="Name" type="text">
+      </div>
+
+      <div class="right-sidebar form-group">
+        <label class="control-label">Select Site Type</label>
+        <select class="form-control" formControlName="typeId">
+          <option disabled hidden selected value="0">Select Site Type</option>
+          <option *ngFor="let type of types" [value]="type.id">{{type.value}}</option>
+        </select>
+        <one-admin-loader *ngIf="isTypesLoading" [whiteOverlay]="true"></one-admin-loader>
+      </div>
+
+      <div class="right-sidebar form-group">
+        <label class="control-label">Description</label>
+        <input class="form-control" formControlName="description" placeholder="Description" type="text">
+      </div>
+
+      <one-admin-address-auto-complete-input (addressChange)="onAddressChanged($event)" *ngIf="animationDone"
+                                             [address]="site?.Address"
+                                             [postalCode]="site?.metaData?.address?.postCode"></one-admin-address-auto-complete-input>
+    </div>
+    <!-- end individual tab -->
+  </div>
+  <button [disabled]="siteForm.invalid" class="btn btn-primary btn-block">Save</button>
+</form>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

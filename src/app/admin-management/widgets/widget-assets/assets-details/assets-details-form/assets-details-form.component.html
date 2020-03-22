@@ -1,0 +1,42 @@
+<div class="right-sidebar form-group">
+  <label class="control-label">Name</label>
+  <input [(ngModel)]="asset.name" class="form-control" name="name" placeholder="Asset Name" type="text">
+</div>
+<div *ngIf="!isNew" class="right-sidebar form-group">
+  <label class="control-label">Asset ID</label>
+  <input [(ngModel)]="asset.id" [readonly]="true" class="form-control" name="assetId" placeholder="Asset Id"
+         type="text">
+</div>
+<div [formGroup]="selectTypeName" class="right-sidebar form-group">
+  <label class="control-label">Type</label>
+  <select class="form-control" formControlName="type_name">
+    <option disabled selected value="default">Select Type</option>
+    <option *ngFor="let item of typesAssets" [value]="item.value">{{ item.value }}</option>
+  </select>
+</div>
+<div [formGroup]="selectGroupName" class="right-sidebar form-group">
+  <label class="control-label">Group</label>
+  <select class="form-control" formControlName="group_name">
+    <option disabled selected value="default">Select Group</option>
+    <option *ngFor="let item of groupNames" [value]="item.value">{{ item.value }}</option>
+  </select>
+</div>
+<div *ngIf="!asset?.imageUrl" class="right-sidebar form-group upload-group">
+  <label class="control-label">Image</label>
+  <!-- <button type="button" class="btn btn-primary">Browse</button>-->
+  <input class="form-control" placeholder="Upload file" readonly type="text">
+  <div class="upload-btn-wrap">
+    <button class="btn btn-primary btn-sm" type="button">Browse</button>
+    <input #inputFile (change)="fileChange($event)" placeholder="Upload file" type="file">
+  </div>
+
+  <!-- <input type="type" class="form-control" placeholder="image" name="image" [(ngModel)]="asset.imageUrl">-->
+</div>
+<div *ngIf="asset?.imageUrl" class="img">
+  <img [src]="asset?.imageUrl">
+  <button (click)="removeImage()" class="close--btn">Remove Image</button>
+</div>
+<button (click)="nextStepAssets()" [disabled]="asset.name === '' || !this.asset.groupId || !this.asset.typeId" class="btn btn-primary btn-block"
+        type="button">
+  {{ 'Continue' }}
+</button>

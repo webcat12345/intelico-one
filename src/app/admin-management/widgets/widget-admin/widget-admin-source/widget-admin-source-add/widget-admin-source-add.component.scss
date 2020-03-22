@@ -1,0 +1,22 @@
+.form-group input {
+ // color: #1F2226;
+}
+
+.copy-icon {
+  position: absolute;
+  right: 16px;
+  bottom: 9px;
+}
+
+.copy-content {
+  cursor: copy;
+}
+
+.sidebar-scroll {
+  height: calc(100% - 80px);
+  margin-top: 20px;
+}
+
+.sidebar-scroll form {
+  height: auto;
+}

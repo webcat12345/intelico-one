@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#AAABB3" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#AAABB3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Identifiers" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="Add-Identifier-Type" transform="translate(-914.000000, -474.000000)" fill-rule="nonzero" fill="url(#linearGradient-1)">
+            <g id="pop-up" transform="translate(100.000000, 61.000000)">
+                <g id="Membership-No" transform="translate(774.000000, 413.000000)">
+                    <path d="M56,0 C64.8224,0 72,7.1776 72,16 C72,24.8224 64.8224,32 56,32 C47.1776,32 40,24.8224 40,16 C40,7.1776 47.1776,0 56,0 Z M63.6092266,14.5128901 L64,11.1913161 L61.1777476,11.1913161 L61.568521,8 L58.0949796,8 L57.7042062,11.1913161 L55.4246947,11.1913161 L55.8154681,8 L52.3419267,8 L51.9511533,11.1913161 L49.1289009,11.1913161 L48.7381275,14.5128901 L51.5386703,14.5128901 L51.2347354,16.9009498 L48.412483,16.9009498 L48,20.2225237 L50.8222524,20.2225237 L50.4531886,23.2184532 L53.92673,23.2184532 L54.2957938,20.2225237 L56.5753053,20.2225237 L56.2062415,23.2184532 L59.6797829,23.2184532 L60.0488467,20.2225237 L62.8710991,20.2225237 L63.2835821,16.9009498 L60.4613297,16.9009498 L60.7652646,14.5128901 L63.6092266,14.5128901 Z M56.9877883,16.9009498 L54.7082768,16.9009498 L55.0122117,14.5128901 L57.2917232,14.5128901 L56.9877883,16.9009498 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

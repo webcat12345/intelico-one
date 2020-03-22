@@ -1,0 +1,80 @@
+<div *ngIf="!isShowDashboard">
+  <div *ngIf="!isShowDashboard" class="row narrow--row">
+    <div *ngFor="let widget of alertByPriorityWidget" class="col-sm-4">
+      <div class="alert-stats-wrap">
+        <h4>{{ widget.title }}</h4>
+        <h2>
+          <ng2-odometer [number]="totalAlertsByPriority[widget.prop]"></ng2-odometer>
+        </h2>
+        <div class="progress">
+          <div [attr.aria-valuenow]="totalAlertsByPriority | percentByPriority: widget.priority" [ngClass]="widget.class" [style.width.%]="totalAlertsByPriority | percentByPriority: widget.priority" aria-valuemax="100"
+               aria-valuemin="0"
+               class="progress-bar"
+               role="progressbar"></div>
+        </div>
+        <one-admin-loader *ngIf="totalAlertsByPriorityLoading" [whiteOverlay]="true"></one-admin-loader>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!isChart" class="progress custom-progress">
+    <div *ngFor="let widget of alertByPriorityWidget"
+         [ngClass]="widget.class"
+         [style.width.%]="totalAlertsByPriority | percentByPriority: widget.priority"
+         [tooltip]="widget.title"
+         class="progress-bar" container="body" placement="bottom">
+      <span class="sr-only">{{ totalAlertsByPriority | percentByPriority: widget.priority }}% Complete ({{widget.prop}}
+        )</span>
+    </div>
+    <one-admin-loader *ngIf="totalAlertsByPriorityLoading" [whiteOverlay]="true"></one-admin-loader>
+  </div>
+  <one-admin-loader *ngIf="alertsReportLoading" [whiteOverlay]="true"></one-admin-loader>
+  <div class="row narrow--row">
+    <div class="col-sm-9 timeline-table">
+      <div *ngIf="isChart" [chart]="alertsReport" class="graph"></div>
+      <div *ngIf="isChart" class="from-to">
+        <span class="from">From <span>{{ startTime }} </span></span>
+        <span class="middle">{{ ' - ' }}</span>
+        <span class="to">To <span>{{ endTime }}</span></span>
+      </div>
+      <div *ngIf="!isChart" class="insight-dashboard">
+        <div class="row narrow--row">
+          <div class="col-sm-4">
+            <div (click)="platformStatusDashboard()" class="dashboard-activity-type">Platform Status</div>
+          </div>
+          <div class="col-sm-4">
+            <div class="dashboard-activity-type">Events Count</div>
+          </div>
+          <div class="col-sm-4">
+            <div class="dashboard-activity-type">Alerts Count</div>
+          </div>
+          <div class="col-sm-4">
+            <div class="dashboard-activity-type">Critical Alerts Outstanding</div>
+          </div>
+          <div class="col-sm-4">
+            <div class="dashboard-activity-type">Custom<span>e.g: Intercom calls</span></div>
+          </div>
+          <div class="col-sm-4">
+            <div class="dashboard-activity-type">Custom</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="time-analysis">
+        <h6>Busiest Time</h6>
+        <h2>09:34am</h2>
+      </div>
+      <div class="time-analysis">
+        <h6>Quietest Time</h6>
+        <h2>01:22am</h2>
+      </div>
+      <div class="time-analysis mr-0">
+        <h6>Average Length Stay</h6>
+        <h2>2h 23m</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<one-admin-insight-dashboard (closeDashboard)="isShowDashboard = false"
+                             *ngIf="isShowDashboard">
+</one-admin-insight-dashboard>

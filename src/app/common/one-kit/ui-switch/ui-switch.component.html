@@ -1,0 +1,7 @@
+<div [class.on-off-switch]="isOnOffSwitch" [class.pull-right]="isRightFloating" class="switch"><span
+  class="pull-left">{{ label.positive }}</span>
+  <input (ngModelChange)="onChange($event)" [(ngModel)]="value" [id]="id" [ngModelOptions]="{standalone: true}"
+         type="checkbox"/>
+  <label [for]="id" class="pull-left"></label>
+  <span class="pull-left">{{ label.negative }}</span>
+</div>

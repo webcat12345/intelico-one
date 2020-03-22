@@ -1,0 +1,23 @@
+<div [class.results]="!noResult" class="locate-search-wrapper">
+  <form (ngSubmit)="search()" [formGroup]="searchForm">
+    <div class="search-bar">
+      <div>
+        <ng-select [clearable]="false"
+                   [items]="filteredIdentifiers | orderByField : 'value'"
+                   bindLabel="value"
+                   bindValue="id"
+                   formControlName="identifierType"
+                   placeholder="Select Identifier">
+        </ng-select>
+      </div>
+      <div class="right-sidebar locate-search-input">
+        <!-- <input auto-complete formControlName="searchKey" class="form-control" placeholder="Search" [source]="observableSource.bind(this)"/>-->
+        <input class="form-control" formControlName="searchKey" placeholder="Search"/>
+        <button (click)="clearSearch()" *ngIf="searchForm.get('searchKey').value" class="close--btn" type="button">
+          close
+        </button>
+      </div>
+      <button [disabled]="searchForm.invalid" class="btn search-btn">Search</button>
+    </div>
+  </form>
+</div>

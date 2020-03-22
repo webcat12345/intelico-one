@@ -1,0 +1,57 @@
+<div class="flex-window">
+  <div class="page-header filters clearfix filters-active" style="padding-right: 100px;">
+    <h4 class="pull-left">Outputs<span class="badge">{{ webhooksList.totalCount }}</span></h4>
+    <div class="pull-right">
+      <div class="form-group has-icon pull-left">
+        <input [(ngModel)]="searchKey" class="form-control md-width" name="searchKey" placeholder="Search" type="text">
+      </div>
+      <button (click)="openAddModal()" *ngIf="!showAddModal" class="action-btn addnew" container="body" placement="bottom"
+              tooltip="Add New" type="button">Add New
+      </button>
+    </div>
+  </div>  <!-- end filters -->
+  <one-admin-frozen-header-table
+    (edit)="onEditWebhooks($event)"
+    (remove)="onRemoveWebhooks($event)"
+    [data]="webhooksList.data | filterBy : ['name', 'url'] : searchKey"
+    [info]="info"
+    [noAction]="true">
+  </one-admin-frozen-header-table>
+</div>
+
+<div class="custom-modal">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut class="add--sidebar">
+    <one-admin-widget-admin-webhooks-add (close)="onCloseAddSection($event)" *ngIf="data === 'adminOutputs'"
+                                         [isNew]="isAddModal"
+                                         [selectedWebhooks]="selectedWebhooks"></one-admin-widget-admin-webhooks-add>
+    <ng-container *ngIf="data === 'intelicoOutputs'" [ngSwitch]="currentSteps">
+      <div *ngIf="currentSteps === currentStep.Add" class="nice-scroll add-people-sidebar">
+        <one-admin-widget-admin-webhooks-add-super-admin (close)="onCloseAddSection($event)"
+                                                         (nextSteps)="currentSteps = currentStep.Preview"
+                                                         *ngSwitchCase="currentStep.Add"
+                                                         [isNew]="isAddModal"
+                                                         [selectedWebhooks]="selectedWebhooks">
+        </one-admin-widget-admin-webhooks-add-super-admin>
+      </div>
+      <one-admin-widget-admin-webhooks-preview-super-admin (close)="onCloseAddSection($event)"
+                                                           *ngSwitchCase="currentStep.Preview"
+                                                           [isNew]="isAddModal"
+                                                           [selectedWebhooks]="selectedWebhooks">
+      </one-admin-widget-admin-webhooks-preview-super-admin>
+    </ng-container>
+  </div>
+</div>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>
+
+<div *ngIf="showConfirmModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p>Are you sure you want to delete this output?</p>
+      <button (click)="onDelete(true)" class="btn btn-primary" type="button">Yes</button>
+      <button (click)="onDelete(false)" class="btn btn-secondry" type="button">No</button>
+    </div>
+  </div>
+</div>

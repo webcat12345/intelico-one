@@ -1,0 +1,83 @@
+<one-admin-sidebar-window [headerTemplateRef]="header" [hideSidebarButton]="false" [normalTemplateRef]="main"
+                          [sidebarTemplateRef]="sidebar">
+  <ng-template #header>
+    <h1 class="pull-left locate-header">Locate {{locate?.identifier ? ' - ' + locate?.identifier : ''}} <span
+      *ngIf="locateService.totalCount" class="badge">{{ locateService.totalCount }}</span></h1>
+    <button (click)="clear()" *ngIf="filterString || showSidebar" class="btn btn-primary pull-right" type="button">Clear
+      search
+    </button>
+  </ng-template>
+
+  <ng-template #main>
+    <div [class.collapsed]="showSidebar" class="flex-window-wrapper">
+      <div id="map-container">
+        <one-admin-locate-search-box (clear)="clear()"
+                                     (hideSidebar)="showSidebar = false"
+                                     (isSearchFInvalid)="isSearchFInvalid($event)"
+                                     [filterString]="filterString">
+        </one-admin-locate-search-box>
+        <!--<one-admin-locate-map [position]="selectedPosition" [site]="selectedListItem?.site" [address]="selectedEvent?.locationDetails | locationDetailAddress"></one-admin-locate-map>-->
+        <one-admin-locate-map [eventListItem]="selectedListItem" [position]="selectedPosition"></one-admin-locate-map>
+      </div>
+    </div>
+    <div class="locate-side-details">
+      <div class="nice-scroll">
+        <div class="custom-table">
+          <div *ngFor="let item of locate?.history" [class.expanded]="item?.expanded" class="table-row-wrapper">
+            <div (click)="togglePanel(item)" class="table-row">
+              <div class="cell-wrap full">
+                <fa-icon *ngIf="item.data && ['Exit', 'Enter'].indexOf(item.data.triggerCondition) !== -1"
+                         icon="{{item.data.triggerCondition === 'Exit' ? 'arrow-left' : 'arrow-right'}}"></fa-icon>
+                {{ item.data?.location }}
+                <span>{{ item?.data?.triggerCondition }} - {{ item.data?.source }}</span></div>
+              <!--<div class="cell-wrap date" style="width: 75px">{{ item.data?.receivedOn | date : 'HH:mm:ss' }}<span>{{ item.data?.receivedOn | date : 'dd MMM yy' }}</span></div>-->
+              <div class="cell-wrap date" style="width: 75px">{{ item.data?.createdAt | date : 'HH:mm:ss' }}
+                <span>{{ item.data?.createdAt | date : 'dd MMM yy' }}</span></div>
+            </div>
+            <div *ngIf="item?.expanded" @shrinkInOut class="details-wrapper locate-details-wrapper">
+              <div *ngIf="currentView === View.ImageView" class="img">
+                <button (click)="sidebarWindowRef.openImageModal(item.data.pictureUrl)" *ngIf="item?.pictureUrl"
+                        [disabled]="!item.data?.pictureUrl"
+                        [ngClass]="{'disabled-expand-btn': !item.data?.pictureUrl}" class="expand-btn"
+                        type="button">Expand
+                </button>
+                <img [src]="item.data?.pictureUrl ? item.data?.pictureUrl : 'assets/images/img-placeholder.jpg'"
+                     alt="Numberplate">
+              </div>
+              <one-admin-event-detailed-info-panel (expand)="onExpand(item)" *ngIf="isEventDetailed()"
+                                                   [config]="eventDetailedConfig()"></one-admin-event-detailed-info-panel>
+              <div class="sm-map-actions">
+                <div class="flex-btn-wrap">
+                  <button (click)="currentView = View.ImageView" [class.active]="currentView === View.ImageView" class="action-btn image-btn" container="body" placement="left"
+                          tooltip="Image" type="button">Image
+                  </button>
+                  <button (click)="currentView = View.DetailView" [class.active]="currentView === View.DetailView" class="action-btn info-btn" container="body" placement="left"
+                          tooltip="Details" type="button">
+                    Details
+                  </button>
+                  <button (click)="currentView = View.ActivityView" [class.active]="currentView === View.ActivityView" class="action-btn history-btn" container="body"
+                          placement="left" tooltip="Activity"
+                          type="button">Activity
+                  </button>
+                  <button (click)="currentView = View.ActionsView" [class.active]="currentView === View.ActionsView" class="action-btn actions-btn" container="body"
+                          placement="left" tooltip="Actions"
+                          type="button">Actions
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<pagination [boundaryLinks]="true" [totalItems]="locateService.totalCount" [maxSize]="3" [(ngModel)]="locateService.currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="20"></pagination>-->
+    </div>
+  </ng-template>
+  <ng-template #sidebar>
+    <one-admin-locate-filter (changeFilter)="changeFilter($event)"
+                             (changeFilterBtn)="changeFilterBtn($event)"
+                             [defaultOptionDate]="getDefaultOptionDate">
+    </one-admin-locate-filter>
+  </ng-template>
+</one-admin-sidebar-window>
+
+<one-admin-loader *ngIf="locateService.isLoading" [whiteOverlay]="true"></one-admin-loader>

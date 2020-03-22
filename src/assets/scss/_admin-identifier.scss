@@ -1,0 +1,29 @@
+#identifier-content-tabs {
+  ul.nav.nav-tabs {
+    padding: 12px 0 25px;
+    border: 0 none;
+    & > li {
+      margin: 0;
+      & > a {
+        width:auto !important;
+        border-radius:6px !important;
+        font-size:12px;
+        font-weight:500;
+        text-transform:uppercase;
+        color:#AAABB3;
+        border:0 none !important;
+        height:36px;
+        line-height:36px;
+        padding: 0 19px;
+        text-align:center;
+        background-color:rgba(255,255,255,0.08);
+        margin:0;
+        letter-spacing:1px;
+      }
+      &.active a {
+        background-color: #1B84FA !important;
+        color: #fff !important;
+      }
+    }
+  }
+}

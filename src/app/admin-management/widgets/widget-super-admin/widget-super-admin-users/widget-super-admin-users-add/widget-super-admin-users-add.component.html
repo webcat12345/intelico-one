@@ -1,0 +1,27 @@
+<a (click)="close.emit(false)" class="clear-icon">Close</a>
+<h5 class="mb-30">{{isNew ? 'Add' : 'Edit'}} User</h5>
+<form #superUseForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input [(ngModel)]="user.firstName" class="form-control" name="superUserFirstName" placeholder="First Name"
+           required type="text">
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="user.lastName" class="form-control" name="superUserLastName" placeholder="Last Name" required
+           type="text">
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="user.email" class="form-control" email name="superUserEmail" placeholder="Email" required
+           type="email">
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="user.mobile" class="form-control" name="superUserMobile" placeholder="Mobile Number"
+           type="text">
+  </div>
+
+  <button [disabled]="!superUseForm.form.valid" class="btn btn-primary btn-block">{{isNew ? 'Add' : 'Update'}}</button>
+</form>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

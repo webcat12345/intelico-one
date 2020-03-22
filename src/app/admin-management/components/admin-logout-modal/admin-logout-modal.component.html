@@ -1,0 +1,9 @@
+<div class="info-window-wrap">
+  <div class="overlay-color"></div>
+  <div class="info-window logout-window text-center">
+    <p>Are you sure you want to logout?</p>
+    <!--<button type="button" class="btn btn-secondry btn-block" (click)="doSelectOrg.emit()" oneAdminClickSound>Switch Company</button>-->
+    <button (click)="doLogout.emit()" class="btn btn-amber" oneAdminClickSound type="button">Yes</button>
+    <button (click)="cancelLogout.emit()" class="btn btn-primary" oneAdminClickSound type="button">No</button>
+  </div> <!-- end module window -->
+</div>

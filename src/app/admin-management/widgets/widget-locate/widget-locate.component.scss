@@ -1,0 +1,38 @@
+#map-container {
+  transition: ease all 300ms;
+}
+
+.locate-side-details {
+  .custom-table {
+    height: 100%;
+  }
+}
+
+.open {
+  right: 0;
+  top: 0;
+}
+
+.collapsed {
+  margin-right: 400px;
+}
+
+.cs-2-row {
+  display: flex;
+
+  select {
+    margin-left: 10px;
+  }
+}
+
+.details-wrapper {
+  display: flex;
+}
+
+.btn {
+  height: 33px;
+}
+
+/*.flex-window-wrapper {
+  z-index: 999;
+}*/

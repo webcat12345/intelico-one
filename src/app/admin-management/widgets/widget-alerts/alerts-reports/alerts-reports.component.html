@@ -1,0 +1,69 @@
+<div class="row narrow--row">
+  <div [formGroup]="selectTypeName" class="right-sidebar col-xs-2 graph-info custom-padding-left">
+    <!--  <label class="control-label">Report Type</label>-->
+    <select class="form-control" formControlName="type_name">
+      <option disabled selected value="default">Select Type</option>
+      <option *ngFor="let item of typesReport" [value]="item.id">{{ item.value }}</option>
+    </select>
+  </div>
+  <div class="col-xs-2 graph-info">
+    <one-admin-loader *ngIf="alertsReportOpenResolvedLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div class="graph-info-new">
+      <div class="graph-info-data">
+        <span>NEW</span>
+        <span class="pull-right">{{ notifyCount?.new }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-2 graph-info">
+    <one-admin-loader *ngIf="alertsReportOpenResolvedLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div class="graph-info-resolved">
+      <div class="graph-info-data">
+        <span>RESOLVED</span>
+        <span class="pull-right">{{ notifyCount?.resolved }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-2 graph-info">
+    <one-admin-loader *ngIf="alertsReportLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div class="graph-info-normal">
+      <div class="graph-info-data">
+        <span>NORMAL</span>
+        <span class="pull-right">{{ notifyCount?.normal }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-2 graph-info">
+    <one-admin-loader *ngIf="alertsReportLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div class="graph-info-high">
+      <div class="graph-info-data">
+        <span>HIGH</span>
+        <span class="pull-right">{{ notifyCount?.high }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-2 graph-info custom-padding-right">
+    <one-admin-loader *ngIf="alertsReportLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div class="graph-info-critical">
+      <div class="graph-info-data">
+        <span>CRITICAL</span>
+        <span class="pull-right">{{ notifyCount?.critical }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 border"></div>
+  <one-admin-alerts-report-graphs (clearNotifyCount)="notifyCount = {high: 0, critical: 0, new: 0, normal: 0, resolved: 0}"
+                                  *ngIf="currentView === View.GraphView"
+                                  [customDate]="customDate"
+                                  [date]="date"
+                                  [isCustomDate]="isCustomDate">
+  </one-admin-alerts-report-graphs>
+  <one-admin-alerts-report-type *ngIf="currentView === View.TypeView"
+                                [customDate]="customDate"
+                                [date]="date"
+                                [isCustomDate]="isCustomDate"></one-admin-alerts-report-type>
+  <one-admin-alerts-report-resolved *ngIf="currentView === View.ResolvedView"
+                                    [customDate]="customDate"
+                                    [date]="date"
+                                    [isCustomDate]="isCustomDate"></one-admin-alerts-report-resolved>
+</div>

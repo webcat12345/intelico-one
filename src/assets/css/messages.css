@@ -1,0 +1,162 @@
+.left-col .nav-tabs {
+    padding: 30px;
+}
+
+.left-col .nav-tabs .btn {
+    width: 120px;
+}
+
+.msg-list > li span {
+    position: absolute;
+    right: 30px;
+    top: 16px;
+    font-size: 12px;
+	color: #ACB3BF;
+    line-height: 15px;
+}
+
+.msg-list > li h5 {
+	color: #666F80;
+    max-width: 70%;
+    position: relative;
+}
+
+.msg-list > li.unread h5 {
+    padding-left: 17px;
+}
+
+.msg-list > li.unread h5:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #1b84fa;
+}
+
+.msg-list > li h4 {
+    font-size: 14px;
+    line-height: 18px;
+	color: #1F2226;
+    font-weight: 500;
+    padding: 10px 0 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.msg-detail {
+	position: relative;
+}
+
+.msg-detail .btns-actions {
+    padding: 0 0 30px;
+}
+
+.msg-detail h5 {
+	color: #666F80;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: justify;
+    padding: 0 0 10px;
+}
+
+.msg-detail h4 {
+    color: #1F2226;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    padding: 0 0 30px;
+}
+
+.msg-detail .time {
+	position: absolute;
+	right: 0;
+	top: 71px;
+    color: #ACB3BF;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+}
+
+.msg-detail p {
+	color: #1F2226;
+    font-weight: 500;
+}
+
+.attachments-row {
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+.attachments-row > p {
+	padding: 15px 0 20px 10px;
+	font-size: 12px;
+	font-weight: 500;
+	color: #AAABB3;
+	min-height: 1px;
+}
+
+.attachments-row .col-sm-6{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.attachment-box {
+	background: #EBEFF7 url(../images/download-icon.svg) no-repeat scroll 90% center;
+	border-radius: 6px;
+	height: 68px;
+	padding: 0 0 0 20px;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	max-width: 250px;
+}
+
+.attachment-box p {
+	padding: 0;
+	min-height: 1px;
+    color: #1F2226;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.attachment-box span {
+	display: block;
+	font-size: 12px;
+	color: #ACB3BF;
+}
+
+.attachment-box:hover {
+	background: #1B84FA url(../images/download-icon-hover.svg) no-repeat scroll 90% center;
+}
+
+.attached:hover p {
+	color: #393B47;
+}
+
+.attached:hover span{
+	color:#AAABB3;
+}
+
+.attachment-box:hover p, .choose-file p {
+	color:#fff;
+}
+
+.attachment-box:hover span{
+	color:rgba(255,255,255,0.6);
+}
+
+.msg-detail-wrapper {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    overflow: auto;
+    flex: 1;
+}

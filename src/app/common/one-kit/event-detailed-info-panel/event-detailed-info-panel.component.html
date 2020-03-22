@@ -1,0 +1,111 @@
+<div *ngIf="config?.isDetail" class="event-info-wrapper">
+  <button (click)="onExpand($event)" *ngIf="!config?.hideExpand" class="expand-btn" type="button">Expand</button>
+  <div class="event-info nice-scroll">
+    <h6 class="pb-10">DETAILS</h6>
+    <ul>
+      <li *ngIf="config?.data?.identifier">
+        Identifier: {{ config?.data?.identifier ? config?.data?.identifier : '' }}</li>
+      <li *ngIf="config?.data?.identifierType">Identifier
+        Type: {{ config?.data?.identifierType ? config?.data?.identifierType : '' }}</li>
+      <li *ngIf="config?.data?.source">Source: {{ config?.data?.source ? config?.data?.source : '' }}</li>
+      <li *ngIf="config?.data?.actionReason">Reason: {{ config?.data?.actionReason }}</li>
+      <li *ngIf="config?.isAlerts">Alert Type: {{ config?.data?.alertTypes === 'null' ? 'Identifier' : 'Metadata' }}</li>
+      <li *ngIf="config?.data?.locationDetails.site">
+        Site: {{ config?.data?.locationDetails.site ? config?.data?.locationDetails.site : '' }}</li>
+      <li *ngIf="config?.data?.locationDetails.area">
+        Area: {{ config?.data?.locationDetails.area ? config?.data?.locationDetails.area : '' }}</li>
+      <li *ngIf="config?.data?.locationDetails.zone">
+        Zone: {{ config?.data?.locationDetails.zone ? config?.data?.locationDetails.zone : '' }}</li>
+      <li *ngIf="config?.data?.name">Condition: {{ config?.data?.name ? config?.data?.name : '' }}</li>
+    </ul>
+    <h6 *ngIf="metaDataKeys?.length > 0" class="pt-10">META DATA</h6>
+    <ul *ngFor="let metaKey of metaDataKeys; let i = index; let even = even; let odd = odd">
+      <li
+        [ngClass]="{ odd: odd, even: even } "> {{ metaKey + ': ' | titlecase }} {{ metaDataValues[i] | titlecase }}</li>
+    </ul>
+    <!-- <h6 class="pb-10">SKI DATA</h6>-->
+    <ul>
+      <li *ngIf="config?.data?.ticketNumber">Ticket Number: {{ config?.data?.ticketNumber || ''}}</li>
+      <li *ngIf="config?.data?.transaction">Transaction: {{ config?.data?.transaction || ''}}</li>
+    </ul>
+    <h6 *ngIf="config?.data?.resolvedComment" class="pt-10">COMMENT</h6>
+    <ul>
+      <li *ngIf="config?.data?.resolvedComment">{{ config?.data?.resolvedComment }}</li>
+    </ul>
+  </div>
+  <one-admin-loader *ngIf="config?.isLoading" [size]="'sm'"></one-admin-loader>
+</div>
+
+<div *ngIf="config?.isDetailActions" class="event-info-wrapper">
+  <button (click)="onExpand($event)" class="expand-btn" type="button">Expand</button>
+  <div class="event-info nice-scroll">
+    <h6 class="pb-10">Action</h6>
+    <ul>
+      <li *ngIf="config?.data?.nameAction">Name: {{ config?.data?.nameAction ? config?.data?.nameAction : '' }}</li>
+      <li *ngIf="config?.data?.triggerCondition">
+        Trigger: {{ config?.data?.triggerCondition ? config?.data?.triggerCondition : '' }}</li>
+      <li *ngIf="!config?.isLocate">Action Type: {{ config?.data?.alertTypes === 'null' ? 'Identifier' : 'Metadata' }}</li>
+      <li *ngIf="config?.isLocate">Action Type: {{ 'Identifier' }}</li>
+      <li *ngIf="config?.data?.action">Action: {{ config?.data?.action ? config?.data?.action : '' }}</li>
+      <li *ngIf="config?.data?.alertVia">Alert Via:: {{ config?.data?.alertVia }}</li>
+      <li *ngIf="config?.data?.createdAt">
+        Created: {{ config?.data?.createdAt ? (config?.data?.createdAt | date : 'dd MMM yy / HH:mm:ss') : '' }}</li>
+    </ul>
+  </div>
+  <one-admin-loader *ngIf="config?.isLoading" [size]="'sm'"></one-admin-loader>
+</div>
+
+<div *ngIf="config?.isDetailActivity" class="event-info-wrapper">
+  <button (click)="onExpand($event)" class="expand-btn" type="button">Expand</button>
+  <div class="event-info nice-scroll">
+    <h6 class="pb-10">Activity</h6>
+    <ul>
+      <li *ngIf="config?.data?.createdAt">
+        Created: {{ config?.data?.createdAt ? (config?.data?.createdAt | date : 'dd MMM yy / HH:mm:ss') : '' }}</li>
+      <li *ngIf="config?.data?.identifier">
+        Identifier: {{ config?.data?.identifier ? config?.data?.identifier : '' }}</li>
+      <li *ngIf="config?.data?.identifierTypeValue">
+        Type: {{ config?.data?.identifierTypeValue ? config?.data?.identifierTypeValue : '' }}</li>
+      <li *ngIf="config?.data?.source">Source: {{ config?.data?.source ? config?.data?.source : '' }}</li>
+      <li *ngIf="config?.data?.name">Condition: {{ config?.data?.name ? config?.data?.name : '' }}</li>
+    </ul>
+  </div>
+  <one-admin-loader *ngIf="config?.isLoading" [size]="'sm'"></one-admin-loader>
+</div>
+
+<div *ngIf="config?.isDetailPeople" class="event-info-wrapper">
+  <button (click)="onExpand($event)" class="expand-btn" type="button">Expand</button>
+  <div class="event-info nice-scroll">
+    <h6 class="pb-10">Person</h6>
+    <ul>
+      <li *ngIf="config?.data?.personDetails.firstName">First
+        Name: {{ config?.data?.personDetails.firstName ? config?.data?.personDetails.firstName : '' }}</li>
+      <li *ngIf="config?.data?.personDetails.lastName">Last
+        Name: {{ config?.data?.personDetails.lastName ? config?.data?.personDetails.lastName : '' }}</li>
+      <li *ngIf="config?.data?.personDetails.address.line1">
+        Address: {{ config?.data?.personDetails.address.line1 ? (config?.data?.personDetails.address.line1 + ' ' + config?.data?.personDetails.address.line2) : '' }}</li>
+      <li *ngIf="config?.data?.personDetails.address.town">
+        Town: {{ config?.data?.personDetails.address.town ? config?.data?.personDetails.address.town : '' }}</li>
+      <li *ngIf="config?.data?.personDetails.address.county">
+        County: {{ config?.data?.personDetails.address.county ? config?.data?.personDetails.address.county : '' }}</li>
+      <li *ngIf="config?.data?.personDetails.address.postCode">Post
+        Code: {{ config?.data?.personDetails.address.postCode ? config?.data?.personDetails.address.postCode : '' }}</li>
+      <li *ngIf="config?.data?.personDetails.address.country">
+        Country: {{ config?.data?.personDetails.address.country ? config?.data?.personDetails.address.country : '' }}</li>
+      <!--      <li *ngIf="config?.data?.personDetails.groups[0].name">Group: {{ config?.data?.personDetails.groups[0].name ? config?.data?.personDetails.groups[0].name : '' }}</li>-->
+    </ul>
+  </div>
+  <one-admin-loader *ngIf="config?.isLoading" [size]="'sm'"></one-admin-loader>
+</div>
+
+<div *ngIf="config?.isDetailGroup" class="event-info-wrapper">
+  <button (click)="onExpand($event)" class="expand-btn" type="button">Expand</button>
+  <div class="event-info nice-scroll">
+    <h6 class="pb-10">Group</h6>
+    <ul>
+      <li *ngIf="config?.data?.personDetails.groups[0].name">Group
+        name: {{ config?.data?.personDetails.groups[0].name ? config?.data?.personDetails.groups[0].name : '' }}</li>
+    </ul>
+  </div>
+  <one-admin-loader *ngIf="config?.isLoading" [size]="'sm'"></one-admin-loader>
+</div>

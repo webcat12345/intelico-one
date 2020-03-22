@@ -1,0 +1,15 @@
+<svg width="24" height="22" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="4.999952" height="4.749956" id="canvas_background" fill="none"/>
+ </g>
+
+ <g>
+  <title>Layer 1</title>
+  <g stroke="null" id="svg_4">
+   <rect stroke="null" fill="none" height="21.750203" width="21.750203" id="svg_1" y="0.437657" x="1.125098"/>
+   <polygon stroke="#00c3f2" fill="none" points="22.4403076171875,6.527712043374777 16.785253524780273,9.572740729898214 16.785253524780273,13.052773650735617 22.4403076171875,16.09781187400222 " stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" id="svg_2"/>
+   <path stroke="#00c3f2" d="m16.785245,15.662799c0,0.960924 -0.779093,1.740016 -1.740016,1.740016l-11.74511,0c-0.960924,0 -1.740016,-0.779093 -1.740016,-1.740016l0,-9.57009c0,-0.960924 0.779093,-1.740016 1.740016,-1.740016l11.74511,0c0.960924,0 1.740016,0.779093 1.740016,1.740016l0,9.57009z" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" id="svg_3"/>
+  </g>
+ </g>
+</svg>

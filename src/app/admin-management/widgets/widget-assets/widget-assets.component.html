@@ -1,0 +1,92 @@
+<one-admin-sidebar-window [headerTemplateRef]="header" [notificationTemplateRef]="newItemsNotification" [sidebarTemplateRef]="sidebar"
+                          [tableTemplateRef]="main">
+  <ng-template #header>
+    <h1 class="pull-left assets-header">Assets<span *ngIf="(assetsUI)?.totalCount"
+                                                    class="badge">{{ (assets)?.totalCount }}</span>
+    </h1>
+    <button (click)="openAddModal()"
+            *ngIf="!showAddModal"
+            class="action-btn addnew pull-right"
+            container="body"
+            placement="bottom"
+            tooltip="Add Assets"
+            type="button">List View
+    </button>
+    <button (click)="toggleCurrentView(View.MapView)" [class.active]="currentView === View.MapView" class="action-btn map-view-btn pull-right" container="body"
+            placement="bottom" tooltip="Map View"
+            type="button">Map View
+    </button>
+    <button (click)="toggleCurrentView(View.ListView)" [class.active]="currentView === View.ListView" class="action-btn list-view-btn pull-right" container="body"
+            placement="bottom" tooltip="List View"
+            type="button">List View
+    </button>
+    <div class="global-search pull-right" style="margin-right: 21px;">
+      <one-admin-search-key-filter (changeFilter)="changeSearchKeyFilter($event)" [fields]="['identifier']"
+                                   [noLabel]="true"></one-admin-search-key-filter>
+    </div>
+  </ng-template>
+
+  <ng-template #newItemsNotification>
+    <div class="alert-banner-wrap">
+      <div (click)="viewNewItems()" *ngIf="newAssetsCount" class="alert-banner">{{ newAssetsCount }} new assets</div>
+    </div>
+  </ng-template>
+
+  <ng-template #main>
+    <ng-container *ngIf="currentView === View.ListView">
+      <one-admin-assets-table (deleteAsset)="deleteAsset($event)"
+                              (editAsset)="editAsset($event)"
+                              [assets]="assetsUI?.data"></one-admin-assets-table>
+      <!--  <div class="load-more-wrap" *ngIf="assets.data.length >= 19">
+          <button (click)="loadMoreHistory()"><span>Load More</span></button>
+        </div>-->
+      <!--<pagination [boundaryLinks]="true" [totalItems]="histories.length" [maxSize]="10" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="15"></pagination>-->
+    </ng-container>
+    <div *ngIf="currentView === View.MapView" class="map-wrapper" style="top: 0">
+      <!-- <one-admin-widget-assets-map [sidebarFilter]="sideBarFilter"
+                                    [data]="dataForMap"
+                                    [searchKeyFilter]="searchKeyFilter"
+                                    (newActivityArrived)="newActivityArrived()">
+       </one-admin-widget-assets-map>-->
+      <one-admin-one-cluster-map [data]="dataForMap" [styleBottomPx]="-224"
+                                 [typeInformation]="'Assets'"></one-admin-one-cluster-map>
+    </div>
+  </ng-template>
+  <ng-template #sidebar>
+    <one-admin-assets-filter (changeFilter)="changeFilter($event)"
+                             (clearSideBar)="clearSideBar($event)"
+                             (scrollToBottom)="sidebarWindowRef.scrollToBottomSidebar()"
+                             (searchSelectedMapData)="searchSelectedMapData($event)"></one-admin-assets-filter>
+  </ng-template>
+</one-admin-sidebar-window>
+<!--Steps Assets-->
+<div class="custom-modal">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut class="add-people">
+    <a (click)="onClosePanel()" class="clear-icon">Close</a>
+    <ng-container [ngSwitch]="currentStep">
+      <one-admin-assets-details (nextStep)="nextStep($event)"
+                                *ngSwitchCase="enum_addStep.Details"
+                                [isNew]="isAddModal"
+                                [typesAssets]="typesAssets">
+      </one-admin-assets-details>
+      <one-admin-assets-location (complete)="completeAsset($event)"
+                                 *ngSwitchCase="enum_addStep.Location"
+                                 [isNew]="isAddModal">
+      </one-admin-assets-location>
+    </ng-container>
+  </div>
+</div>
+
+<one-admin-loader *ngIf="isLoading" [size]="'sm'" [whiteOverlay]="true"></one-admin-loader>
+<!--Modal Confirmation-->
+<div *ngIf="showConfirmModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p>Are you sure you want to delete this asset?</p>
+      <button (click)="onDelete(true)" class="btn btn-primary" type="button">Yes</button>
+      <button (click)="onDelete(false)" class="btn btn-secondry" type="button">No</button>
+    </div>
+  </div>
+</div>

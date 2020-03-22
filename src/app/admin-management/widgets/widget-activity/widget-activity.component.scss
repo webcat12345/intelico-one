@@ -1,0 +1,18 @@
+.details-wrapper {
+  overflow: hidden;
+  height: 100%;
+}
+
+:host {
+  ::ng-deep {
+    pagination {
+      display: block;
+      text-align: center;
+
+      ul {
+        margin: 10px 0;
+      }
+    }
+  }
+}
+

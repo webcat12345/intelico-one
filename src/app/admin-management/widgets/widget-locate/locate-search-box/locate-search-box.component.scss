@@ -1,0 +1,15 @@
+.locate-search-wrapper {
+  transition: ease all 300ms;
+}
+
+.results {
+  transform: translate(-50%, 15px);
+  top: 0;
+}
+
+.locate-search-input {
+  ::ng-deep .ngui-auto-complete ul {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}

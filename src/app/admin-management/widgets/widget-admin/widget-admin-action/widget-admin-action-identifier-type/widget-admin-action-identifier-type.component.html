@@ -1,0 +1,8 @@
+<a (click)="close.emit()" class="clear-icon">Close</a>
+<h5>Add Identifier</h5>
+
+<ul class="admin-list clearfix">
+  <li *ngFor="let item of meta.types">
+    <a (click)="selectType.emit(item)" [class]="item.className"><span>{{item.title}}</span></a>
+  </li>
+</ul>

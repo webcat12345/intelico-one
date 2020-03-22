@@ -1,0 +1,27 @@
+<div class="row narrow--row container-type">
+  <div class="type-data-title col-xs-6">
+    <span class="title-type">Resolved by User</span>
+  </div>
+  <div class="type-data-title col-xs-6">
+    <span class="title-type">Average resolved time</span>
+  </div>
+</div>
+<div class="row narrow--row container-type">
+  <div class="col-xs-6 border-right">
+    <one-admin-loader *ngIf="alertsReportLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div *ngFor="let item of alertsResolvedByUser" class="type-data">
+      <div class="type-data-detail color-columns">
+        <span>{{ item?.row[1] }}</span>
+        <span class="pull-right">{{ item?.row[2] }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6 custom-padding">
+    <one-admin-loader *ngIf="alertsReportLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div *ngFor="let item of alertsResolvedByUser" class="type-data">
+      <div class="type-data-detail color-columns">
+        <span>{{ item?.row[3] }}</span>
+      </div>
+    </div>
+  </div>
+</div>

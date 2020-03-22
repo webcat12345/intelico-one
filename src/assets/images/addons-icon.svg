@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="22px" viewBox="0 0 24 22" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_addons</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard" transform="translate(-499.000000, -941.000000)" fill="url(#linearGradient-1)">
+            <g id="Menu" transform="translate(30.000000, 588.000000)">
+                <g id="Empty-State" transform="translate(79.000000, 332.000000)">
+                    <g id="ic_addons" transform="translate(378.000000, 8.000000)">
+                        <path d="M14,13 L23,13 L23,23 L12,23 L12,15 L12,15 C12,13.8954305 12.8954305,13 14,13 L14,13 Z M25,13 L34,13 C35.1045695,13 36,13.8954305 36,15 L36,23 L25,23 L25,13 Z M12,25 L23,25 L23,35 L14,35 C12.8954305,35 12,34.1045695 12,33 L12,25 Z M25,25 L36,25 L36,33 C36,34.1045695 35.1045695,35 34,35 L25,35 L25,25 Z"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

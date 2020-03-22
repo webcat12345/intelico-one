@@ -1,0 +1,9 @@
+<div class="page-header sm-header">
+  <h1>Super Admin</h1>
+</div>
+
+<ul class="admin-list list-scroller clearfix">
+  <li (click)="openSubWidows(item.windowType)" *ngFor="let item of meta">
+    <a [ngClass]="item.classString"><span>{{item.menuLabel}}</span></a>
+  </li>
+</ul>

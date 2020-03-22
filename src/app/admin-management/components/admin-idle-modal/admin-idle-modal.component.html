@@ -1,0 +1,13 @@
+<!--<div class="overlay-bg" [ngStyle]="{'background-image':'url(' + bImage + ')'}"></div>-->
+<div class="overlay-bg" style="background-image: url(assets/bg_images/bg.jpg);"></div>
+<div class="info-window-wrap">
+  <div class="overlay-color"></div>
+  <div class="info-window inactive-window text-center">
+    <div class="logout-btn"></div>
+    <p>You have been inactive for more than 30 minutes, as part of our security process we will automatically log you
+      out after</p>
+    <h4>{{idleCountDown | secToMinutes | number: '1.0-0'}} : {{idleCountDown % 60 | number: '2.0-0'}}</h4>
+    <button (click)="restore()" class="btn btn-primary" type="button">Back</button>
+  </div>
+</div>
+<!-- end module window -->

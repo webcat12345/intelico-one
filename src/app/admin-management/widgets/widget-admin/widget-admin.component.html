@@ -1,0 +1,12 @@
+<div class="page-header sm-header">
+  <h1>Admin</h1>
+</div>
+
+<ul class="admin-list clearfix">
+  <li *ngFor="let menu of adminMenus">
+    <a (click)="openSubWidows(menu.windowType)" [ngClass]="menu.classString">
+      <span>{{menu.menuLabel}}</span>
+    </a>
+  </li>
+</ul>
+

@@ -1,0 +1,21 @@
+<form>
+  <div class="nice-scroll">
+    <div class="ac-step4">
+      <div class="action-title-wrapper clearfix">
+        <h4>Location</h4>
+        <one-admin-ui-switch (select)="toggleLocationMode($event)"
+                             [value]="specificLocation">
+        </one-admin-ui-switch>
+      </div>
+      <one-admin-loader *ngIf="isLoadingLayer"></one-admin-loader>
+      <one-admin-layer-selector (select)="selectZone($event)"
+                                *ngIf="!isLoadingLayer"
+                                [isShowLabel]="false"
+                                [layers]="stateService.layers"
+                                [loadFromServer]="false">
+      </one-admin-layer-selector>
+    </div>
+  </div>
+
+  <button (click)="save()" class="btn btn-primary footer-btn" type="button">Add Location</button>
+</form>

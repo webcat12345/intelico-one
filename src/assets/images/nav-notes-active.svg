@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="24px" viewBox="0 0 20 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_reports copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Archive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Events" transform="translate(-426.000000, -932.000000)" fill="#1B84FA">
+            <g id="Menu" transform="translate(0.000000, 904.000000)">
+                <path d="M426,48 L446,48 L446,32 L426,32 L426,48 Z M446,30 C447.105,30 448,30.895 448,32 L448,48 C448,49.105 447.105,50 446,50 L426,50 C424.895,50 424,49.105 424,48 L424,32 C424,30.895 424.895,30 426,30 L446,30 Z M429,46 L431,46 L431,34 L429,34 L429,46 Z M433,46 L435,46 L435,38 L433,38 L433,46 Z M437,46 L439,46 L439,36 L437,36 L437,46 Z" id="ic_reports-copy" transform="translate(436.000000, 40.000000) rotate(-270.000000) translate(-436.000000, -40.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

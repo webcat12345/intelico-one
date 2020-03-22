@@ -1,0 +1,56 @@
+<div class="flex-window">
+  <div class="filters clearfix filters-active">
+    <h4 class="pull-left">Organisations ({{organisationList.totalCount}})</h4>
+
+    <button (click)="onCreateOrganisation()" class="btn btn-primary pull-left" type="button">Add New</button>
+
+    <div class="pull-right">
+      <div class="form-group has-icon">
+        <input [(ngModel)]="searchKey" class="form-control" name="searchKey" placeholder="Search" type="text">
+      </div>
+    </div>
+  </div>  <!-- end filters -->
+
+  <one-admin-frozen-header-table
+    (edit)="onEditOrganisation($event)"
+    (remove)="onDeleteConfirm($event)"
+    [data]="organisationList.data | filterBy : ['name', 'sites', 'users'] : searchKey"
+    [info]="info"
+    [noAction]="true"></one-admin-frozen-header-table>
+
+</div>
+
+<div class="custom-modal">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut class="add--sidebar">
+    <one-admin-widget-super-admin-organisations-add (close)="onCloseAddSection($event)" (openSwitchModal)="showSwitchModal = true"
+                                                    [isNew]="isAddModal"
+                                                    [selectedOrganisation]="selectedOrganisation"></one-admin-widget-super-admin-organisations-add>
+  </div>
+</div>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>
+
+<!-- Delete organisation confirm modal -->
+<div *ngIf="showConfirmModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p>Are you sure you want to delete this organisation?</p>
+      <button (click)="onRemoveOrganisation(true)" class="btn btn-primary" type="button">Yes</button>
+      <button (click)="onRemoveOrganisation(false)" class="btn btn-secondry" type="button">No</button>
+    </div>
+  </div>
+</div>
+
+<!-- Switch company modal -->
+<div *ngIf="showSwitchModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p>Do you want to log out and log in to the new Organisation to continue setup?</p>
+      <button (click)="logout()" class="btn btn-primary" type="button">Yes</button>
+      <button (click)="showSwitchModal = false" class="btn btn-secondry" type="button">No</button>
+    </div>
+  </div>
+</div>

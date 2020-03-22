@@ -1,0 +1,28 @@
+<div class="flex-window">
+  <div class="filters clearfix filters-active">
+    <h4 class="pull-left">Intelico Users ({{userList.totalCount}})</h4>
+
+    <button (click)="onCreateUser()" class="btn btn-primary pull-left" type="button">Add New</button>
+
+    <div class="pull-right">
+      <div class="form-group has-icon">
+        <input [(ngModel)]="searchKey" class="form-control" name="searchKey" placeholder="Search" type="text">
+      </div>
+    </div>
+  </div>  <!-- end filters -->
+
+  <one-admin-frozen-header-table
+    (edit)="onEditUser($event)"
+    (remove)="onRemoveUser($event)"
+    [data]="userList.data | filterBy: ['firstName', 'lastName', 'email'] : searchKey"
+    [info]="info"></one-admin-frozen-header-table>
+</div>
+
+<div class="custom-modal add-identifier-modal sm-width">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut class="add-identifier-step">
+    <one-admin-widget-super-admin-users-add (close)="onCloseAddSection($event)" [isNew]="isAddModal"
+                                            [selectedUser]="selectedUser"></one-admin-widget-super-admin-users-add>
+  </div>
+</div>
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

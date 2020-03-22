@@ -1,0 +1,75 @@
+<a (click)="close.emit(false)" class="clear-icon">Close</a>
+<h5 class="mb-30">{{isNew ? 'Add' : 'Edit'}} Alert Level</h5>
+<form #levelForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input [(ngModel)]="level.name" class="form-control" name="levelName" placeholder="Name" required type="text">
+  </div>
+
+  <div class="colors-list clearfix">
+    <label class="control-label">Choose Colour</label>
+    <div class="checkbox pull-left cl-1">
+      <input id="color-level-1" type="checkbox">
+      <label for="color-level-1"></label>
+    </div>
+
+    <div class="checkbox pull-left cl-2">
+      <input id="color-level-2" type="checkbox">
+      <label for="color-level-2"></label>
+    </div>
+
+    <div class="checkbox pull-left cl-3">
+      <input id="color-level-3" type="checkbox">
+      <label for="color-level-3"></label>
+    </div>
+
+    <div class="checkbox pull-left cl-4">
+      <input id="color-level-4" type="checkbox">
+      <label for="color-level-4"></label>
+    </div>
+
+    <div class="checkbox pull-left cl-5">
+      <input id="color-level-5" type="checkbox">
+      <label for="color-level-5"></label>
+    </div>
+
+    <div class="checkbox pull-left cl-6">
+      <input id="color-level-6" type="checkbox">
+      <label for="color-level-6"></label>
+    </div>
+
+    <div class="checkbox pull-left cl-7">
+      <input id="color-level-7" type="checkbox">
+      <label for="color-level-7"></label>
+    </div>
+
+    <div class="checkbox pull-left cl-8">
+      <input id="color-level-8" type="checkbox">
+      <label for="color-level-8"></label>
+    </div>
+
+    <div class="checkbox pull-left cl-9">
+      <input id="color-level-9" type="checkbox">
+      <label for="color-level-9"></label>
+    </div>
+
+    <div class="checkbox pull-left cl-10">
+      <input id="color-level-10" type="checkbox">
+      <label for="color-level-10"></label>
+    </div>
+
+    <div class="checkbox pull-left cl-11">
+      <input id="color-level-11" type="checkbox">
+      <label for="color-level-11"></label>
+    </div>
+
+    <div class="checkbox pull-left cl-12">
+      <input id="color-level-12" type="checkbox">
+      <label for="color-level-12"></label>
+    </div>
+  </div>
+
+  <button [disabled]="!levelForm.form.valid" class="btn btn-primary btn-block">{{isNew ? 'Add' : 'Update'}}</button>
+
+</form>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

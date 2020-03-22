@@ -1,0 +1,71 @@
+<one-admin-expansion-table [columns]="displayColumns"
+                           [dataSecondLevel]="'Identifiers'"
+                           [data]="listPeople"
+                           [detailTemplate]="detailPanel"
+                           [filterBy]="'firstName'"
+                           [itemName]="'value'"
+                           [searchKey]="searchKey"
+                           tableName="People">
+  <ng-template #peopleIconAndFullName let-item="item">
+    <div class="icon-cell">
+      <img [src]="'assets/images/name-identifier.svg'" alt="Identifier">
+    </div>
+    <span>
+      {{ item.lastName + ' ' + item.firstName }}
+    </span>
+  </ng-template>
+
+  <ng-template #peopleAddress let-item="item">
+    <span>
+      {{ item?.addressUI }}
+      <!-- {{ item?.address?.line1 + ', ' +  item?.address?.line2 + ', ' + item?.address?.town + ', ' + item?.address?.county + ', ' + item?.address?.country + ', ' + item?.address?.postcode }}-->
+      <!--  {{ item?.address.line1 ? item?.address.line1 : null + ', '
+      +  item?.address.line2 ? item?.address.line2 : null + ', '
+      + item?.address.town ? item?.address.town : null  + ', '
+      + item?.address.county ? item?.address.county : null + ', '
+      + item?.address.country ? item?.address.country : null + ', '
+      + item?.address.postcode ? item?.address.postcode : null }}-->
+    </span>
+  </ng-template>
+
+  <ng-template #detailPanel let-item="item">
+    <div class="btns-block clearfix">
+      <button (click)="editPerson.emit({person: item, type: 'main' })" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]"
+              class="btn btn-secondry pull-left btn-mini"
+              type="button">Personal Details
+      </button>
+      <button (click)="editPerson.emit({person: item, type: 'products'})" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]"
+              class="btn btn-secondry pull-left btn-mini"
+              type="button">Products
+      </button>
+      <button (click)="editPerson.emit({person: item, type: 'identifiers'})" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]"
+              class="btn btn-secondry pull-left btn-mini"
+              type="button">Identifiers
+      </button>
+      <button (click)="editPerson.emit({person: item, type: 'groups'})" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]"
+              class="btn btn-secondry pull-left btn-mini"
+              type="button">Groups
+      </button>
+      <button (click)="deletePerson.emit(item)" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]" class="action-btn grey remove-btn pull-right"
+              type="button"></button>
+    </div>
+  </ng-template>
+
+  <ng-template #peopleIdentifiers let-i="index" let-item="item">
+    <div>
+      {{ item }}
+    </div>
+  </ng-template>
+
+  <ng-template #peopleGroups let-i="index" let-item="item">
+    <div>
+      {{ item }}
+    </div>
+  </ng-template>
+
+  <ng-template #peopleProducts let-i="index" let-item="item">
+    <div>
+      {{ item }}
+    </div>
+  </ng-template>
+</one-admin-expansion-table>

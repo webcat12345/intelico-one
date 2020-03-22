@@ -1,0 +1,16 @@
+<form *ngIf="!isFilteredReasons" [formGroup]="filter">
+  <div class="form-group">
+    <label class="control-label"><span *ngIf="!isAny">{{action}}</span>Reason</label>
+    <select class="form-control" formControlName="type">
+      <option *ngIf="isAny" default selected value="-1">Any</option>
+      <option *ngFor="let item of reasonList" [value]="item.id">{{ item.value }}</option>
+    </select>
+  </div>
+</form>
+<form *ngIf="isFilteredReasons" [formGroup]="filter">
+  <div class="form-group">
+    <label class="control-label"><span *ngIf="!isAny">{{action}}</span>Reason</label>
+    <ng-select [clearable]="false" [items]="filteredReasons" bindLabel="value" bindValue="id"
+               formControlName="type"></ng-select>
+  </div>
+</form>

@@ -1,0 +1,39 @@
+<a (click)="close.emit(false)" class="clear-icon">Close</a>
+<h5 class="color-white">{{isNew ? 'Add' : 'Edit'}} Area</h5>
+<form (ngSubmit)="onSubmit()" [formGroup]="areaForm">
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="area-detail-tab" role="tabpanel">
+      <div class="right-sidebar form-group">
+        <label class="control-label">Name</label>
+        <input class="form-control" formControlName="name" placeholder="Name" type="text">
+      </div>
+
+      <div class="right-sidebar form-group">
+        <label class="control-label">Description</label>
+        <input class="form-control" formControlName="description" placeholder="Description" type="text">
+      </div>
+
+      <div class="right-sidebar form-group">
+        <label class="control-label">Select Area Type</label>
+        <select class="form-control" formControlName="typeId">
+          <option disabled hidden selected value="0">Select Area Type</option>
+          <option *ngFor="let type of types" [value]="type.id">{{type.value}}</option>
+        </select>
+        <one-admin-loader *ngIf="isTypesLoading" [whiteOverlay]="true"></one-admin-loader>
+      </div>
+
+      <div *ngIf="!isAddWindow" class="right-sidebar form-group">
+        <label class="control-label">Select Site</label>
+        <select class="form-control" formControlName="parentId">
+          <option disabled hidden selected value="0">Select Site</option>
+          <option *ngFor="let site of sites" [value]="site.id">{{site.name}}</option>
+        </select>
+        <one-admin-loader *ngIf="isSitesLoading" [whiteOverlay]="true"></one-admin-loader>
+      </div>
+    </div>
+    <!-- end individual tab -->
+  </div>
+  <button [disabled]="areaForm.invalid" class="btn btn-primary btn-block">Save</button>
+</form>
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

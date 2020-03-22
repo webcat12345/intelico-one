@@ -1,0 +1,82 @@
+<one-admin-sidebar-window [headerTemplateRef]="header"
+                          [sidebarTemplateRef]="sidebar"
+                          [tableTemplateRef]="main">
+
+  <ng-template #header>
+    <div class="filters clearfix">
+      <h4 class="pull-left">Zones ({{zoneListUI?.totalCount}})</h4>
+      <div class="pull-right">
+        <div class="form-group has-icon pull-left" style="margin-right: 21px;">
+          <input [(ngModel)]="searchKey" class="form-control" name="searchKey" placeholder="Search" type="text">
+        </div>
+        <button (click)="toggleCurrentView(View.ListView)" [class.active]="currentView === View.ListView" class="action-btn list-view-btn" container="body" placement="bottom"
+                tooltip="List View" type="button">List View
+        </button>
+        <button (click)="toggleCurrentView(View.MapView)" [class.active]="currentView === View.MapView" class="action-btn map-view-btn" container="body" placement="bottom"
+                tooltip="Map View" type="button">Map View
+        </button>
+        <button (click)="onCreateZone()" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]" [hidden]="showAddModal" class="action-btn addnew" container="body"
+                placement="bottom" tooltip="New Zone"
+                type="button">Add New
+        </button>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #main>
+    <div class="flex-window">
+      <!-- end filters -->
+      <one-admin-frozen-header-table
+        (edit)="onEditZone($event)"
+        (remove)="onDeleteConfirm($event)"
+        [data]="zoneListUI?.data | filterBy : ['name', 'areaName', 'zoneTypeName'] : searchKey"
+        [info]="info"></one-admin-frozen-header-table>
+    </div>
+  </ng-template>
+  <ng-template #sidebar>
+    <one-admin-widget-admin-zone-filter (searchSelectedMapData)="searchSelectedMapData($event)">
+    </one-admin-widget-admin-zone-filter>
+  </ng-template>
+</one-admin-sidebar-window>
+
+
+<div class="custom-modal">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut class="add--sidebar left">
+    <one-admin-widget-admin-zone-add (addressLookup)="placeChanged($event)"
+                                     (close)="onCloseAddSection($event)"
+                                     [center]="getCenter"
+                                     [isAddWindow]="isAddWindow"
+                                     [isNew]="isAddModal"
+                                     [selectedZone]="selectedZone">
+    </one-admin-widget-admin-zone-add>
+  </div>
+  <div *ngIf="showAddModal" @flyInOut1 class="company-map">
+    <one-admin-one-map (changePosition)="changePosition($event)"
+                       [height]="'100%'"
+                       [markerClickable]="true"
+                       [markerDraggable]="true"
+                       [position]="center">
+    </one-admin-one-map>
+    <!--<one-admin-one-map [height]="'100%'" [position]="center" [lock]="true"></one-admin-one-map>-->
+  </div>
+</div>  <!--end add sidebar -->
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>
+
+<div *ngIf="showConfirmModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p>Are you sure you want to delete this zone?</p>
+      <button (click)="onRemoveZone(true)" class="btn btn-primary" type="button">Yes</button>
+      <button (click)="onRemoveZone(false)" class="btn btn-secondry" type="button">No</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="showHideMap" class="map-wrapper">
+  <one-admin-one-cluster-map [data]="dataClusterMap"
+                             [displayedData]="{source: false, site: true, area: true, zone: true}"
+                             [styleBottomPx]="-199"
+                             typeInformation="Zone">
+  </one-admin-one-cluster-map>
+</div>

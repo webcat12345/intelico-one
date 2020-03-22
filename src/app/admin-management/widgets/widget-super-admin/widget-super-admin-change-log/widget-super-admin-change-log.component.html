@@ -1,0 +1,39 @@
+<div class="flex-window">
+  <div class="page-header filters clearfix filters-active" style="padding-right: 100px;">
+    <!--  <h4 class="pull-left">ChangeLog<span class="badge">{{ webhooksList.totalCount }}</span></h4>-->
+    <h4 class="pull-left">ChangeLog</h4>
+    <div class="pull-right">
+      <div class="form-group has-icon pull-left">
+        <input [(ngModel)]="searchKey" class="form-control md-width" name="searchKey" placeholder="Search" type="text">
+      </div>
+      <!--<button *ngIf="!showAddModal" placement="bottom" container="body" tooltip="Add New" type="button" class="action-btn addnew" (click)="openAddModal()">Add New</button>-->
+    </div>
+  </div>  <!-- end filters -->
+  <!--<div class="general-modal">
+    <div class="modal-wrapper">
+      <div class="modal-wrapper-contents text-center">
+        <h3>10/12/2019 changelog added</h3>
+        <br>
+        <h3>version 1.06v added</h3>
+      </div>
+    </div>
+  </div>-->
+  <div class="general-modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-wrapper">
+      <div class="modal-wrapper-contents text-center">
+        <h3>10/12/2019 changelog added</h3>
+        <br>
+        <h3>version 1.06v added</h3>
+      </div>
+    </div>
+  </div>
+
+  <!--  <one-admin-frozen-header-table
+      [noAction]="true"
+      (onEdit)="onEditWebhooks($event)"
+      (onRemove)="onRemoveWebhooks($event)"
+      [info]="info"
+      [data]="webhooksList.data | filterBy : ['name', 'url'] : searchKey">
+    </one-admin-frozen-header-table>-->
+</div>

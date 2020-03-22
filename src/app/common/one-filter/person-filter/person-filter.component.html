@@ -1,0 +1,12 @@
+<form [formGroup]="filter">
+  <div class="form-group">
+    <label class="control-label">Person</label>
+    <ng-select [clearable]="true"
+               [items]="persons.data"
+               placeholder="Select a Person"
+               bindLabel="lastNameFirstName"
+               bindValue="id"
+               formControlName="personId">
+    </ng-select>
+  </div>
+</form>

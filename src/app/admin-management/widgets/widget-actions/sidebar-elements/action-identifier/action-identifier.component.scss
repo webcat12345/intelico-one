@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.footer-btn {
+  flex: 0 0 46px;
+}
+
+.tag-note {
+  padding: 5px 0 0;
+  color: #ACB3BF;
+}
+
+.remove-identifier-btn {
+  margin-left: 15px;
+}

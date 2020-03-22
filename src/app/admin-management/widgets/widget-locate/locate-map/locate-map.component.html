@@ -1,0 +1,37 @@
+<agm-map [clickableIcons]="false"
+         [fullscreenControl]="false"
+         [styles]="mapOptions.styles"
+         [mapDraggable]="true"
+         [mapTypeControl]="false"
+         [latitude]="center.lat"
+         [longitude]="center.lng"
+         [streetViewControl]="false"
+         [zoomControl]="false"
+         [fitBounds]="!!markers.length"
+         [zoom]="16">
+  <agm-polyline strokeColor="#00a1fd" [strokeOpacity]="0.8">
+    <agm-polyline-point *ngFor="let item of markers"
+                        [latitude]="item?.location?.lat"
+                        [longitude]="item?.location?.lng">
+    </agm-polyline-point>
+  </agm-polyline>
+  <agm-marker *ngFor="let item of markers"
+              [agmFitBounds]="true"
+              [latitude]="item?.location?.lat"
+              [longitude]="item?.location?.lng"
+              [openInfoWindow]="item.display"
+              iconUrl="/assets/images/map-pointer.svg">
+    <agm-snazzy-info-window [closeWhenOthersOpen]="true" [isOpen]="item.display" [maxWidth]="200">
+      <ng-template>
+        <div class="marker-details">
+          <h5>{{ site }}</h5>
+          <h5>{{ 'Site: ' + item?.site }}</h5>
+          <h5>{{ 'Area: ' + item?.area }}</h5>
+          <h5>{{ 'Zone: ' + item?.zone }}</h5>
+          <h5>{{ 'Source: ' + item?.source }}</h5>
+          <p>{{ address || '' }}</p>
+        </div>
+      </ng-template>
+    </agm-snazzy-info-window>
+  </agm-marker>
+</agm-map>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Resolved</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Intelico-Admin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-546.000000, -532.000000)" id="People" fill="url(#linearGradient-1)">
+            <g transform="translate(500.000000, 505.000000)">
+                <path d="M66.6440775,53.3207571 L62.5007437,49.4874503 C61.7727013,48.8091925 60.5923114,48.8091925 59.8642691,49.4874503 L58.5460318,50.7155446 C57.8179894,51.3938024 57.8179894,52.4934756 58.5460318,53.1717333 L64.7601732,58.9208985 C64.8811882,59.0336383 65.0147012,59.1276386 65.1565573,59.2028993 L65.4661339,59.4913067 C66.1941763,60.1695644 67.3745662,60.1695644 68.1026085,59.4913067 L81.4539682,46.1929764 C82.1820106,45.5147186 82.1820106,44.4150455 81.4539682,43.7367877 L80.1357309,42.5086933 C79.4076886,41.8304356 78.2272987,41.8304356 77.4992563,42.5086933 L66.6440775,53.3207571 Z M70,75 C56.745166,75 46,64.254834 46,51 C46,37.745166 56.745166,27 70,27 C83.254834,27 94,37.745166 94,51 C94,64.254834 83.254834,75 70,75 Z" id="Resolved"></path>
+            </g>
+        </g>
+    </g>
+</svg>

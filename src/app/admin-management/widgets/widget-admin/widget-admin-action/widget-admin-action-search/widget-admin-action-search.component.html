@@ -1,0 +1,6 @@
+<h5 class="mb-30">Check {{selectedType.title}}</h5>
+<p style="color:#888991">Enter the {{selectedType.title}} below to check if it already exists in the system</p>
+<div class="form-group">
+  <input class="form-control" placeholder="Identifier Search" type="text">
+</div>
+<button (click)="close.emit(true)" class="btn btn-primary btn-block" type="button">Search</button>

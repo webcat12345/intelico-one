@@ -1,0 +1,27 @@
+<ul class="internal-notifications">
+  <ng-container *ngIf="updateNotification">
+    <li (click)="close(updateNotification, -1)" @fly_notification_message>
+      <div class="notification--icon-warning"><img alt="figure" src="assets/images/warnning-icon.svg"></div>
+      <p>{{updateNotification.message}}</p>
+    </li>
+  </ng-container>
+  <li (click)="close(notification, i)" *ngFor="let notification of notifications; let i = index"
+      @fly_notification_message>
+    <ng-container [ngSwitch]="notification.type">
+      <ng-container *ngSwitchCase="NotificationType.Alert">
+        <div class="notification--icon"><img alt="figure" src="assets/images/people-icon-white.svg"></div>
+      </ng-container>
+      <ng-container *ngSwitchCase="NotificationType.Success">
+        <div class="notification--icon-success"><img alt="figure" src="assets/images/success-icon.svg"></div>
+      </ng-container>
+      <ng-container *ngSwitchCase="NotificationType.Warning">
+        <div class="notification--icon-warning"><img alt="figure" src="assets/images/warnning-icon.svg"></div>
+      </ng-container>
+      <ng-container *ngSwitchCase="NotificationType.Error">
+        <div class="notification--icon-error"><img alt="figure" src="assets/images/error-icon.svg"></div>
+      </ng-container>
+    </ng-container>
+
+    <p>{{notification.message}}</p>
+  </li>
+</ul>

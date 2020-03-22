@@ -1,0 +1,54 @@
+<div class="flex-window">
+  <div class="filters clearfix">
+    <h4 class="pull-left">Actions ({{data.length}})</h4>
+
+    <button (click)="showAddModal = true" class="btn btn-primary pull-left" type="button">Add New</button>
+
+    <div class="pull-left">
+      <div class="form-group">
+        <select class="form-control">
+          <option>Type</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="pull-left">
+      <div class="form-group">
+        <select class="form-control">
+          <option>Action</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="pull-right">
+      <div class="form-group has-icon">
+        <input class="form-control" placeholder="Search" type="text">
+      </div>
+    </div>
+  </div>  <!-- end filters -->
+
+  <one-admin-frozen-header-table [data]="data" [info]="info"></one-admin-frozen-header-table>
+</div>
+
+<div *ngIf="showAddModal" @flyInOut class="add-identifier-types">
+  <one-admin-widget-admin-action-identifier-type (close)="closeAddSection(false)"
+                                                 (selectType)="selectIdentifierType($event)"></one-admin-widget-admin-action-identifier-type>
+</div>
+
+<div *ngIf="showAddModal" [class.sm-width]="addStep !== enum_addStep.ActionList"
+     class="custom-modal add-identifier-modal sm-width">
+  <div *ngIf="addStep !== enum_addStep.Default" class="overlay"></div>
+  <div *ngIf="addStep !== enum_addStep.Default" @flyInOut class="add-identifier-step">
+    <a (click)="addStep = enum_addStep.Default" class="clear-icon">Close</a>
+    <ng-container [ngSwitch]="addStep">
+      <one-admin-widget-admin-action-search (close)="addStep = enum_addStep.ActionList" *ngSwitchCase="enum_addStep.ActionSearch"
+                                            [selectedType]="selectedType"></one-admin-widget-admin-action-search>
+      <one-admin-widget-admin-action-list (close)="addStep = enum_addStep.ActionType" *ngSwitchCase="enum_addStep.ActionList"
+                                          [selectedType]="selectedType"></one-admin-widget-admin-action-list>
+      <one-admin-widget-admin-action-type (close)="addStep = enum_addStep.ActionAdd" *ngSwitchCase="enum_addStep.ActionType"
+                                          [selectedType]="selectedType"></one-admin-widget-admin-action-type>
+      <one-admin-widget-admin-action-add (close)="closeAddSection(false)" *ngSwitchCase="enum_addStep.ActionAdd"
+                                         [selectedType]="selectedType"></one-admin-widget-admin-action-add>
+    </ng-container>
+  </div>
+</div>

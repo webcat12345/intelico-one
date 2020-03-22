@@ -1,0 +1,24 @@
+<form (ngSubmit)="save()" *ngIf="form" [formGroup]="form">
+  <div class="nice-scroll">
+    <div class="action-title-wrapper clearfix">
+      <button (click)="actionStateService.changeStep(stepInfo.previous)" class="back-btn" type="button">Back</button>
+      <button (click)="actionStateService.closeSidebar()" class="close--btn" type="button">Close</button>
+      <h4>{{ stepInfo.title }}</h4>
+      <div *ngIf="stepInfo.stepNumber" class="steps-counter pull-right">{{ stepInfo.stepNumber }} /
+        {{ stepInfo.allStepsNumber }}</div>
+    </div>
+    <div class="ac-step5">
+      <div class="row narrow--row">
+        <div class="col-sm-6">
+          <ng-select [clearable]="false" [items]="webhooksList?.data" bindLabel="name" bindValue="id"
+                     formControlName="urls" multiple="true" placeholder="Please Select">
+          </ng-select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--<button class="btn btn-primary footer-btn" [disabled]="form.invalid">{{stepInfo.buttonLabel}}</button>-->
+  <button class="btn btn-primary footer-btn">{{stepInfo.buttonLabel}}</button>
+</form>
+
+<one-admin-loader *ngIf="loading" [whiteOverlay]="true"></one-admin-loader>

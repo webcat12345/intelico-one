@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="22px" viewBox="0 0 32 22" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_email</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#AAABB3" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#AAABB3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Identifiers" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="Add-Identifier-Type" transform="translate(-554.000000, -329.000000)" fill-rule="nonzero" fill="url(#linearGradient-1)">
+            <g id="pop-up" transform="translate(100.000000, 61.000000)">
+                <g id="Email-Address" transform="translate(420.000000, 268.000000)">
+                    <path d="M36.5306386,1.32332305 C35.6093621,0.596184605 35.8184298,1.02026647e-15 36.9912769,0 L50.0005744,0 L63.0098718,0 C64.1815702,0 64.3906379,0.596184605 63.4670639,1.32332305 L51.9407689,10.4533332 C51.4180996,10.8680203 50.6978497,11.0506665 49.9994256,11.0162049 C49.2998528,11.0506665 48.579603,10.8668716 48.0569336,10.4533332 L36.5306386,1.32332305 Z M64.2998887,3.73218455 C65.2349499,3.02342559 66,3.40365122 66,4.57649223 L66.0022974,19.8651371 C66.0022974,21.0379781 65.0419643,21.9983063 63.8691173,21.9983063 L50.0017231,21.9983063 L36.1354776,21.9983063 C34.9626306,21.9983063 34.0022974,21.0379781 34.0022974,19.8651371 L34,4.57649223 C34,3.40365122 34.7650501,3.02342559 35.7001113,3.73218455 L48.2981656,13.2952613 C48.7691424,13.6479177 49.3860071,13.8213741 50.0017231,13.8133331 C50.6162903,13.8213741 51.233155,13.6490664 51.7041318,13.2952613 L64.2998887,3.73218455 Z" id="ic_email"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

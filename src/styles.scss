@@ -1,0 +1,203 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+@import "assets/css/custom.css";
+@import "assets/css/global.css";  // v5 global file
+@import "assets/css/events.css";
+@import "assets/css/infoPages.css";
+@import "assets/css/locate.css";
+@import "assets/css/alerts.css";
+@import "assets/css/notes.css";
+@import "assets/css/messages.css";
+@import "assets/css/notes.css";
+@import "assets/css/viewer.css";
+@import "assets/css/actions.css";
+@import "assets/css/admin.css";
+@import "assets/css/modal.css";
+@import "assets/css/cleaner.css";
+@import "assets/css/settings.css";
+@import "assets/css/timeline.css";
+@import "assets/css/loader.css";
+@import "assets/scss/index";
+
+body {
+  overflow: hidden;
+  background-color: #001320 !important;
+}
+.grid {
+  position: relative;
+  height: 100vh !important;
+}
+
+.grid-item {
+  position: absolute;
+  //background-color: #1F2026;
+}
+
+.grid-item.moving {
+  z-index: z-index + 1;
+}
+
+.placeholder {
+  position: absolute;
+}
+
+bs-dropdown-container {
+  z-index: 9999;
+}
+
+.page-content {
+  height: 100vh;
+  .grid-item {
+    &.modal-settings {
+      overflow: hidden;
+    }
+    &.strict-window {
+      width: 300px !important;
+      height: 200px !important;
+    }
+    &.active {
+      z-index: 1029 !important;
+    }
+    &.hidden {
+      display: none;
+    }
+    &.deactive {
+      opacity: 0.7;
+      z-index: 1020 !important;
+    }
+    &.maximized {
+      position: fixed !important;
+      transform: none !important;
+      width: 100% !important;
+      left: 0 !important;
+      height: 100vh !important;
+      z-index: 1050 !important;
+      border-radius: 0;
+    }
+    .window-header {
+      background-color: #ebebeb;
+      color: black;
+      -webkit-user-select: none; /* Chrome/Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+ */
+
+      /* Rules below not implemented in browsers yet */
+      -o-user-select: none;
+      user-select: none;
+      .window-icon {
+        color: #747171;
+        float: left;
+        margin-left: 6px;
+        margin-right: 2px;
+      }
+      .window-state {
+        float: right;
+        color: #747171;
+        margin-left: 2px;
+        margin-right: 6px;
+        a {
+          cursor: pointer;
+        }
+        a.maximize-icon {
+          font-size: 14px;
+          margin: 0 4px;
+        }
+      }
+      .window-title {
+        text-align: center;
+        font-weight: 100;
+        font-size: 14px;
+        line-height: 26px;
+        border-bottom: 1px solid #d1d1d1;
+      }
+    }
+  }
+}
+
+.global-intelico-cover-container {
+  z-index: 1000;
+  .global-intelico-cover-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #23272b !important;
+    z-index: 1001;
+  }
+  .global-intelico-cover-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%)translateY(-50%);
+    z-index: 1002;
+  }
+}
+
+.top-bar {
+  z-index: 9000;
+}
+
+.map-marker-view {
+  z-index: 99999;
+  position: absolute !important;
+  margin: 0 !important;
+  transform: translateX(-50%)translateY(-75px);
+}
+
+.map-marker-view:after {
+  content:"";
+  position:absolute;
+  border:13px solid #1f2026;
+  border-color:transparent transparent #1f2026 #1f2026;
+  transform-origin:0 0;
+  transform:rotate(-45deg);
+  left:50%;
+  margin-left:-15px;
+  bottom:-26px;
+}
+
+.si-has-border .si-content-wrapper {
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  outline: none;
+  border: none;
+  height: 0;
+}
+
+.si-close-button, .si-shadow-inner-pointer-top, .si-pointer-border-top, .si-has-border .si-pointer-bg-top {
+  display: none;
+}
+
+.dropdown.ngx-contextmenu .dropdown-menu {
+  z-index: 1090;
+  //transform: translateY(-40%);
+}
+
+.window-actions {
+  user-select: none;
+}
+
+form {
+  height: 100%;
+}
+
+.theme-blue .bs-datepicker-body table td span.selected, .theme-blue .bs-datepicker-body table td.selected span, .theme-blue .bs-datepicker-body table td span[class*="select-"]:after, .theme-blue .bs-datepicker-body table td[class*="select-"] span:after {
+  background-color: rgba(0,195,242,1);
+}
+.theme-blue .bs-datepicker-head {
+  background-color: rgba(0,195,242,1);
+}
+
+.custom-progress .loader {
+  width: 12px;
+  height: 12px;
+  border-width: 1pt;
+  margin: -6px 0 0 -6px;
+}
+
+.odometer.odometer-theme-default {
+  font-family: 'PT Mono', monospace !important;
+}

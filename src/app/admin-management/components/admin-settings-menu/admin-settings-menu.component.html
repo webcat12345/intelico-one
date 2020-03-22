@@ -1,0 +1,67 @@
+<div class="settings-wrapper">
+  <!-- <div class="time-system">
+     <span>{{ time | date : 'H:mm:ss' }}</span>
+   </div>-->
+  <div class="username" container="body" dropdown>
+    <div dropdownToggle>
+      <button class="menu-btn" type="button">Toggle Menu</button>
+    </div>
+    <ul *dropdownMenu
+        class="dropdown-menu settings-dropdown z-index">
+      <li>
+        <h5>{{ commonService.currentUser.firstName }} {{ commonService.currentUser.lastName }}</h5>
+        <h6>{{ commonService.organisation?.name }}</h6>
+      </li>
+      <li><a>Admin</a>
+        <div class="sub-menu-wrapper">
+          <ul class="sub-menu">
+            <li *ngFor="let menu of adminMenus">
+              <!-- <a (click)="openWindow.emit(''); openSubWidows(menu.windowType)">-->
+              <a [ngClass]="{'border-bottom': menu.menuLabel === 'Source' || menu.menuLabel === 'Products' || menu.menuLabel === 'Teams' }"
+                 (click)="openSubWidows(menu.windowType)">
+                <span>{{ menu.menuLabel }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li (click)="toggleFullScreen()"><a>{{ isFullScreen ? 'Normal' : 'Full' }} Screen</a></li>
+      <li (click)="toggleAudioSetting()"><a>{{ muted ? 'Unmute' : 'Mute' }} Sounds</a></li>
+      <li><a (click)="openWindow.emit('settings');">Settings</a></li>
+      <!-- <li><a (click)="openWindow.emit('')">Admin</a>-->
+
+      <!-- <li><a (click)="openWindow.emit('')" *oneAdminAllowedRole="[UserRole.SuperAdmin]">Super Admin</a>-->
+      <li><a *oneAdminAllowedRole="[UserRole.SuperAdmin]">Super Admin</a>
+        <div class="sub-menu-wrapper">
+          <ul class="sub-menu">
+            <li *ngFor="let menu of superAdminMenus">
+              <!--   <a (click)="openWindow.emit(''); openSubWidows(menu.windowType)">-->
+              <a (click)="openSubWidows(menu.windowType)">
+                <span>{{menu.menuLabel}}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li routerLink="/organization-select"><a>Switch Company</a></li>
+      <li><a (click)="openWindow.emit('help')">Help</a></li>
+      <li class="logout-link"><a (click)="logout.emit()">Logout</a></li>
+
+      <!-- TODO: ngx bootstrap nested dropdown is experimental, there are some issues https://valor-software.com/ngx-bootstrap/#/dropdowns#nested-dropdowns -->
+      <!--<li dropdown triggers="mouseover" placement="right" container="body">-->
+      <!--<a dropdownToggle (click)="openWindow.emit('admin')">Admin <i class="fa fa-caret-right"></i></a>-->
+      <!--<ul *dropdownMenu class="dropdown-menu sub-menu" role="menu">-->
+      <!--<li role="menuitem" *ngFor="let item of adminSubMenuItems"><a class="dropdown-item" (click)="openWindow.emit(item.windowType)">{{ item.menuLabel }}</a></li>-->
+      <!--</ul>-->
+      <!--</li>-->
+
+      <!-- TODO: ngx bootstrap nested dropdown is experimental, there are some issues https://valor-software.com/ngx-bootstrap/#/dropdowns#nested-dropdowns -->
+      <!--<li *oneAdminAllowedRole="[UserRole.SuperAdmin]" dropdown triggers="mouseover" placement="right" container="body">-->
+      <!--<a dropdownToggle (click)="openWindow.emit('superAdmin')">Super Admin <i class="fa fa-caret-right"></i></a>-->
+      <!--<ul *dropdownMenu class="dropdown-menu sub-menu" role="menu">-->
+      <!--<li role="menuitem" *ngFor="let item of superAdminSubMenuItems"><a class="dropdown-item" (click)="openWindow.emit(item.windowType)">{{ item.menuLabel }}</a></li>-->
+      <!--</ul>-->
+      <!--</li>-->
+    </ul>
+  </div>
+</div>

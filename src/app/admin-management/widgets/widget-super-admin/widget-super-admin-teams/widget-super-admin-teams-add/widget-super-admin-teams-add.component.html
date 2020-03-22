@@ -1,0 +1,16 @@
+<a (click)="close.emit(false)" class="clear-icon">Close</a>
+<h5 class="mb-30">{{isNew ? 'Add' : 'Edit'}} Team</h5>
+<form #teamForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input [(ngModel)]="team.name" class="form-control" name="teamName" placeholder="Name" required type="text">
+  </div>
+
+  <div class="form-group">
+    <input [(ngModel)]="team.description" class="form-control" name="teamDescription" placeholder="Description"
+           required type="text">
+  </div>
+
+  <button [disabled]="!teamForm.form.valid" class="btn btn-primary btn-block">{{isNew ? 'Add' : 'Update'}}</button>
+</form>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

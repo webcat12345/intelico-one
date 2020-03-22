@@ -1,0 +1,7 @@
+<div class="checkbox-wrapper clearfix">
+  <div *ngFor="let day of weekdays" class="checkbox pull-left">
+    <input (ngModelChange)="onChange($event)" [(ngModel)]="options[day.value]" [disabled]="disabled" [id]="day.id"
+           [ngModelOptions]="{standalone: true}" type="checkbox">
+    <label [for]="day.id">{{ day.label }}</label>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="nice-scroll">
+  <div class="action-title-wrapper clearfix">
+    <button (click)="actionStateService.closeSidebar()" class="close--btn" type="button">Close</button>
+    <h4>{{ stepInfo.title }}</h4>
+  </div>
+  <div class="ac-step2">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <input (keydown)="keyDown($event)" [(ngModel)]="newIdentifier" class="form-control mb-0"
+                 placeholder="Add identifiers">
+          <p class="tag-note">
+            <small>You must press enter for plate to be added</small>
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <input (ngModelChange)="changeSearch()" [(ngModel)]="searchKey" class="form-control search-control"
+                 placeholder="Search">
+        </div>
+      </div>
+    </div>
+    <div class="custom-table default-table default-table-striped">
+      <div class="table-row header-row pl-20">
+        <div class="cell-wrap full">Identifier</div>
+        <div class="cell-wrap" style="width: 95px">Action</div>
+      </div>
+      <div *ngFor="let item of filteredIdentifiers; let i = index" class="table-row-wrapper">
+        <div class="table-row pl-20">
+          <div class="cell-wrap full">{{ item }}</div>
+          <div class="cell-wrap action-cell-wrap" style="width: 95px;">
+            <a (click)="removeFromList(i, item)" class="remove-identifier-btn">
+              <img alt="remove" src="assets/images/trash-icon.svg">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button (click)="onNext()" *ngIf="stepInfo.buttonLabel" [disabled]="!filteredIdentifiers.length" class="btn btn-primary footer-btn"
+        type="button">{{stepInfo.buttonLabel}}</button>
+
+<one-admin-loader *ngIf="isLoading" [size]="'sm'" [whiteOverlay]="true"></one-admin-loader>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="48px" viewBox="0 0 40 48" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1B84FA" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#1B84FA" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Intelico-Admin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-390.000000, -107.000000)" id="People" fill="url(#linearGradient-1)">
+            <g transform="translate(340.000000, 80.000000)">
+                <path d="M73.7406571,29.3606372 C72.6423841,30.9660577 72,32.9080104 72,35 C72,39.7071547 75.2523159,43.6546903 79.632408,44.718067 C78.1847755,52.1683019 72.6307176,61 66,61 C58.268,61 52,48.991 52,41.167 C52,33.343 58.268,27 66,27 C68.8620184,27 71.52345,27.8690722 73.7406571,29.3606372 Z M70.6699,63 C75.0689,63 79.0619,63.928 81.9999,66.294 C78.7289,71.512 72.7869,75 65.9999,75 C59.2129,75 53.2709,71.512 49.9999,66.294 C52.9379,63.928 56.9309,63 61.3299,63 L70.6699,63 Z M82,43 C77.581722,43 74,39.418278 74,35 C74,30.581722 77.581722,27 82,27 C86.418278,27 90,30.581722 90,35 C90,39.418278 86.418278,43 82,43 Z M82,39 C84.209139,39 86,37.209139 86,35 C86,32.790861 84.209139,31 82,31 C79.790861,31 78,32.790861 78,35 C78,37.209139 79.790861,39 82,39 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

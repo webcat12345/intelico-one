@@ -1,0 +1,13 @@
+<div class="action-title-wrapper clearfix">
+  <one-admin-assets-badge></one-admin-assets-badge>
+  <h5 class="color-white">{{ isNew ? 'Add' : 'Edit' }} Asset Details</h5>
+</div>
+<hr>
+<div class="nice-scroll add-people-sidebar" style="height: calc(100% - 107px)">
+  <one-admin-assets-details-form (nextStep)="nextStepPerson($event)"
+                                 [asset]="asset"
+                                 [isNew]="isNew"
+                                 [typesAssets]="typesAssets">
+  </one-admin-assets-details-form>
+</div>
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

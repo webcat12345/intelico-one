@@ -1,0 +1,5 @@
+<ul class="alphabet-filter">
+  <li *ngFor="let item of alphabet">
+    <button (click)="filterByFirstNamePeople(item.value)">{{ item.value }}</button>
+  </li>
+</ul>

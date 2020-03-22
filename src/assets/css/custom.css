@@ -1,0 +1,101 @@
+.voice-btn.listening {
+  display:inline-block;
+  text-indent:-9999px;
+  background:url(../ad_images/bars.svg) no-repeat scroll left top;
+  background-size:16px 24px;
+  width:16px;
+  height:24px;
+  position:absolute;
+  left:-5px;
+  top:11px;
+}
+
+one-admin-frozen-header-table {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.company-map {
+  z-index: 103;
+}
+
+.pac-container.pac-logo {
+  z-index: 10000;
+  margin-top: -209px;
+}
+
+.ui-select-match .btn{
+  height:36px;
+  padding:0 20px !important;
+  text-transform:none;
+  display:block;
+  width:100%;
+}
+
+.ui-select-match .btn-default.active,
+.ui-select-match .btn-default:active,
+.ui-select-match .btn-default:hover,
+.ui-select-match .open>.dropdown-toggle.btn-default{
+  background-color:rgba(255,255,255,0.08) !important;
+}
+
+.ui-select-choices{
+  padding:15px 0 !important;
+  background-color:#303137 !important;
+  border-radius:6px !important;
+  border:0 none !important;
+}
+
+.ui-select-choices-row.active > a{
+  background-color:transparent !important;
+}
+
+.ui-select-choices-row > a{
+  color:#888991 !important;
+}
+
+.searchbar select.form-control,
+.searchbar .ui-select-match {
+  width:260px;
+  margin:0 20px 0 10px;
+}
+
+.searchbar .ui-select-match .btn {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.searchbar .ui-select-container input.form-control {
+  width:260px;
+  margin:0 20px 0 10px;
+}
+
+.searchbar .ui-select-choices {
+  margin-left: 10px;
+  width: calc(100% - 30px) !important;
+}
+
+.ui-select-container {
+  outline: none;
+}
+
+.cdk-overlay-container {
+  z-index: 2030 !important;
+}
+
+select:invalid { color: gray !important; }
+
+.image-wrapper-template {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.image-wrapper-template img {
+  width: 100%;
+}
+
+.ng2-dropdown-menu {
+  z-index: 99999 !important;
+}

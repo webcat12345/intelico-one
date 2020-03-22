@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="10px" viewBox="0 0 13 10" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_check</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Messages_Combined" transform="translate(-1243.000000, -54.000000)" fill="#1B84FA">
+            <g id="Status-bar">
+                <g id="Company" transform="translate(1101.000000, 35.000000)">
+                    <path d="M146.262807,26.8287609 L143.594843,24 C143.23,23.6191636 142.638474,23.6191636 142.273632,24 C141.908789,24.3808364 141.908789,24.9982941 142.273632,25.3791305 L145.426807,28.7143727 C145.654049,28.9515768 145.969231,29.0410383 146.262807,28.982757 C146.556383,29.0410383 146.871565,28.9515768 147.098808,28.7143727 L154.726368,20.6647578 C155.091211,20.2839214 155.091211,19.6664637 154.726368,19.2856273 C154.361526,18.9047909 153.77,18.9047909 153.405157,19.2856273 L146.262807,26.8287609 Z" id="ic_check"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

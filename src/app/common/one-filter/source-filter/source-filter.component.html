@@ -1,0 +1,10 @@
+<div class="right-sidebar form-group source-filter-form">
+  <label class="control-label" *ngIf="isSource">Source</label>
+  <!-- we don't need autocomplete feature at this moment. https://trello.com/c/Gyfev3Mg/189-activity-filter-limit -->
+  <!--<input type="text" class="form-control" auto-complete [source]="dropdownSources" [(ngModel)]="source" (valueChanged)="selectValue()">-->
+  <select (ngModelChange)="selectValue($event)" [(ngModel)]="source" [ngModelOptions]="{standalone: true}"
+          class="form-control">
+    <option default selected value="default">All Sources</option>
+    <option *ngFor="let item of dropdownSources" [value]="item.id">{{ item.name }}</option>
+  </select>
+</div>

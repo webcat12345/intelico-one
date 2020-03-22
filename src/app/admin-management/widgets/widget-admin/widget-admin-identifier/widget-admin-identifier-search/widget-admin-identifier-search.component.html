@@ -1,0 +1,20 @@
+<ng-container *ngIf="!isSearching; else searchingBlock">
+  <h5 class="mb-30">Add {{selectedType.name}}</h5>
+  <p style="color:#888991">Enter the {{selectedType.name}} below to check if it already exists in the system</p>
+  <form #idSearchForm="ngForm" (ngSubmit)="doSearch()">
+    <div class="form-group">
+      <input [(ngModel)]="searchName" [placeholder]="'Type ' + selectedType.name + ' Name'" class="form-control" name="idName"
+             required type="text">
+    </div>
+    <button [disabled]="!idSearchForm.form.valid" class="btn btn-primary btn-block">Search</button>
+  </form>
+</ng-container>
+
+<ng-template #searchingBlock>
+  <h5 class="mb-30">Searching</h5>
+
+  <div class="invite-view">
+    <div class="search-btn"></div>
+    <p>Search in progress, please wait</p>
+  </div>
+</ng-template>

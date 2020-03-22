@@ -1,0 +1,23 @@
+<a (click)="close.emit(false)" class="clear-icon">Close</a>
+<h5 class="mb-20 color-white">{{isNew ? 'Add' : 'Edit'}} Product</h5>
+<form #productForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="row narrow-row" style="margin-bottom: 0;">
+    <div class="col-sm-12">
+      <div class="right-sidebar form-group">
+        <label class="control-label">Name</label>
+        <input [(ngModel)]="product.name" class="form-control" name="productName" placeholder="Product name" required
+               type="text">
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="right-sidebar form-group">
+        <label class="control-label">Description</label>
+        <input [(ngModel)]="product.description" class="form-control" name="description" placeholder="Description"
+               required type="text">
+      </div>
+    </div>
+  </div>
+  <button [disabled]="!productForm.form.valid" class="btn btn-primary btn-block"
+          type="submit">{{isNew ? 'Add' : 'Edit'}}</button>
+</form>
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

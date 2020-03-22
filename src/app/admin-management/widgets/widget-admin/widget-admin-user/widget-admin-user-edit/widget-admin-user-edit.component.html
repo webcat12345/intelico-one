@@ -1,0 +1,55 @@
+<h5 class="mb-30 color-white">Edit Existing User</h5>
+<ng-container>
+  <div class="add-identifier-step">
+
+    <p class="color-white">Complete the form below to add a new user</p>
+
+    <div class="sidebar-scroll nice-scroll">
+      <!--<div class="profile-img text-center">-->
+      <!--<div class="img">-->
+      <!--<img src="assets/images/admin-people-icon-grey.svg" alt="Profile Picture" class="placeholder">-->
+      <!--</div>-->
+      <!--<button type="button" class="btn btn-primary btn-small">Upload Photo</button>-->
+      <!--</div>-->
+
+      <form #userEditForm="ngForm" (ngSubmit)="onEditUser()" style="height: auto;">
+        <div class="right-sidebar form-group">
+          <label class="control-label">First Name</label>
+          <input [(ngModel)]="user.firstName" [readonly]="isReadonly" class="form-control" name="editFirstName"
+                 placeholder="First Name" required type="text">
+        </div>
+
+        <div class="right-sidebar form-group">
+          <label class="control-label">Last Name</label>
+          <input [(ngModel)]="user.lastName" [readonly]="isReadonly" class="form-control" name="editLastName"
+                 placeholder="Last Name" required type="text">
+        </div>
+
+        <div class="right-sidebar form-group">
+          <label class="control-label">Email</label>
+          <input [(ngModel)]="user.email" class="form-control" email name="editEmail" placeholder="Email" readonly
+                 required type="email">
+        </div>
+
+        <div class="right-sidebar form-group">
+          <label class="control-label">Mobile Number</label>
+          <input [(ngModel)]="user.mobile" [readonly]="isReadonly" class="form-control" name="editMobile"
+                 placeholder="Mobile Number" type="text">
+        </div>
+
+        <div class="right-sidebar form-group">
+          <label class="control-label">Select Role</label>
+          <select [ngModel]="user?.userType"
+                  (ngModelChange)="user.userType = $event"
+                  class="form-control" name="newRole" required>
+            <!--<option selected value="">Select Role</option>-->
+            <option *ngFor="let role of roles" value="{{role.value}}">{{role.label}}</option>
+          </select>
+        </div>
+
+        <button [disabled]="!userEditForm.form.valid" class="btn btn-primary btn-block">Update User</button>
+      </form>
+    </div>
+  </div>
+</ng-container>
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

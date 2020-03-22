@@ -1,0 +1,113 @@
+.checkbox.high,
+.checkbox.critical {
+	margin: 0 0 7px;
+}
+
+.checkbox.critical input:checked ~ label:after {
+    background-image: url(../images/tick-icon-critical.svg);
+}
+
+.checkbox.high input:checked ~ label:after {
+    background-image: url(../images/tick-icon-high.svg);
+}
+
+.checkbox.normal input:checked ~ label:after {
+    background-image: url(../images/tick-icon-normal.svg);
+}
+
+.sidebar-wrapper .control-label {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 17px;
+    padding: 9px 0
+}
+
+.sidebar-wrapper .form-group {
+    margin-bottom: 15px;
+}
+
+.alert-action-row {
+    background-color: #EBEFF7;
+    height: 86px;
+    cursor: default;
+}
+
+.alert-action-row .form-control {
+    margin: 0;
+}
+
+.alert-action-row .btn {
+    padding: 0;
+    height: 46px;
+    width: 115px;
+}
+
+.sidebar-wrapper .form-group .close--btn {
+    top: auto;
+    bottom: 13px;
+    right: 13px;
+    opacity: 0.5;
+}
+
+.sidebar-wrapper .form-group .close--btn:hover {
+    opacity: 1;
+}
+
+.separator {
+    background-color: transparent;
+    box-shadow: none !important;
+    border-radius: 0;
+}
+
+.separator .table-row {
+    height: 18px;
+    cursor: default;
+    text-align: center;
+    margin: 5px 0;
+    font-size: 10px;
+    position: relative;
+    font-weight: 500;
+}
+
+.separator .table-row:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 9px;
+    height: 1px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.separator .table-row span {
+    border-radius: 15px;
+    padding: 0 10px;
+    border: rgba(0,0,0,0.1) 1px solid;
+    color: #000;
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+    line-height: 17px;
+    height: 18px;
+    display: inline-block;
+}
+
+.filter-btns-wrap {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 10px;
+}
+
+.filter-btns-wrap .btn {
+    font-family: 'SF-Pro-Light';
+    height: 36px;
+    width: 80px;
+    font-size: 15px;
+}
+
+.filter-btns-wrap .btn-primary {
+    flex: 1;
+    margin: 0 0 0 10px;
+}
+
+

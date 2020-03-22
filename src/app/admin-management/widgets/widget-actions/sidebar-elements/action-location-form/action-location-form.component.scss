@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  & > form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}
+
+.footer-btn {
+  flex: 0 0 46px;
+}

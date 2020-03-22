@@ -1,0 +1,44 @@
+<one-admin-insight-report-type-filter (reportType)="reportTypeEvent($event)"></one-admin-insight-report-type-filter>
+<hr>
+<!--<one-admin-reason-filter keyword="actionReasonId"
+                         [isAny]="false"
+                         [isDisabled]="isDisabledReasonFilter"
+                         (changeFilter)="filterChanged($event)"></one-admin-reason-filter>-->
+<one-admin-value-filter (changeFilter)="filterChangedTriggerCondition($event)"
+                        [fields]="['triggerCondition']"
+                        [isDisabled]="isDisabledTriggerConditionFilter"></one-admin-value-filter>
+<hr>
+<one-admin-resolved-reason-filter (changeFilter)="filterChangedResolvedReason($event)"
+                                  [isAny]="false"
+                                  [isDisabled]="isDisabledResolvedReasonFilter"
+                                  keyword="resolvedReasonId"></one-admin-resolved-reason-filter>
+<hr>
+<div>
+  <form [formGroup]="filterIdentifier">
+    <label class="control-label">Identifier</label>
+    <input autocomplete="off"
+           class="form-control"
+           formControlName="identifier"
+           name="identifier"
+           placeholder="HA2019523" type="text">
+  </form>
+</div>
+<hr>
+<one-admin-date-range-filter (changeCustomFilter)="changeCustomFilter.emit($event)"
+                             (changeFilter)="changeFilter.emit($event)"
+                             (customFilterSelected)="customFilterSelected.emit($event)"
+                             [canBeDisabled]="canBeDisabled"
+                             [dataInsightSaveFilters]="dataInsightSaveFilters"
+                             [isDateRange]="true"
+                             [isDisabled]="isDisabledLocationAndDateFilter"
+                             [isLocation]="true">
+</one-admin-date-range-filter>
+<hr>
+<div class="filter-btns-wrap">
+  <button (click)="clearSearch()" class="btn btn-amber">Clear</button>
+  <button (click)="loadInsightFilters()"
+          [disabled]="!isRun"
+          class="btn btn-primary">Run
+  </button>
+  <!--<button class="btn btn-primary" (click)="saveInsightFilters()">Save</button>-->
+</div>

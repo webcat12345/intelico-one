@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Deny</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#AAABB3" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#AAABB3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Actions" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="Select-Action-Type" transform="translate(-899.000000, -448.000000)" fill="url(#linearGradient-1)">
+            <g id="pop-up" transform="translate(580.000000, 125.000000)">
+                <g id="Face-Template" transform="translate(292.000000, 323.000000)">
+                    <path d="M36.0469313,25.7814958 C38.008569,27.1784181 40.4083391,28 43,28 C49.627417,28 55,22.627417 55,16 C55,13.4083391 54.1784181,11.008569 52.7814958,9.04693128 L36.0469313,25.7814958 Z M33.2185042,22.9530687 L49.9530687,6.21850416 C47.991431,4.82158193 45.5916609,4 43,4 C36.372583,4 31,9.372583 31,16 C31,18.5916609 31.8215819,20.991431 33.2185042,22.9530687 Z M43,32 C34.163444,32 27,24.836556 27,16 C27,7.163444 34.163444,0 43,0 C51.836556,0 59,7.163444 59,16 C59,24.836556 51.836556,32 43,32 Z" id="Deny"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,30 @@
+<a (click)="close.emit(false)" class="clear-icon">Close</a>
+<h5 class="mb-30 color-white">{{isNew ? 'Add' : 'Edit'}} Team</h5>
+<form #teamForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="right-sidebar form-group">
+    <label class="control-label">Team Name</label>
+    <input [(ngModel)]="team.name" class="form-control" autocomplete="off" name="teamName" placeholder="Name" required type="text">
+  </div>
+  <div class="right-sidebar form-group">
+    <label class="control-label">Description</label>
+    <input [(ngModel)]="team.description" class="form-control" autocomplete="off" name="teamDescription" placeholder="Description"
+           required type="text">
+  </div>
+  <div class="right-sidebar form-group has-btn">
+    <label class="control-label">Add User</label>
+    <ng-select [(ngModel)]="selectedUserId" [clearable]="false" [items]="users"
+               [ngModelOptions]="{standalone: true}" bindLabel="name" bindValue="userId" placeholder="Select User">
+    </ng-select>
+    <button (click)="addUser()" [disabled]="!selectedUserId" class="btn btn-primary pull-left"
+            type="button">Add
+    </button>
+  </div>
+  <hr>
+  <one-admin-frozen-header-table (remove)="onRemove($event)" [data]="teamUsers" [info]="info"
+                                 [isPeopleTable]="true"></one-admin-frozen-header-table>
+  <button [disabled]="!teamForm.form.valid" class="btn btn-primary btn-block" type="submit">
+    {{isNew ? 'Create' : 'Edit'}}
+  </button>
+</form>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

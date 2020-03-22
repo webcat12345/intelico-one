@@ -1,0 +1,10 @@
+<form [formGroup]="searchKeyFilterForm">
+  <div class="form-group">
+    <label *ngIf="!noLabel" class="control-label">Search</label>
+    <input (keydown)="keyDown($event)" class="form-control" formControlName="searchKey" placeholder="Search"
+           type="text">
+    <button (click)="clear(); clearAllFilters()" [disabled]="searchKeyFilterForm.disabled" class="close--btn"
+            type="button">Clear
+    </button>
+  </div>
+</form>

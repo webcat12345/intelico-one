@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 9</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="View" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-649.000000, -242.000000)" id="Group-4">
+            <g transform="translate(150.000000, 212.000000)">
+                <g id="events">
+                    <g id="Navigation-bar">
+                        <g id="Group-3-Copy" transform="translate(488.000000, 22.000000)">
+                            <g id="Group-9" transform="translate(11.000000, 8.000000)">
+                                <rect id="Rectangle-9" stroke="#666E80" stroke-width="2" x="1" y="1" width="22" height="18" rx="2"></rect>
+                                <rect id="Rectangle-10" fill="#666E80" x="11" y="0" width="2" height="20"></rect>
+                                <rect id="Rectangle-10" fill="#666E80" transform="translate(12.000000, 10.000000) rotate(-270.000000) translate(-12.000000, -10.000000) " x="11" y="0" width="2" height="20"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

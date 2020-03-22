@@ -1,0 +1,21 @@
+<one-admin-expansion-table [columns]="displayColumns"
+                           [data]="assets"
+                           [detailTemplate]="detailPanel"
+                           tableName="People">
+
+  <ng-template #assetsName let-item="item">
+    <div class="icon-cell">
+      <img [src]="item?.identifierTypeId | identifierTypeIcon" alt="Identifier">
+    </div>
+    <span class="identifier-name">{{ item.name }}</span>
+  </ng-template>
+  <ng-template #detailPanel let-item="item">
+    <div class="btns-block clearfix">
+      <button (click)="editAsset.emit(item)" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]" class="btn btn-secondry pull-left"
+              type="button">Edit Asset
+      </button>
+      <button (click)="deleteAsset.emit(item)" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]" class="action-btn grey remove-btn pull-right"
+              type="button"></button>
+    </div>
+  </ng-template>
+</one-admin-expansion-table>

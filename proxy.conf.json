@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "http://one-api-v3-test.azurewebsites.net",
+    "secure": false
+  }
+}

@@ -1,0 +1,88 @@
+.time-units {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.time-units li {
+    display: block;
+    float: left;
+    padding: 6px 11px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 14px;
+	color: #ACB3BF;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 0 1px;
+}
+
+.time-units li:hover, .time-units li.active {
+	color: #fff;
+    border-radius: 6px;
+    background-color: #1B84FA;
+}
+
+.timeline-wrapper {
+    padding: 30px 0;
+}
+
+.timeline-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 0 4px;
+}
+
+.timeline-row .device-icon,
+.timeline-row .vehicle-icon,
+.timeline-row .people-icon, 
+.timeline-row .events-icon, 
+.timeline-row .notification-icon {
+    width: 24px;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.timeline-contents {
+    background-color: #fff;
+    flex: 1;
+    border-radius: 6px;
+    height: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.history-dots {
+    height: 16px;
+    width: 16px;
+    background-color: #ACB3BF;
+    border-radius: 50%;
+}
+
+.time-span {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 0 54px;
+}
+
+.time-span span {
+    color: #1F2226;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    position: relative;
+    padding: 25px 0 0;
+}
+
+.time-span span:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    height: 10px;
+    width: 1px;
+    background-color: #ACB3BF;
+}

@@ -1,0 +1,45 @@
+.timeline-table {
+  position: relative;
+  /*height: 315px;*/
+  .from-to {
+    text-align: center;
+    margin-top: 20px;
+    bottom: -36px !important;
+    margin-left: -165px !important;
+
+    .from {
+      font-weight: 600;
+
+      span {
+        font-weight: 300;
+        color: #6F6F74
+      }
+    }
+
+    .to {
+      font-weight: 600;
+
+      span {
+        font-weight: 300;
+        color: #6F6F74
+      }
+    }
+
+    .middle {
+      margin: 5px;
+    }
+  }
+
+  .premium-feature {
+    top: 10px;
+    right: 5px;
+    left: 5px;
+    bottom: 8px;
+    border-radius: 8px;
+  }
+}
+
+.graph {
+  margin: 9px 0 0;
+  // height: auto;
+}

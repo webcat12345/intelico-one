@@ -1,0 +1,25 @@
+<div *ngIf="false" class="nice-scroll">
+  <div class="action-title-wrapper clearfix">
+    <button (click)="actionStepService.changeStep(stepInfo.previous)" class="back-btn" type="button">Back</button>
+    <button (click)="actionStepService.closeSidebar()" class="close--btn" type="button">Close</button>
+    <h4>{{ stepInfo.title }}</h4>
+  </div>
+  <div class="select-action-wrapper">
+    <ul class="clearfix">
+      <li>
+        <div class="icon"></div>
+        <h4>Build your Action</h4>
+        <p>Create custom actions that best suit your needs</p>
+        <button (click)="select.emit()" class="btn btn-primary btn-block" type="button">Create</button>
+      </li>
+      <li>
+        <div class="icon"></div>
+        <h4>Discover Actions</h4>
+        <p>Create custom actions that best suit your needs</p>
+        <button class="btn btn-secondry btn-block" disabled type="button">Coming Soon</button>
+      </li>
+    </ul>
+  </div>
+</div>
+<one-admin-loader *ngIf="isLoading" [size]="'sm'" [whiteOverlay]="true"></one-admin-loader>
+

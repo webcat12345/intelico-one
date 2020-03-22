@@ -1,0 +1,268 @@
+.actions-sidebar {
+    z-index: 102;
+}
+
+.actions-sidebar .nice-scroll {
+    padding: 30px 25px;
+}
+
+.select-action-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100% - 24px);
+}
+
+.select-action-wrapper ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 550px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.select-action-wrapper ul li {
+    border-radius: 6px;
+    text-align: center;
+    margin: 0 10px;
+	background-color: #EBEFF7;
+}
+
+.select-action-wrapper ul li h4 {
+    color: #1F2226;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    padding: 0 40px 10px;
+}
+
+.select-action-wrapper ul li p {
+    color: #666F80;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: center;
+    padding: 0 40px 40px;
+}
+
+.select-action-wrapper ul li .btn {
+    border-radius: 0 0 6px 6px;
+    height: 46px;
+}
+
+.select-action-wrapper ul li .btn[disabled] {
+	background-color: #ACB3BF !important;
+    color: #fff !important;
+}
+
+.icon {
+    height: 64px;
+    width: 64px;
+    border: 2px solid #1B84FA;
+    border-radius: 50%;
+    margin: 60px auto 20px;
+}
+
+.action-title-wrapper .back-btn {
+    float: left;
+    margin-right: 10px;
+}
+
+.actions-sidebar h4 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    padding: 2px 0 0;
+}
+
+.action-title-wrapper h4 {
+    float: left;
+}
+
+.action-title-wrapper .badge {
+    height: 26px;
+    padding: 0 15px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 26px;
+    margin: 0 15px 0 0;
+    float: right;
+}
+
+.steps-counter {
+    height: 26px;
+    border-radius: 6px;
+    background-color: #fff;
+    padding: 7px 15px 5px;
+    color: #0077BE;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 14px;
+}
+
+.ac-step1 {
+    padding: 20px 0 0;
+}
+
+.ac-step1 .control-label {
+    padding: 0 0 15px;
+}
+
+.ac-step1 .form-group {
+    margin: 0 0 20px;
+}
+
+.ac-step1 textarea {
+    height: 90px;
+    padding: 17px;
+}
+
+ .ac-step2 {
+    padding: 30px 0 0;
+}
+
+.ac-step2 .custom-table,
+.ac-step3 .custom-table,
+.ac-step4 .custom-table {
+    margin-bottom: 20px;
+}
+
+.ac-step3, .ac-step4 {
+    padding: 10px 0 0;
+}
+
+.ac-step5 {
+    padding: 20px 0 0;
+}
+
+.ac-step5 .form-control {
+    margin: 0;
+}
+
+.ac-step5 h4 {
+    padding: 15px 0 !important;
+}
+
+.checkbox-wrapper .checkbox {
+    margin: 0 35px 0 0 !important;
+}
+
+.priority-control {
+    position: relative;
+}
+
+.priority-control span {
+    display: block;
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    top: 50%;
+    margin: -6px 0 0;
+    left: 34%
+}
+
+.ac-step3 .action-title-wrapper,
+.ac-step4 .action-title-wrapper {
+    padding: 10px 0 20px;
+}
+
+.ac-step3 .form-control {
+    margin: 0;
+}
+
+.ac-step3 .checkbox-wrapper .checkbox {
+    margin: 0 20px 0 0 !important;
+}
+
+.action-title-wrapper .close--btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.box-layout {
+    padding: 30px 0 10px;
+}
+
+.card {
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    padding: 20px 30px;
+    margin: 0 0 10px;
+}
+
+.card h6 {
+    color: #ACB3BF;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    padding: 0 0 7px;
+}
+
+.card-alert-info {
+    position: relative;
+    color: #1F2226;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 5px 0 5px 40px;
+}
+
+.card-alert-info img {
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+.card p {
+    color: #666F80;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 9px 0 0;
+}
+
+.actions-sidebar one-admin-action-splash,
+.actions-sidebar one-admin-action-name {
+    height: 100%;
+}
+
+.action-trigger-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.action-trigger-list li {
+    border-bottom: #EBEFF7 1px solid;
+    padding: 15px 0;
+}
+
+.action-trigger-list li h5 {
+    float: left;
+    padding: 1px 0 0;
+}
+
+.action-trigger-list li .switch {
+    float: right;
+}
+
+.on-off-switch label:after {
+    background-color: #ACB3BF;
+}
+
+.on-off-switch input:checked + label:after {
+    background-color: #1B84FA;
+}
+
+.actions-sidebar .switch {
+    color: #ACB3BF;
+}

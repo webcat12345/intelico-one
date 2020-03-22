@@ -1,0 +1,67 @@
+<div class="row narrow--row">
+  <div [formGroup]="selectTypeName" class="right-sidebar col-xs-2 graph-info custom-padding-left">
+    <!--<label class="control-label">Report Type</label>-->
+    <select class="form-control" formControlName="type_name">
+      <option disabled selected value="default">Select Type</option>
+      <option *ngFor="let item of typesReport" [value]="item.id">{{ item.value }}</option>
+      <option [value]="3" *oneAdminIfFeatureActivated="'Insights'">Metadata</option>
+    </select>
+  </div>
+  <div [formGroup]="selectTypeName" class="col-xs-2 graph-info">
+    <!-- <label class="control-label">Report Type</label>
+     <select class="form-control" formControlName="type_name">
+       <option value="default" disabled selected>Select Type</option>
+       <option *ngFor="let item of typesReport" [value]="item.value">{{ item.value }}</option>
+     </select>-->
+  </div>
+  <div [formGroup]="selectTypeName" class="col-xs-2 graph-info">
+    <!-- <label class="control-label">Report Type</label>
+     <select class="form-control" formControlName="type_name">
+       <option value="default" disabled selected>Select Type</option>
+       <option *ngFor="let item of typesReport" [value]="item.value">{{ item.value }}</option>
+     </select>-->
+  </div>
+  <div [formGroup]="selectTypeName" class="col-xs-2 graph-info">
+    <!-- <label class="control-label">Report Type</label>
+     <select class="form-control" formControlName="type_name">
+       <option value="default" disabled selected>Select Type</option>
+       <option *ngFor="let item of typesReport" [value]="item.value">{{ item.value }}</option>
+     </select>-->
+  </div>
+  <div [formGroup]="selectTypeName" class="col-xs-2 graph-info">
+    <one-admin-loader *ngIf="alertsReportLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div class="graph-info-new">
+      <div class="graph-info-data">
+        <span>Enter</span>
+        <span class="pull-right">{{ totalEnterExit?.enter }}</span>
+      </div>
+    </div>
+  </div>
+  <div [formGroup]="selectTypeName" class="form-group col-xs-2 graph-info custom-padding-right">
+    <one-admin-loader *ngIf="alertsReportLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div class="graph-info-resolved">
+      <div class="graph-info-data">
+        <span>Exit</span>
+        <span class="pull-right">{{ totalEnterExit?.exit }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 border"></div>
+  <one-admin-activity-report-graphs (clearTotalEnterExit)="totalEnterExit = {enter: 0, exit: 0}"
+                                    *ngIf="currentView === View.GraphView"
+                                    [customDate]="customDate"
+                                    [locationFilter]="locationFilter"
+                                    [date]="date"
+                                    [isCustomDate]="isCustomDate">
+  </one-admin-activity-report-graphs>
+  <one-admin-activity-report-type *ngIf="currentView === View.TypeView"
+                                  [customDate]="customDate"
+                                  [date]="date"
+                                  [locationFilter]="locationFilter"
+                                  [isCustomDate]="isCustomDate"></one-admin-activity-report-type>
+  <one-admin-one-admin-activity-report-metadata *ngIf="currentView === View.MetadataView"
+                                                [customDate]="customDate"
+                                                [locationFilter]="locationFilter"
+                                                [date]="date"
+                                                [isCustomDate]="isCustomDate"></one-admin-one-admin-activity-report-metadata>
+</div>

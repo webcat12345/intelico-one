@@ -1,0 +1,191 @@
+.viewer-window {
+    height: 100%;
+}
+
+.viewer-window .page-header .action-btn {
+    position: static;
+}
+
+.viewer-window .left-col {
+    padding: 0;
+    height: calc(100% - 80px);
+}
+
+.viewer-window .right-col {
+    height: calc(100% - 80px);
+}
+
+.viewer-window .page-header .global-search.pull-right {
+    width: 170px;
+}
+
+.viewer-window .page-header .download-btn {
+    margin-right: 20px;
+}
+
+.viewer-window .left-col .form-group {
+    margin: 20px 30px;
+}
+
+.viewer-window .left-col .form-control {
+    margin: 0;
+}
+
+.viewer-list {
+    flex: 1;
+    overflow: auto;
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+}
+
+.viewer-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.viewer-list > li {
+    line-height: 30px;
+    border-bottom: rgba(0,0,0,0.1) 1px solid;
+    padding: 10px 25px 7px;
+}
+
+.viewer-list > li:last-of-type {
+    border: 0 none;
+    padding-bottom: 0;
+}
+
+.viewer-list-header {
+    font-weight: 500;
+}
+
+.viewer-list > li ul {
+    margin: 0 0 0 26px;
+    border-bottom: rgba(0,0,0,0.1) 1px dashed;
+    padding: 0 0 3px;
+}
+
+.viewer-list > li ul:last-child {
+    border-bottom: 0 none;
+    padding-bottom: 0;
+}
+
+.viewer-list > li ul li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0;
+    font-size: 13px;
+}
+
+.viewer-list > li ul ul,
+.viewer-list > li ul ul ul {
+    border-bottom: 0 none;
+}
+
+.viewer-list > li ul ul ul li {
+    height: 26px;
+    line-height: 26px;
+    background: url(../images/video-icon-grey.svg) no-repeat scroll left center;
+    background-size: auto 18px;
+    padding: 0 0 0 24px;
+}
+
+.viewer-list > li > ul > li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.viewer-list div {
+    position: relative;
+    cursor: pointer;
+    height: 26px;
+    line-height: 26px;
+    color: #1F2226;
+    padding: 0 0 0 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.viewer-list div:before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    top: 2pt;
+	background-color: rgba(0,0,0,0.1);
+    height: 18px;
+    width: 18px;
+    border-radius: 4px;
+    font-size: 20px;
+    line-height: 18px;
+    text-align: center;
+    color: rgba(0,0,0,0.5);
+}
+
+.gridview {
+    height: 100%;
+}
+
+.grid1x1 .img {
+    height: 100%;
+    border-radius: 0;
+}
+
+.gridview .img .close--btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+}
+
+.grid2x2 .img {
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: 50%;
+    border-radius: 0;
+}
+
+.grid2x1 .img {
+    flex: 1;
+    height: 100%;
+    border-radius: 0;
+}
+
+.grid3x3 .img {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    height: 33.333333%;
+    border-radius: 0;
+}
+
+.gridview img {
+    height: 110%;
+}
+
+.camera-name {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    bottom: 10px;
+    background-color: rgba(0,0,0,0.5);
+    font-size: 12px;
+    border-radius: 6px;
+    height: 26px;
+    line-height: 26px;
+    display: block;
+    color: #fff;
+    padding: 0 10px;
+}
+
+.viewer-window .nav-tabs .record-btn:hover {
+    background-color: #e43c33 !important;
+    color: #fff !important;
+}
+
+.nav-tabs > li.active .record-btn {
+    background-color: #e43c33 !important;
+}

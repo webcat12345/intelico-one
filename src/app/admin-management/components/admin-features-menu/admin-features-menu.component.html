@@ -1,0 +1,11 @@
+<ul class="main-nav">
+  <li (click)="openStandardWindows(menu?.windowType)"
+      *ngFor="let menu of featureMenuEntries"
+      [class.active]="menu?.windowType | isMenuActive : boxes"
+      [class.running]="openedWindows[menu?.windowType]"
+      oneAdminClickSound>
+
+    <a [ngClass]="menu?.classString" [tooltip]="menu?.tooltipLabel" container="body"
+       placement="top">{{ menu.menuLabel }}</a>
+  </li>
+</ul>

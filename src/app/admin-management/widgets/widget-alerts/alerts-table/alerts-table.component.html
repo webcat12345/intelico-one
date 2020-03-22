@@ -1,0 +1,144 @@
+<one-admin-expansion-table (rowExpanded)="expandRow($event)"
+                           [columns]="displayColumns"
+                           [customRowFooter]="resolvedRowFooter"
+                           [data]="notifications"
+                           [detailTemplate]="detailPanel"
+                           [scrollToTop]="getScrollTop"
+                           tableName="Alert">
+
+  <ng-template #resolvedRowFooter let-item="item">
+    <div (click)="table.expandRow(item)" *ngIf="item.status === NotificationStatus.Resolved" class="table-row resolved">
+      <div class="cell-wrap full">
+        <div class="icon-cell"><img [src]="'assets/images/resolved-icon.svg'" alt="Resolved"></div>
+        Comment - {{ item?.resolvedComment || 'No comment' }}</div>
+      <div class="cell-wrap" style="width: 28.8%">{{ item?.resolvedReason || 'No reason' }}</div>
+      <div class="cell-wrap"
+           style="width: 32.5%">{{ item?.resolvedByUserFName + ' ' + item?.resolvedByUserLName }}</div>
+      <div class="cell-wrap" style="width: 11%">{{ item?.duration }}</div>
+      <div class="cell-wrap date" style="width: 86px">{{ item?.resolvedOn | date : 'HH:mm:ss' }}
+        <span>{{ item?.resolvedOn | date : 'dd MMM yy' }}</span></div>
+    </div>
+  </ng-template>
+
+  <ng-template #peopleImage let-item="item">
+    <div class="icon-cell">
+      <img [src]="item?.peopleId === '00000000-0000-0000-0000-000000000000' || !item?.peopleId ? 'assets/images/nav-people-disabled.svg' : 'assets/images/nav-people.svg'" alt="Identifier">
+    </div>
+  </ng-template>
+
+  <ng-template #detailPanel let-item="item">
+    <div (click)="openImage.emit(selectedEvent?.pictureUrl)" class="img pull-left" style="position: relative">
+      <button *ngIf="item?.pictureUrl" [disabled]="!selectedEvent?.pictureUrl"
+              [ngClass]="{'disabled-expand-btn': !selectedEvent?.pictureUrl}"
+              class="expand-btn"
+              type="button">Expand
+      </button>
+      <img *ngIf="!isEventLoading"
+           [src]="selectedEvent?.pictureUrl ? selectedEvent?.pictureUrl : 'assets/images/img-placeholder.jpg'" alt="Numberplate">
+      <one-admin-loader *ngIf="isEventLoading" [size]="'sm'"></one-admin-loader>
+    </div>
+    <div class="event-detail-info pull-right">
+      <div *ngIf="item.showResolveForm" class="resolve-form">
+        <h6>Resolve Alert</h6>
+        <button (click)="item.showResolveForm = false" class="close--btn" type="button">Close</button>
+        <form [formGroup]="alertsResolveForm" class="right-sidebar">
+          <select (ngModelChange)="onchangeAlertsResolve($event)"
+                  class="form-control"
+                  formControlName="alertsResolve">
+            <option disabled hidden selected value="-1">Select reason</option>
+            <option *ngFor="let reason of reasons" [value]="reason.value">{{ reason.value }}</option>
+          </select>
+          <!--<input type="text" class="form-control" placeholder="Add comments…" [(ngModel)]="item.comment" [ngModelOptions]="{standalone: true}">-->
+          <input (ngModelChange)="onchangeAlertsComments($event)"
+                 class="form-control"
+                 formControlName="alertsComments"
+                 placeholder="Add comments…"
+                 type="text">
+          <button (click)="resolveNotification(item)" [disabled]="!resolveReason?.comment"
+                  class="btn btn-primary btn-block"
+                  type="button">Resolve
+          </button>
+        </form>
+      </div>
+
+      <ng-container *ngIf="!item.showResolveForm">
+        <div *ngIf="currentView === View.MapView" class="sm-map">
+          <button (click)="openLocateWindow(item, $event)" class="expand-btn" type="button">Expand</button>
+          <ng-container>
+            <one-admin-one-map *ngIf="!item.showDetail && selectedEvent"
+                               [corresponding]="{lat: 0.0015, lng: 0}"
+                               [height]="'206px'"
+                               [infoTemplateRef]="infoBox"
+                               [lock]="true"
+                               [position]="{lat: selectedEvent?.latitude, lng: selectedEvent?.longitude}">
+              <ng-template #infoBox let-item>
+                <div class="marker-details-top new-marker-details text-center">
+                  <h5>{{ item?.site }}</h5>
+                  <p>{{ (selectedEvent?.locationDetails | locationDetailAddress :  'site') || 'Unknown Address' }}</p>
+                  <p>{{ (selectedEvent?.locationDetails | locationDetailAddress : 'area') || 'Unknown Address' }}</p>
+                  <p>{{ (selectedEvent?.locationDetails | locationDetailAddress : 'zone') || 'Unknown Address' }}</p>
+                  <!--   <p>{{ (selectedEvent?.locationDetails | locationDetailAddress) || 'Unknown Address' }}</p>-->
+                </div>
+              </ng-template>
+            </one-admin-one-map>
+          </ng-container>
+        </div>
+        <one-admin-event-detailed-info-panel (expand)="onExpand(item)"
+                                             *ngIf="isEventDetailed()"
+                                             [action]="getActions"
+                                             [config]="eventDetailedConfig()"></one-admin-event-detailed-info-panel>
+        <div class="sm-map-actions">
+          <div class="flex-btn-wrap">
+            <button (click)="currentView = View.MapView" [class.active]="currentView === View.MapView" class="action-btn locate-btn"
+                    container="body" placement="top" tooltip="Map" type="button">Locate
+            </button>
+            <button (click)="currentView = View.ActivityView" [class.active]="currentView === View.ActivityView" class="action-btn history-btn"
+                    container="body" placement="top" tooltip="Activity" type="button">
+              Activity
+            </button>
+          </div>
+          <div class="flex-btn-wrap">
+            <button (click)="currentView = View.DetailView" [class.active]="currentView === View.DetailView" class="action-btn info-btn"
+                    container="body" placement="top" tooltip="Details" type="button">Details
+            </button>
+            <button (click)="currentView = View.ActionsView" [class.active]="currentView === View.ActionsView" [disabled]="!isAction"
+                    class="action-btn actions-btn" container="body" placement="top" tooltip="Actions"
+                    type="button">Actions
+            </button>
+          </div>
+          <div class="flex-btn-wrap">
+            <button (click)="currentView = View.PeopleView" [class.active]="currentView === View.PeopleView" [disabled]="!item.peopleId ||  item.peopleId == '00000000-0000-0000-0000-000000000000'"
+                    class="action-btn people-btn" container="body" placement="top"
+                    tooltip="People"
+                    type="button">People
+            </button>
+            <button (click)="currentView = View.GroupView" [class.active]="currentView === View.GroupView" [disabled]="!item.peopleId ||  item.peopleId == '00000000-0000-0000-0000-000000000000'"
+                    class="action-btn groups-btn" container="body" placement="top"
+                    tooltip="Groups"
+                    type="button">Groups
+            </button>
+            <!-- <button type="button" class="action-btn" disabled></button>-->
+          </div>
+          <button (click)="item.showResolveForm = true" *ngIf="item.status !== NotificationStatus.Resolved" class="btn btn-primary btn-block"
+                  container="body" placement="top" tooltip="Resolve Alert"
+                  type="button"></button>
+        </div>
+      </ng-container>
+    </div>
+  </ng-template>
+
+  <ng-template #typeCell let-item="item">
+    <div class="icon-cell">
+      <img [src]="item?.identifierTypeId | identifierTypeIcon" alt="Identifier">
+    </div>
+    <span class="identifier-name">{{ item.identifier }}</span>
+  </ng-template>
+
+  <ng-template #priorityBadge let-item="item">
+    <span *ngIf="item.priority === 300" class="badge high">High</span>
+    <span *ngIf="item.priority === 400" class="badge critical">Critical</span>
+    <span *ngIf="item.priority === 200" class="badge normal">Normal</span>
+  </ng-template>
+
+</one-admin-expansion-table>
+<one-admin-loader *ngIf="isLoading" [whiteOverlay]="true"></one-admin-loader>

@@ -1,0 +1,84 @@
+<h5 class="mb-30">Create Alert for {{selectedType?.title}}</h5>
+<p>Enter the details Below</p>
+
+<div class="table-scroller" style="height: calc(100% - 71px)">
+  <div class="form-group">
+    <input class="form-control" placeholder="Identifier" type="text">
+  </div>
+
+  <div class="form-group">
+    <select class="form-control">
+      <option>Type</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <select class="form-control">
+      <option>If Identifier</option>
+    </select>
+  </div>
+
+  <label class="control-label mt-30">Location</label>
+  <div class="form-group">
+    <select class="form-control">
+      <option>All Sites</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <select class="form-control">
+      <option>All Areas</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <select class="form-control">
+      <option>All Zones</option>
+    </select>
+  </div>
+
+  <label class="control-label mt-30">Condition</label>
+  <div class="form-group">
+    <select class="form-control">
+      <option>Text</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <select class="form-control">
+      <option>Text</option>
+    </select>
+  </div>
+
+  <div class="actions-row clearfix">
+    <label class="control-label pull-left">Action</label>
+    <div class="checkbox pull-left"><input id="chbSMS" type="checkbox"><label for="chbSMS">SMS</label></div>
+    <div class="checkbox pull-left"><input id="chbCall" type="checkbox"><label for="chbCall">Call</label></div>
+    <div class="checkbox pull-left"><input id="chbEmail" type="checkbox"><label for="chbEmail">Email</label></div>
+    <div class="checkbox pull-left"><input id="chbTag" type="checkbox"><label for="chbTag">Tag</label></div>
+  </div>
+
+  <div class="form-group">
+    <select class="form-control">
+      <option>Reason</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <select class="form-control">
+      <option>Priority</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <select class="form-control">
+      <option>Team</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <input class="form-control" placeholder="Notes" type="text">
+  </div>
+
+</div>
+<button (click)="close.emit(true)" class="btn btn-primary btn-block" type="button">Add Action</button>

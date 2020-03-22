@@ -1,0 +1,42 @@
+<div class="row narrow--row container-type">
+  <div class="type-data-title col-xs-4">
+    <span class="title-type">Top Make</span>
+  </div>
+  <div class="type-data-title col-xs-4">
+    <span class="title-type">Top Fuel</span>
+  </div>
+  <div class="type-data-title col-xs-4">
+    <span class="title-type">Top CO2</span>
+  </div>
+</div>
+<div class="row narrow--row container-type">
+  <div class="col-xs-4 border-right">
+    <one-admin-loader *ngIf="activityByMakeLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div *ngFor="let item of activityByMake" class="type-data">
+      <div class="type-data-detail color-columns">
+        <!-- <img [src]="item?.row[0].historyItemSource | identifierTypeIcon" alt="Identifier">-->
+        <!--<span>{{ (item?.row[0].identifierType.length > 20) ? (item?.row[0].identifierType | slice:0:20) + '...' : (item?.row[0].identifierType) }}</span>-->
+        <span>{{ item?.row[0].make }}</span>
+        <span class="pull-right">{{ item?.row[0].count }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4 border-right">
+    <one-admin-loader *ngIf="activityByFuelLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div *ngFor="let item of activityByFuel" class="type-data">
+      <div class="type-data-detail color-columns">
+        <span>{{ item?.row[0].fuel }}</span>
+        <span class="pull-right">{{ item?.row[0].count }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4 custom-padding">
+    <one-admin-loader *ngIf="activityByCO2Loading" [whiteOverlay]="true"></one-admin-loader>
+    <div *ngFor="let item of activityByCO2" class="type-data">
+      <div class="type-data-detail color-columns">
+        <span>{{ item?.row[0].co2 }}</span>
+        <span class="pull-right">{{ item?.row[0].count }}</span>
+      </div>
+    </div>
+  </div>
+</div>

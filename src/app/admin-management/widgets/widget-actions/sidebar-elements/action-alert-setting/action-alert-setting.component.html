@@ -1,0 +1,111 @@
+<form (ngSubmit)="save()" *ngIf="triggerForm" [formGroup]="triggerForm">
+  <div class="nice-scroll">
+    <div class="action-title-wrapper clearfix">
+      <button (click)="actionStateService.changeStep(stepInfo.previous)" class="back-btn" type="button">Back</button>
+      <button (click)="actionStateService.closeSidebar()" class="close--btn" type="button">Close</button>
+      <h4>{{ stepInfo.title }}</h4>
+      <div *ngIf="stepInfo.stepNumber" class="steps-counter pull-right">{{ stepInfo.stepNumber }}
+        / {{ stepInfo.allStepsNumber }}</div>
+    </div>
+    <div class="ac-step5">
+      <div class="row narrow--row">
+        <div class="col-sm-5 d-flex-align-center">
+          <select class="form-control" disabled>
+            <option>Generate Alerts</option>
+          </select>
+          <div class="checkbox pull-left">
+            <input [(ngModel)]="generalOption" [ngModelOptions]="{standalone: true}" id="general" (ngModelChange)="onChangeGeneralOption()"
+                   type="checkbox">
+            <label for="general"></label>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row narrow--row">
+        <div class="col-sm-4">
+          <h4>Notification Priority</h4>
+          <div class="priority-control">
+            <!-- Liu please use high and normal classes with span tag -->
+            <span [class.critical]="+triggerForm.get('priority').value === 400"
+                  [class.high]="+triggerForm.get('priority').value === 300"
+                  [class.normal]="+triggerForm.get('priority').value === 200"></span>
+            <select class="form-control" formControlName="priority">
+              <option [value]="Priority.Critical">Critical</option>
+              <option [value]="Priority.High">High</option>
+              <option [value]="Priority.Normal">Normal</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <h4>Action Reason</h4>
+          <div class="">
+            <ng-select (change)="onchangeActionReason($event)"
+                       [clearable]="false"
+                       [items]="reasons"
+                       placeholder="Select Action Reason"
+                       bindLabel="value"
+                       bindValue="id"
+                       formControlName="actionReason">
+            </ng-select>
+          </div>
+        </div>
+        <div class="col-sm-4" *oneAdminIfFeatureActivated="'Action-Permissions'">
+          <h4>Permission</h4>
+          <div class="checkbox mt-10">
+            <input id="chbDenyAccess" type="checkbox">
+            <label for="chbDenyAccess">Deny Access</label>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <ng-container *ngIf="generalOption">
+        <h4>Alerts Via</h4>
+        <div class="checkbox-wrapper clearfix">
+          <!-- dashboard is a default option -->
+          <div class="checkbox pull-left">
+            <input (ngModelChange)="onChangeOption($event, 'email')" [ngModel]="emailOption" [ngModelOptions]="{standalone: true}" id="email"
+                   type="checkbox">
+            <label for="email">Email</label>
+          </div>
+          <div class="checkbox pull-left">
+            <input (ngModelChange)="onChangeOption($event, 'sms')" [ngModel]="smsOption" [ngModelOptions]="{standalone: true}" id="aachbSMS"
+                   type="checkbox">
+            <label for="aachbSMS">SMS</label>
+          </div>
+          <div class="checkbox pull-left">
+            <input (ngModelChange)="onChangeOption($event, 'phone')" [ngModel]="phoneOption" [ngModelOptions]="{standalone: true}" id="aachbPhoneCall"
+                   type="checkbox">
+            <label for="aachbPhoneCall">Phone Call</label>
+          </div>
+          <div class="checkbox pull-left">
+            <input (ngModelChange)="onChangeOption($event, 'whatsApp')" [ngModel]="whatsappOption" [ngModelOptions]="{standalone: true}" id="aachbWhatsapp"
+                   type="checkbox">
+            <label for="aachbWhatsapp">WhatsApp</label>
+          </div>
+          <div class="checkbox pull-left">
+            <input (ngModelChange)="onChangeOption($event, 'sideBar')" [ngModel]="sidebarOption" [ngModelOptions]="{standalone: true}" id="aachbSidebar"
+                   type="checkbox">
+            <label for="aachbSidebar">Sidebar</label>
+          </div>
+        </div>
+        <div class="checkbox-wrapper clearfix" style="margin-top: 10px;">
+          <!-- dashboard is a default option -->
+          <!--<div class="checkbox pull-left">
+            <input type="checkbox" id="aachbTeam" [(ngModel)]="teamOption" [ngModelOptions]="{standalone: true}"
+              (ngModelChange)="onChangeOption($event)">
+            <label for="aachbTeam">Team</label>
+          </div>-->
+          <div class="checkbox pull-left">
+            <input (ngModelChange)="onChangeOption($event, 'voice')" [ngModel]="voiceOption" [ngModelOptions]="{standalone: true}" id="aachbVoice"
+                   type="checkbox">
+            <label for="aachbVoice">Voice</label>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <button [disabled]="triggerForm.invalid || isActionReason"
+          class="btn btn-primary footer-btn">{{stepInfo.buttonLabel}}</button>
+</form>
+
+<one-admin-loader *ngIf="actionReasonLoading" [whiteOverlay]="true"></one-admin-loader>

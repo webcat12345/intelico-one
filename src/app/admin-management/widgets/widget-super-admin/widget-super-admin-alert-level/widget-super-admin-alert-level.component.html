@@ -1,0 +1,30 @@
+<div class="flex-window">
+  <div class="filters clearfix">
+    <h4 class="pull-left">Alert Level ({{levelList.totalCount}})</h4>
+
+    <button (click)="onCreateLevel()" class="btn btn-primary pull-left" type="button">Add New</button>
+
+    <div class="pull-right">
+      <div class="form-group has-icon">
+        <input [(ngModel)]="searchKey" class="form-control" name="searchKey" placeholder="Search" type="text">
+      </div>
+    </div>
+  </div>  <!-- end filters -->
+
+  <one-admin-frozen-header-table
+    (edit)="onEditLevel($event)"
+    (remove)="onRemoveLevel($event)"
+    [data]="levelList.data | filterBy : ['name'] : searchKey"
+    [info]="info"></one-admin-frozen-header-table>
+
+</div>
+
+<div class="custom-modal">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut class="add--sidebar">
+    <one-admin-widget-super-admin-alert-level-add (close)="onCloseAddSection($event)" [isNew]="isAddModal"
+                                                  [selectedLevel]="selectedLevel"></one-admin-widget-super-admin-alert-level-add>
+  </div>
+</div>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

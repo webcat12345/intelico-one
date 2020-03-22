@@ -1,0 +1,63 @@
+<div class="table-header-row header-row">
+  <div *ngFor="let column of columns"
+       [ngClass]="column?.classes"
+       [style.width]="column?.width"
+       class="cell-wrap">
+
+    <ng-container *ngIf="column.header.type === CellType.default">
+      {{ column?.label }}
+    </ng-container>
+
+    <ng-container *ngIf="column.header.type === CellType.template">
+      <ng-template [ngTemplateOutlet]="column.header.templateRef"></ng-template>
+    </ng-container>
+
+  </div>
+</div>
+<div #divScrollTop class="table-inner-wrapper">
+  <div (click)="edit.emit(row)" *ngFor="let row of data" [class.separator]="!row.id" class="table-row-wrapper">
+    <!-- new alert separator -->
+    <div *ngIf="!row.id" class="table-row">
+      <div class="cell-wrap full"><span>New {{ tableName }}</span></div>
+    </div>
+    <div (click)="expandRow(row)" *ngIf="row.id" class="table-row">
+
+      <div *ngFor="let column of columns"
+           [class.date]="column.content.type === CellType.date"
+           [ngClass]="column.classes"
+           [style.width]="column.width"
+           class="cell-wrap">
+
+        <ng-container *ngIf="column.content.type === CellType.default">
+          {{ row[column.name] }}
+        </ng-container>
+
+        <ng-container *ngIf="column.content.type === CellType.secondLevel">
+          <div class="" style="min-width: 50px; max-width: 50px; text-align: center">
+            <span>{{ row[column.name]?.length || 0 }}</span>
+          </div>
+          <!-- <div class="" *ngFor="let item of row[column.name]">
+           </div>-->
+        </ng-container>
+
+        <ng-container *ngIf="column.content.type === CellType.date">
+          {{ row[column.name] | date : 'HH:mm:ss' }}<span>{{ row[column.name] | date : 'dd MMM yy' }}</span>
+        </ng-container>
+
+        <ng-container *ngIf="column.content.type === CellType.template">
+          <ng-template [ngTemplateOutletContext]="{item: row}"
+                       [ngTemplateOutlet]="column?.content?.templateRef"></ng-template>
+        </ng-container>
+
+      </div>
+    </div>
+
+    <ng-template [ngTemplateOutletContext]="{item: row}" [ngTemplateOutlet]="customRowFooter"></ng-template>
+
+    <div *ngIf="row.expanded" @shrinkInOut class="details-wrapper">
+      <ng-template [ngTemplateOutletContext]="{item: row}" [ngTemplateOutlet]="detailTemplate"></ng-template>
+    </div>
+  </div>
+</div>
+
+<button #bntScrollTop (click)="divScrollTop.scrollTop = 0" [hidden]="true"></button>

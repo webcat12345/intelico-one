@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="32px" viewBox="0 0 22 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_face</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#ffffff" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#ffffff" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Identifiers" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Add-Identifier-Type" transform="translate(-739.000000, -238.000000)" fill="url(#linearGradient-1)">
+            <g id="pop-up" transform="translate(100.000000, 125.000000)">
+                <g id="Face-Template" transform="translate(599.000000, 113.000000)">
+                    <path d="M54.210625,24 C57.2349375,24 59.980125,24.6186667 62,26.196 C59.7511875,29.6746667 55.6660625,32 51,32 C46.3339375,32 42.2488125,29.6746667 40,26.196 C42.019875,24.6186667 44.7650625,24 47.789375,24 L54.210625,24 Z M51.0000687,22.6666667 C45.6843187,22.6666667 41.3750687,14.6606667 41.3750687,9.44466667 C41.3750687,4.22866667 45.6843187,0 51.0000687,0 C56.3158187,0 60.6250687,4.22866667 60.6250687,9.44466667 C60.6250687,14.6606667 56.3158187,22.6666667 51.0000687,22.6666667 Z" id="ic_face"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

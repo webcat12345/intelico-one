@@ -1,0 +1,8 @@
+<div [class.white-overlay]="whiteOverlay" class="show-loader">
+  <div *ngIf="type === LoaderType.Default" [ngClass]="size ? 'loader--' + size : ''" class="loader"></div>
+  <div *ngIf="type === LoaderType.Ball" class="la-ball-pulse">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>

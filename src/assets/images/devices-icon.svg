@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="48px" viewBox="0 0 32 48" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: sketchtool 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>AB2D3038-E876-49C4-A4A4-753D0BEF3506</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Locate-1.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Locate-1.1-Main" transform="translate(-554.000000, -377.000000)" fill="url(#linearGradient-1)">
+            <g id="People-Copy-2" transform="translate(500.000000, 345.000000)">
+                <path d="M56,32 L84,32 C85.1045695,32 86,32.8954305 86,34 L86,78 C86,79.1045695 85.1045695,80 84,80 L56,80 C54.8954305,80 54,79.1045695 54,78 L54,34 C54,32.8954305 54.8954305,32 56,32 Z M57,34 C56.4477153,34 56,34.4477153 56,35 L56,77 C56,77.5522847 56.4477153,78 57,78 L83,78 C83.5522847,78 84,77.5522847 84,77 L84,35 C84,34.4477153 83.5522847,34 83,34 L57,34 Z M70,76 C68.8954305,76 68,75.1045695 68,74 C68,72.8954305 68.8954305,72 70,72 C71.1045695,72 72,72.8954305 72,74 C72,75.1045695 71.1045695,76 70,76 Z M67,36 L73,36 C73.5522847,36 74,36.4477153 74,37 C74,37.5522847 73.5522847,38 73,38 L67,38 C66.4477153,38 66,37.5522847 66,37 C66,36.4477153 66.4477153,36 67,36 Z M58,40 L82,40 L82,70 L58,70 L58,40 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

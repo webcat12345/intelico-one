@@ -1,0 +1,37 @@
+<div class="flex-window">
+  <div class="filters page-header clearfix">
+    <h1 class="pull-left" style="color: #fff">Teams<span *ngIf="teamList.totalCount"
+                                                         class="badge">{{ teamList.totalCount }}</span>
+    </h1>
+    <button (click)="onCreateTeam()" *ngIf="!showAddModal" class="action-btn addnew pull-right" container="body" placement="bottom"
+            style="margin-right: 7px;" tooltip="Add Team" type="button">List View
+    </button>
+    <div class="pull-right">
+      <div class="form-group has-icon">
+        <input [(ngModel)]="searchKey" class="form-control sm-width" placeholder="Search" type="text">
+      </div>
+    </div>
+  </div>
+  <one-admin-frozen-header-table (edit)="onEditTeam($event)" (remove)="onDeleteConfirm($event)" [data]="teamList.data | filterBy: ['name', 'description']: searchKey"
+                                 [info]="info"></one-admin-frozen-header-table>
+  <one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>
+</div>
+
+<div class="custom-modal">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut class="add-team md-width">
+    <one-admin-widget-admin-team-add (close)="onCloseAddSection($event)" [isNew]="isAddModal"
+                                     [selectedTeam]="selectedTeam"></one-admin-widget-admin-team-add>
+  </div>
+</div>
+
+<div *ngIf="showConfirmModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p>Are you sure you want to delete this team?</p>
+      <button (click)="onRemoveTeam(true)" class="btn btn-primary" type="button">Yes</button>
+      <button (click)="onRemoveTeam(false)" class="btn btn-secondry" type="button">No</button>
+    </div>
+  </div>
+</div>

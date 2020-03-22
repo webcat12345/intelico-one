@@ -1,0 +1,10 @@
+<h5 class="mb-30">Select Action Type</h5>
+<p>Select the action type for {{selectedType.title}} below</p>
+
+<ul class="admin-list clearfix">
+  <li (click)="close.emit(true)"><a class="create-alert-link"><span>Create Alert</span></a></li>
+  <li><a class="custom-action-link disabled-link"><span>Custom Action</span></a></li>
+  <li><a class="allow-access-link disabled-link"><span>Allow Access</span></a></li>
+  <li><a class="deny-access-link disabled-link"><span>Deny Access</span></a></li>
+  <li><a class="engage-link disabled-link"><span>Engage</span></a></li>
+</ul>

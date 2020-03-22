@@ -1,0 +1,46 @@
+<div class="col-title color-white">My Details</div>
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+  <div class="row narrow-row">
+    <div class="col-sm-6">
+      <div class="right-sidebar form-group">
+        <label class="control-label">First Name</label>
+        <input [(ngModel)]="contact.firstName" class="form-control grey" name="firstName" required type="text">
+      </div>
+    </div>  <!-- end col -->
+
+    <div class="col-sm-6">
+      <div class="right-sidebar form-group">
+        <label class="control-label">Last Name</label>
+        <input [(ngModel)]="contact.lastName" class="form-control grey" name="lastName" required type="text">
+      </div>
+    </div>  <!-- end col -->
+  </div>
+
+  <div class="row narrow-row">
+    <div class="col-sm-6">
+      <div class="right-sidebar form-group">
+        <label class="control-label">Email</label>
+        <input [(ngModel)]="contact.email" class="form-control grey" email name="email" readonly required type="email">
+      </div>
+    </div>  <!-- end col -->
+
+    <div class="col-sm-6">
+      <div class="right-sidebar form-group">
+        <label class="control-label">Mobile</label>
+        <input [(ngModel)]="contact.mobile" class="form-control grey" name="mobile" type="text">
+      </div>
+    </div>  <!-- end col -->
+  </div>
+
+  <div class="row narrow-row">
+    <div class="col-sm-6">
+      <div class="right-sidebar form-group">
+        <label class="control-label">Role</label>
+        <input [value]="role" class="form-control grey" name="role" readonly type="email">
+      </div>
+    </div>  <!-- end col -->
+  </div>
+
+  <button [disabled]="!contactForm.form.valid" class="btn btn-primary btn-block">Update</button>
+</form>
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

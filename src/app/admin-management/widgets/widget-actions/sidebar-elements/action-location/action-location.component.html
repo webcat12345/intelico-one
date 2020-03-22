@@ -1,0 +1,40 @@
+<div class="nice-scroll">
+  <div class="action-title-wrapper clearfix">
+    <button (click)="actionStateService.changeStep(stepInfo.previous)" class="back-btn" type="button">Back</button>
+    <button (click)="actionStateService.closeSidebar()" class="close--btn" type="button">Close</button>
+    <h4>{{ stepInfo.title }}</h4>
+    <div *ngIf="stepInfo.stepNumber" class="steps-counter pull-right">{{ stepInfo.stepNumber }}
+      / {{ stepInfo.allStepsNumber }}</div>
+  </div>
+  <div class="ac-step4">
+
+    <div class="custom-table default-table default-table-striped">
+      <div class="table-row header-row">
+        <div class="cell-wrap" style="width: 55px;"></div>
+        <div class="cell-wrap" style="width: 20%">Site</div>
+        <div class="cell-wrap full text-center">Area</div>
+        <div class="cell-wrap" style="width:20%">Zone</div>
+        <div class="cell-wrap" style="width: 95px"></div>
+      </div>
+      <div *ngFor="let item of actionStateService.action?.locations; let i = index" class="table-row-wrapper">
+        <div class="table-row">
+          <div class="cell-wrap" style="width: 55px;">{{ i + 1 }}</div>
+          <div class="cell-wrap"
+               style="width: 20%">{{ actionStateService.getFullLayerFormat(item.id)?.site?.name }}</div>
+          <div class="cell-wrap full text-center">{{ actionStateService.getFullLayerFormat(item.id)?.area?.name }}</div>
+          <div class="cell-wrap"
+               style="width: 20%">{{ actionStateService.getFullLayerFormat(item.id)?.zone?.name }}</div>
+          <div class="cell-wrap action-cell-wrap" style="width: 95px;">
+            <a (click)="removeLocation(i)"><img alt="remove" src="assets/images/trash-icon.svg"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button (click)="add.emit()" class="btn btn-primary" type="button">Add New Location Rule</button>
+  </div>
+  <one-admin-loader *ngIf="isLoading" [size]="'sm'" [whiteOverlay]="true"></one-admin-loader>
+</div>
+<button (click)="onNext()" *ngIf="stepInfo.buttonLabel" [disabled]="actionStateService.action?.locations.length === 0"
+        class="btn btn-primary footer-btn" type="button">{{stepInfo.buttonLabel}}</button>
+

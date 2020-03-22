@@ -1,0 +1,51 @@
+<div class="flex-window">
+  <div class="filters clearfix filters-active">
+    <h4 class="pull-left">Users ({{userList.totalCount}})</h4>
+
+    <button (click)="showAddModal = true" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]" class="btn btn-primary pull-left"
+            type="button">Add New
+    </button>
+
+    <div class="pull-right">
+      <div class="form-group has-icon">
+        <input [(ngModel)]="searchKey" class="form-control sm-width" placeholder="Search" type="text">
+      </div>
+    </div>
+  </div>  <!-- end filters -->
+
+  <one-admin-frozen-header-table (edit)="onEditUser($event)" (remove)="removeUser($event)"
+                                 [data]="userList.data | filterBy: ['email', 'firstName', 'lastName', 'mobile']: searchKey"
+                                 [info]="info"
+                                 [isUserTable]="true"></one-admin-frozen-header-table>
+</div>
+
+<div [class.sm-width]="addStep !== enum_AddStep.SearchResult" class="custom-modal add-identifier-modal">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut class="add-identifier-step">
+    <ng-container [ngSwitch]="addStep">
+      <a (click)="onClosePanel()" class="clear-icon">Close</a>
+      <one-admin-widget-admin-user-add (close)="onCloseAddSection($event)" (closeAddWindow)="onClosePanel()"
+                                       *ngSwitchCase="enum_AddStep.Search" [isAddWindow]="isAddWindow"
+                                       [noMatch]="noMatch"></one-admin-widget-admin-user-add>
+      <one-admin-widget-admin-user-search-result (close)="onCloseSearchResultSection($event)" *ngSwitchCase="enum_AddStep.SearchResult"
+                                                 [searchResult]="searchResult"></one-admin-widget-admin-user-search-result>
+      <one-admin-widget-admin-user-edit (close)="onCloseEditSection($event)" *ngSwitchCase="enum_AddStep.Edit"
+                                        [selectedUser]="selectedPerson"></one-admin-widget-admin-user-edit>
+      <one-admin-widget-admin-user-invitation (close)="addStep = enum_AddStep.Search" *ngSwitchCase="enum_AddStep.Invitation"
+                                              [username]="createdUserName"></one-admin-widget-admin-user-invitation>
+    </ng-container>
+  </div>
+</div>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>
+
+<div *ngIf="showConfirmModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p>Are you sure you want to delete this user?</p>
+      <button (click)="onDelete(true)" class="btn btn-primary" type="button">Yes</button>
+      <button (click)="onDelete(false)" class="btn btn-secondry" type="button">No</button>
+    </div>
+  </div>
+</div>

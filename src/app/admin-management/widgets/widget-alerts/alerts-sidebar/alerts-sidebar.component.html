@@ -1,0 +1,64 @@
+<ng-container>
+  <ng-container *ngIf="!(currentViewReports === 1 && currentView === 'reports-view')">
+    <label class="control-label">Priority</label>
+    <div class="row form-group">
+      <one-admin-type-filter (changeFilter)="filterChanged($event, 0)" [typeOptions]="typeOptions"
+                             keyword="priority"></one-admin-type-filter>
+    </div>
+  </ng-container>
+  <one-admin-date-range-filter #dateFilters
+                               (changeCustomFilter)="changeCustomFilter.emit($event)"
+                               (changeFilter)="filterChangedDateOrLocations($event)"
+                               (customFilterSelected)="customFilterSelected.emit($event)"
+                               (dateRangeChangeEvent)="dateRangeChangeEvent = $event"
+                               [createdAtOrResolved]="createdAtOrResolved"
+                               [defaultOption]="defaultOptionDate"
+                               [isDateRange]="true"
+                               [isLocation]="false">
+  </one-admin-date-range-filter>
+  <hr *ngIf="currentViewReports === 2">
+  <div *ngIf="currentViewReports === 2" [formGroup]="selectTypeName" class="form-group">
+    <label class="control-label">Status</label>
+    <select class="form-control" formControlName="type_name">
+      <!-- <option value="default" disabled selected>Select Type</option>-->
+      <option *ngFor="let item of typesReport" [value]="item.value">{{ item.value }}</option>
+    </select>
+  </div>
+  <ng-container *ngIf="!(currentViewReports === 1 && currentView === 'reports-view')">
+    <hr *ngIf="currentViewReports !== 2">
+    <div *ngIf="currentViewReports !== 2" class="form-group">
+      <label class="control-label">Status</label>
+      <select (ngModelChange)="statusFilterChange($event)" [(ngModel)]="selectedStatus" class="form-control">
+        <option [value]="NotificationStatus.New">New</option>
+        <option [value]="NotificationStatus.Resolved">Resolved</option>
+      </select>
+    </div>
+    <hr>
+    <one-admin-identifier-type-filter (changeFilter)="filterChanged($event, 2)"
+                                      [filteredIdentifiers]="filteredIdentifiers"
+                                      [isFilteredIdentifiers]="true"
+                                      keyword="identifierTypeId"></one-admin-identifier-type-filter>
+    <hr>
+    <one-admin-reason-filter (changeFilter)="filterChanged($event, 3)"
+                             [filteredReasons]="filteredReasons"
+                             [isAny]="true"
+                             [isFilteredReasons]="true"
+                             keyword="actionReasonId"></one-admin-reason-filter>
+  </ng-container>
+  <hr>
+  <one-admin-date-range-filter #locationFilters
+                               (changeCustomFilter)="changeCustomFilter.emit($event)"
+                               (changeFilter)="filterChangedDateOrLocations($event)"
+                               (customFilterSelected)="customFilterSelected.emit($event)"
+                               (filterSourceChanged)="filterChanged($event, 2)"
+                               [defaultOption]="defaultOptionDate"
+                               [isDateRange]="false"
+                               [isSource]="false"
+                               [isLocation]="true">
+  </one-admin-date-range-filter>
+  <div class="streak"></div>
+  <div class="btn-container">
+    <button #clearBtn (click)="clearSearch(locationFilters, dateFilters)" class="btn btn-amber">Clear</button>
+    <button (click)="searchAlerts()" class="btn btn-primary">Search</button>
+  </div>
+</ng-container>

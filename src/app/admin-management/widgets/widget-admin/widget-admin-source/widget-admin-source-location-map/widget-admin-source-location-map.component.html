@@ -1,0 +1,32 @@
+<div class="form-group mb-0">
+  <label class="control-label">Exact Position</label>
+</div>
+
+<one-admin-one-map (changePosition)="changePosition($event)"
+                   [height]="'150px'"
+                   [markerClickable]="false"
+                   [markerDraggable]="true"
+                   [position]="{lat: center.lat, lng: center.lng}">
+</one-admin-one-map>
+
+<form #assetsForm="ngForm" style="margin-top: 5px; height: auto">
+  <div class="row narrow--row">
+    <div class="col-sm-6">
+      <div class="right-sidebar form-group">
+        <input (ngModelChange)="centerChangeLat($event)"
+               [ngModel]="center.lat"
+               class="form-control"
+               name="latitude"
+               placeholder="latitude"
+               type="number">
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="right-sidebar form-group">
+        <input (ngModelChange)="centerChangeLng($event)" [ngModel]="center.lng" class="form-control" name="longitude"
+               placeholder="Longitude"
+               type="number">
+      </div>
+    </div>
+  </div> <!-- end row -->
+</form>

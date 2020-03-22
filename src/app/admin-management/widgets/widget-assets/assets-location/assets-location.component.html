@@ -1,0 +1,18 @@
+<div class="action-title-wrapper clearfix">
+  <one-admin-assets-badge></one-admin-assets-badge>
+  <h5 class="color-white">{{ isNew ? 'Add' : 'Edit' }} Asset Location</h5>
+</div>
+<hr>
+<div class="nice-scroll add-people-sidebar">
+  <one-admin-assets-location-form [asset]="asset"
+                                  [isNew]="isNew">
+  </one-admin-assets-location-form>
+  <one-admin-assets-location-map [asset]="asset"
+                                 [isNew]="isNew">
+  </one-admin-assets-location-map>
+</div>
+<button (click)="completeAsset()"
+        [disabled]="isLoading && +asset.areaId < 0 || +asset.zoneId < 0 || +asset.siteId < 0 || !this.asset.longitude || !this.asset.latitude  || !this.asset.sourceId"
+        class="btn btn-primary btn-block"
+        type="button">{{ 'Complete' }}</button>
+<one-admin-loader *ngIf="isLoading" [size]="'sm'" [whiteOverlay]="true"></one-admin-loader>

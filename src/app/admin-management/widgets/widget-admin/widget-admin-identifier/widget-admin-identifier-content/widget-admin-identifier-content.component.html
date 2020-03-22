@@ -1,0 +1,33 @@
+<h5 class="mb-30">{{selectedType.title}}</h5>
+<form #identifierForm="ngForm" (ngSubmit)="onSubmit()">
+  <tabset id="identifier-content-tabs">
+    <tab heading="Details">
+      <one-admin-widget-admin-identifier-content-details-tab
+        [identifier]="identifier"></one-admin-widget-admin-identifier-content-details-tab>
+    </tab>
+    <tab heading="People">
+      <one-admin-widget-admin-identifier-content-people-tab
+        (addNewPeople)="openSubWindow('adminPeople')"></one-admin-widget-admin-identifier-content-people-tab>
+    </tab>
+    <tab heading="Companies">
+      <one-admin-widget-admin-identifier-content-companies-tab
+        (addNewCompany)="openSubWindow('adminCompany')"></one-admin-widget-admin-identifier-content-companies-tab>
+    </tab>
+    <tab heading="Actions">
+      <one-admin-widget-admin-identifier-content-actions-tab
+        (addNewAction)="openSubWindow('adminAction')"></one-admin-widget-admin-identifier-content-actions-tab>
+    </tab>
+    <tab heading="Additional">
+      <div [ngSwitch]="selectedType.name" class="tab-content identifier-scroll">
+        <one-admin-widget-admin-identifier-numberplate-tab
+          *ngSwitchCase="'Numberplate'"></one-admin-widget-admin-identifier-numberplate-tab>
+        <one-admin-widget-admin-identifier-mac-address-tab
+          *ngSwitchCase="'Mac Address'"></one-admin-widget-admin-identifier-mac-address-tab>
+      </div>
+    </tab>
+    <tab heading="Images">
+      <one-admin-widget-admin-identifier-content-images-tab></one-admin-widget-admin-identifier-content-images-tab>
+    </tab>
+  </tabset>
+  <button class="btn btn-primary btn-block">Finish</button>
+</form>

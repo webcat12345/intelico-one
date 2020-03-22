@@ -1,0 +1,12 @@
+<div *ngIf="!widgetAdminPeopleStateService.isUpdateIdentifiers" class="action-title-wrapper clearfix">
+  <one-admin-widget-admin-people-badge></one-admin-widget-admin-people-badge>
+  <h5 class="color-white">{{ isNew ? 'Edit' : 'Add' }} Identifiers</h5>
+</div>
+<div class="nice-scroll add-people-sidebar">
+  <one-admin-widget-admin-people-identifiers-detail (closeAddModal)="closeAddModal.emit($event)"
+                                                    (nextStep)="nextStepPerson($event)"
+                                                    [isNew]="isNew"
+                                                    [person]="person">
+  </one-admin-widget-admin-people-identifiers-detail>
+</div>
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

@@ -1,0 +1,75 @@
+<form (ngSubmit)="save()" [formGroup]="actionMetaDataForm">
+  <div class="nice-scroll">
+    <div class="action-title-wrapper clearfix">
+      <button (click)="stateService.changeStep(stateService.isEditModal ? 1 : 2)" class="back-btn" type="button">Back
+      </button>
+      <!-- <button type="button" [disabled]="values.length <= 0 || !valueMetaData" (click)="addMetaData()" class="btn btn-primary" style="margin-left: 230px; height: 27px;">Add MetaData</button>-->
+      <button (click)="addMetaData()" [disabled]="operators.length <= 0 || !valueMetaData" class="btn btn-primary"
+              style="margin-left: 230px; height: 27px;" type="button">Add MetaData
+      </button>
+      <button (click)="stateService.closeSidebar()" class="close--btn" type="button">Close</button>
+      <h4>{{ stepInfo.title }}</h4>
+      <div *ngIf="stepInfo.stepNumber" class="steps-counter pull-right">{{ stepInfo.stepNumber }}
+        / {{ stepInfo.allStepsNumber }}</div>
+    </div>
+    <div class="ac-step1 row">
+      <div class="form-group col-sm-6">
+        <label class="control-label">Meta Data</label>
+        <select class="form-control" formControlName="metaData">
+          <option default hidden selected value="-1">Select Meta Data</option>
+          <option *ngFor="let item of metaData" [value]="item.value">{{ item.value }}</option>
+        </select>
+      </div>
+      <div class="form-group col-sm-3">
+        <label class="control-label">Function</label>
+        <select class="form-control" formControlName="operator">
+          <option default hidden selected value="-1">Select Function</option>
+          <option *ngFor="let item of operators" [value]="item.id">{{ item.value }}</option>
+        </select>
+      </div>
+      <div class="form-group col-sm-3">
+        <label class="control-label">Value</label>
+        <select *ngIf="currentViewValue === View.StringView" class="form-control" formControlName="value">
+          <option default hidden selected value="-1">Select Value</option>
+          <option *ngFor="let item of values" [value]="item.id">{{ item.value }}</option>
+        </select>
+        <div *ngIf="currentViewValue === View.NumberView">
+          <input [(ngModel)]="valueMetaData" [ngModelOptions]="{standalone: true}"
+                 class="form-control"
+                 name="numberValues"
+                 placeholder="99999"
+                 type="number">
+        </div>
+        <div *ngIf="currentViewValue === View.DateView">
+          <one-admin-date-range-filter (changeSingleFilter)="changeSingleFilter($event)"
+                                       [isDateRange]="false"
+                                       [isLocation]="false"
+                                       [isSingleDate]="true">
+          </one-admin-date-range-filter>
+        </div>
+      </div>
+    </div>
+    <div class="custom-table default-table default-table-striped">
+      <div class="table-row header-row pl-20">
+        <div class="cell-wrap full">Meta Type</div>
+        <div class="cell-wrap full">Function</div>
+        <div class="cell-wrap full">Value</div>
+        <div class="cell-wrap" style="width: 95px">Action</div>
+      </div>
+      <div *ngFor="let item of filteredMetaData; let i = index" class="table-row-wrapper">
+        <div class="table-row pl-20">
+          <div class="cell-wrap full">{{ item.metaData }}</div>
+          <div class="cell-wrap full">{{ item.operator }}</div>
+          <div *ngIf="!item.isDate" class="cell-wrap full">{{ item.value }}</div>
+          <div *ngIf="item.isDate" class="cell-wrap full">{{ item.value | date : 'M/dd/y' + ' 00:00:00' }}</div>
+          <div class="cell-wrap action-cell-wrap" style="width: 95px;">
+            <a (click)="removeFromList(i, item)" class="remove-identifier-btn">
+              <img [src]="'assets/images/trash-icon.svg'" alt="remove">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button [disabled]="filteredMetaData.length <= 0" class="btn btn-primary footer-btn">Next</button>
+</form>

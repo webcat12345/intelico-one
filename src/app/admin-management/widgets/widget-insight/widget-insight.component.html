@@ -1,0 +1,78 @@
+<one-admin-sidebar-window [headerTemplateRef]="header" [sidebarTemplateRef]="filter" [tableTemplateRef]="content">
+  <ng-template #header>
+    <h1 class="pull-left insight-header">Insights</h1>
+    <ul class="nav nav-tabs pull-right">
+      <!--<li class="active"><button class="btn" type="button">System Totals</button></li>-->
+      <li class="active">
+        <button class="btn" type="button">System Totals</button>
+      </li>
+      <li>
+        <button class="btn" type="button">System Events</button>
+      </li>
+      <li>
+        <button class="btn" type="button">Emissions</button>
+      </li>
+      <li>
+        <button class="btn" type="button">Advanced</button>
+      </li>
+    </ul>
+
+    <ul class="nav nav-tabs pull-right">
+      <button #resetFileBtn (click)="resetFile(file)" style="display: none;" type="button"></button>
+      <input #file (change)="openSavedView($event.target.files)" style="display: none;"
+             type="file">
+      <li>
+        <button (click)="file.click()"
+                class="action-btn load-btn"
+                container="body"
+                placement="bottom" style="top: 0"
+                tooltip="Load Insight Filters">Load insight filters
+        </button>
+      </li>
+      <li>
+        <button (click)="saveCurrentView()"
+                class="action-btn download-btn"
+                container="body"
+                placement="bottom" style="top: 0; right: 60px"
+                tooltip="Save Insight Filters">Save insight filters
+        </button>
+      </li>
+    </ul>
+  </ng-template>
+  <ng-template #content>
+    <ng-container [ngSwitch]="insightSteps">
+      <one-admin-insight-content *ngSwitchCase="enum_addStep.Default"></one-admin-insight-content>
+      <one-admin-insight-system-totals *ngSwitchCase="enum_addStep.SystemTotals"></one-admin-insight-system-totals>
+    </ng-container>
+  </ng-template>
+  <ng-template #filter>
+    <one-admin-insight-filter (changeCustomFilter)="changeCustomFilter($event)"
+                              (changeFilter)="changeFilter($event)"
+                              (clearFilters)="clearFilters($event)"
+                              (customFilterSelected)="customFilterSelected($event)"
+                              (loadInsight)="loadInsight($event)"
+                              (reportType)="reportType($event)"
+                              [canBeDisabled]="canBeDisabled"
+                              [dataInsightSaveFilters]="getDataInsightSaveFiltersFormat">
+    </one-admin-insight-filter>
+  </ng-template>
+</one-admin-sidebar-window>
+<!--Loader-->
+<one-admin-loader *ngIf="isLoading" [size]="'sm'" [whiteOverlay]="true"></one-admin-loader>
+<!--Save Filters Modal-->
+<div *ngIf="showSaveFiltersModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p style="font-weight: 700">What will the filter be called?</p>
+      <div class="form-group">
+        <input [(ngModel)]="filterName" autocomplete="off"
+               class="form-control"
+               name="last_name"
+               placeholder="Filter name" type="text">
+      </div>
+      <button (click)="saveFilters(true)" class="btn btn-primary" type="button">Save</button>
+      <button (click)="saveFilters(false)" class="btn btn-secondry" type="button">Close</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<one-admin-sidebar-window [headerTemplateRef]="header" [sidebarTemplateRef]="sidebar" [tableTemplateRef]="main">
+  <ng-template #header>
+    <h1 class="pull-left" style="color: #fff">Global Stats
+      <span *ngIf="stats?.totalCount" class="badge">{{ stats?.totalCount }}</span>
+    </h1>
+    <button class="action-btn list-view-btn active pull-right" container="body" placement="bottom" tooltip="List View"
+            type="button">List View
+    </button>
+    <div class="global-search pull-right">
+      <one-admin-search-key-filter (changeFilterClearAll)="changeFilterClearAll($event)" (changeFilterSearchKey)="changeSearchKeyFilter($event)"
+                                   [fields]="['identifier']"
+                                   [noLabel]="true">
+      </one-admin-search-key-filter>
+    </div>
+  </ng-template>
+  <ng-template #main>
+    <div class="flex-window">
+      <one-admin-frozen-header-table [data]="stats?.data | filterBy: ['orgName']: searchKey" [footerInfo]="footerInfo"
+                                     [info]="info"
+                                     [toLocale]="true">
+      </one-admin-frozen-header-table>
+    </div>
+  </ng-template>
+  <ng-template #sidebar>
+    <one-admin-widget-super-admin-global-stats-filter (changeCustomFilter)="changeCustomFilter($event)"
+                                                      (changeFilter)="changeFilter($event)"
+                                                      (changeFilterBtn)="changeFilterBtn($event)"
+                                                      (customFilterSelected)="customFilterSelected($event)">
+    </one-admin-widget-super-admin-global-stats-filter>
+  </ng-template>
+</one-admin-sidebar-window>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

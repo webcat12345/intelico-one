@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_activity</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Message" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Messages_Combined" transform="translate(-980.000000, -942.000000)" fill="url(#linearGradient-1)">
+            <g id="Menu" transform="translate(905.000000, 534.000000)">
+                <g id="Empty-State" transform="translate(0.000000, 394.000000)">
+                    <g id="ic_todo" transform="translate(63.000000, 0.000000)">
+                        <path d="M21.576,33.9995022 C20.841,33.9995022 20.155,33.5985022 19.795,32.9425022 L16.899,27.6625022 L14.034,27.6625022 C12.911,27.6625022 12,26.7485022 12,25.6205022 C12,24.4935022 12.911,23.5795022 14.034,23.5795022 L18.1,23.5795022 C18.841,23.5795022 19.524,23.9835022 19.881,24.6355022 L21.05,26.7655022 L24.545,15.4365022 C24.816,14.5595022 25.629,13.9805022 26.552,14.0005022 C27.466,14.0285022 28.249,14.6675022 28.464,15.5615022 L30.484,23.9515022 L33.967,23.9515022 C35.09,23.9515022 36,24.8655022 36,25.9925022 C36,27.1205022 35.09,28.0345022 33.967,28.0345022 L28.884,28.0345022 C27.945,28.0345022 27.128,27.3885022 26.907,26.4725022 L26.246,23.7245022 L23.519,32.5625022 C23.277,33.3445022 22.594,33.9055022 21.783,33.9895022 C21.714,33.9965022 21.644,33.9995022 21.576,33.9995022 Z" id="ic_activity"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

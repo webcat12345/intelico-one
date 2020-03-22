@@ -1,0 +1,117 @@
+<div [style.margin-bottom.px]="isSingleDate ? 0 : 10" class="form-group spacing-fix">
+  <ng-container *ngIf="isDateRange">
+    <label class="control-label">Date Range</label>
+    <select (ngModelChange)="dateRangeChange($event)"
+            [(ngModel)]="dateRange"
+            [disabled]="isDisabled"
+            class="form-control"
+            name="dateRangeOption">
+      <option *ngFor="let option of dateRangeOptions" [value]="option.value">{{ option.name }}</option>
+    </select>
+    <ng-container *ngIf="dateRange == DateRange.Custom">
+      <hr>
+      <div class="row">
+        <div class="col-sm-6">
+          <label class="control-label">From</label>
+          <!--  <input type="text" [(ngModel)]="fromDate" [bsConfig]="{ dateInputFormat: 'D MMM, YYYY, h:mm:ss a', containerClass: 'theme-blue' }" placeholder="Datepicker" class="form-control" bsDatepicker>-->
+          <input (ngModelChange)="fromDate = $event; dateRangeChange(7)" [bsConfig]="{ dateInputFormat: 'D MMM, YYYY', containerClass: 'theme-blue', minDate: minDate}"
+                 [ngModel]="fromDate"
+                 bsDatepicker
+                 class="form-control" placeholder="Datepicker" type="text">
+        </div>
+        <div class="col-sm-6">
+          <label class="control-label">Hour(s)</label>
+          <select (ngModelChange)="fromHour = $event; dateRangeChange(7)"
+                  [ngModel]="fromHour"
+                  class="form-control"
+                  name="dateRangeOption">
+            <option *ngFor="let date of dateHours" [value]="date.value">{{ date.value }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <label class="control-label">Minute(s)</label>
+          <select (ngModelChange)="fromMinute = $event; dateRangeChange(7)"
+                  [ngModel]="fromMinute"
+                  class="form-control"
+                  name="dateRangeOption">
+            <option *ngFor="let date of dateMinutesOrSeconds" [value]="date.value">{{ date.value }}</option>
+          </select>
+        </div>
+        <div class="col-sm-6">
+          <label class="control-label">Second(s)</label>
+          <select (ngModelChange)="fromSecond = $event; dateRangeChange(7)"
+                  [ngModel]="fromSecond"
+                  class="form-control"
+                  name="dateRangeOption">
+            <option *ngFor="let date of dateMinutesOrSeconds" [value]="date.value">{{ date.value }}</option>
+          </select>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-6">
+          <label class="control-label">To</label>
+          <input (ngModelChange)="toDate = $event; dateRangeChange(7)" [bsConfig]="{ dateInputFormat: 'D MMM, YYYY', containerClass: 'theme-blue', minDate: minDate }"
+                 [ngModel]="toDate"
+                 bsDatepicker
+                 class="form-control" placeholder="Datepicker" type="text">
+        </div>
+        <div class="col-sm-6">
+          <label class="control-label">Hour(s)</label>
+          <select (ngModelChange)="toHour = $event; dateRangeChange(7)"
+                  [ngModel]="toHour"
+                  class="form-control"
+                  name="dateRangeOption">
+            <option *ngFor="let date of dateHours" [value]="date.value">{{ date.value }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <label class="control-label">Minute(s)</label>
+          <select (ngModelChange)="toMinute = $event; dateRangeChange(7)"
+                  [ngModel]="toMinute"
+                  class="form-control"
+                  name="dateRangeOption">
+            <option *ngFor="let date of dateMinutesOrSeconds" [value]="date.value">{{ date.value }}</option>
+          </select>
+        </div>
+        <div class="col-sm-6">
+          <label class="control-label">Second(s)</label>
+          <select (ngModelChange)="toSecond = $event; dateRangeChange(7)"
+                  [ngModel]="toSecond"
+                  class="form-control"
+                  name="dateRangeOption">
+            <option *ngFor="let date of dateMinutesOrSeconds" [value]="date.value">{{ date.value }}</option>
+          </select>
+        </div>
+      </div>
+      <!--  <button type="button" class="btn btn-primary btn-search" (click)="dateRangeChange(dateRange, true)">Search</button>-->
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="isSingleDate">
+    <div class="">
+      <input (ngModelChange)="singleDate = $event; singleDateRangeChange()" [bsConfig]="{ dateInputFormat: 'D MMM, YYYY', containerClass: 'theme-blue', minDate: minDate}"
+             [ngModel]="singleDate"
+             bsDatepicker
+             class="form-control" placeholder="Datepicker" type="text">
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isLocation">
+    <label class="control-label">Locations</label>
+    <one-admin-location-filter (changeFilter)="filterChanged($event, 4)"
+                               (filterSourceChanged)="filterSourceChanged.emit($event)"
+                               (selectForMapData)="selectForMapData.emit($event)"
+                               [canBeDisabled]="canBeDisabled"
+                               [isAreas]="isAreas"
+                               [isSource]="isSource"
+                               [isDisabled]="isDisabled"
+                               [isSites]="isSites"
+                               [isZones]="isZones">
+    </one-admin-location-filter>
+  </ng-container>
+</div>

@@ -1,0 +1,66 @@
+<div class="viewer-window clearfix">
+  <div class="page-header clearfix" style="margin: 0; padding: 16px 90px 16px 25px">
+    <h1 class="pull-left">Viewer</h1>
+    <a (click)="changeCameraView(item)"
+       *ngFor="let item of ViewerGrid"
+       [class.active]="currentView.id === item.id"
+       [ngClass]="item.grid_btn_class"
+       class="action-btn pull-left">{{ item.name }}</a>
+    <!-- <ul class="nav nav-tabs pull-right">
+       <li class="active">
+         <button type="button" class="btn">Live</button>
+       </li>
+       <li>
+         <button type="button" class="btn" tooltip="Feature coming soon" container="body" placement="bottom">Recorded</button>
+       </li>
+     </ul>-->
+    <button (click)="saveCurrentView()" class="action-btn pull-right download-btn" container="body" placement="bottom"
+            tooltip="Save Current View">Save current view
+    </button>
+    <input #file (change)="openSavedView($event.target.files)" style="display: none;" type="file">
+    <button (click)="file.click()" class="action-btn pull-right load-btn" container="body" placement="bottom"
+            tooltip="Load Saved View">Load current view
+    </button>
+  </div>
+  <!--<div class="premium-feature" style="top: 80px;">-->
+  <!--<img src="assets/images/crown-icon.svg" alt="Premium Feature">-->
+  <!--<h2>Premium Feature</h2>-->
+  <!--<p>Contact sales for more information</p>-->
+  <!--<button type="button" class="invisible-btn" style="right: 40px">Show window contents</button>-->
+  <!--</div>-->
+  <div class="left-col">
+    <!--<div class="form-group">
+      <input type="text" class="form-control search-control" placeholder="Search">
+    </div>-->
+    <ul class="viewer-list nice-scroll">
+      <li *ngFor="let site of cameraBySite">
+        <div class="viewer-list-header">{{ site[0].zone.parent.parent.name }}</div>
+        <ul *ngFor="let camera of site">
+          <li>
+            <div>{{ camera.zone.parent.name }}</div>
+            <ul>
+              <li>
+                <div>{{ camera.zone.name }}</div>
+                <ul>
+                  <li [dragData]="camera" [dragEnabled]="true" dnd-draggable>{{ camera.name }}</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!-- end left col -->
+  <div class="right-col">
+    <div [ngClass]="currentView.grid_wrapper_class" class="gridview">
+      <div (onDropSuccess)="onDrop($event, i)" *ngFor="let camera of cameras; let i = index;" class="img" dnd-droppable>
+        <button (click)="closeCamera(camera)" *ngIf="camera?.source?.name" class="close--btn" type="button">Clear
+        </button>
+        <span class="camera-name">{{ camera?.source?.name || 'No camera attached' }}</span>
+        <img [src]="camera?.image || 'assets/images/grid-sample.jpg'" alt="figure">
+      </div>
+    </div>
+  </div>
+  <!-- end right col -->
+</div>

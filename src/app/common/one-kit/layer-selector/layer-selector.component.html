@@ -1,0 +1,31 @@
+<form [formGroup]="layerSelectorForm">
+  <div *ngIf="!isSites" class="right-sidebar form-group">
+    <label *ngIf="isShowLabel" class="control-label">Site</label>
+    <select class="form-control" formControlName="siteId">
+      <option *ngIf="!isShowAll" [disabled]="true" value="-1">Select Site</option>
+      <option *ngIf="isShowAll" value="-1">All Sites</option>
+      <option *ngFor="let item of optionLayers.sites" [value]="item.id">{{ item.name }}</option>
+    </select>
+  </div>
+  <div *ngIf="!isAreas" class="right-sidebar form-group">
+    <label *ngIf="isShowLabel" class="control-label">Areas</label>
+    <select class="form-control" formControlName="areaId">
+      <option *ngIf="!isShowAll" [disabled]="true" value="-1">Select Area</option>
+      <option *ngIf="isShowAll" value="-1">All Areas</option>
+      <option *ngFor="let item of optionLayers.areas" [hidden]="item.hidden" [value]="item.id">{{ item.name }}</option>
+    </select>
+  </div>
+  <div *ngIf="!isZones" class="right-sidebar form-group">
+    <label *ngIf="isShowLabel" class="control-label">Zones</label>
+    <select class="form-control" formControlName="zoneId">
+      <option *ngIf="!isShowAll" [disabled]="true" value="-1">Select Zone</option>
+      <option *ngIf="isShowAll" value="-1">All Zones</option>
+      <option *ngFor="let item of optionLayers.zones" [value]="item.id">{{ item.name }}</option>
+    </select>
+  </div>
+  <one-admin-source-filter (changeFilter)="filterSourceChanged.emit($event)"
+                           [dropdownSources]="dropdownSources"
+                           [isSource]="isSource"
+                           [source]="source"></one-admin-source-filter>
+  <one-admin-loader *ngIf="isLoading" [whiteOverlay]="true" size="sm"></one-admin-loader>
+</form>

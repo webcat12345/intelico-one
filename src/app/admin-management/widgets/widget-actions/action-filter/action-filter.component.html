@@ -1,0 +1,21 @@
+<one-admin-search-key-filter (changeFilter)="searchKeyChange($event)"
+                             [fields]="['identifier']"></one-admin-search-key-filter>
+<select (ngModelChange)="changeSearchType($event)" [(ngModel)]="searchType" [ngModelOptions]="{standalone: true}"
+        class="form-control">
+  <option value="identifier">Identifier</option>
+  <option value="action-name">Action Name</option>
+</select>
+<div class="form-group">
+  <label class="control-label">Trigger</label>
+  <div class="row">
+    <one-admin-type-filter (changeFilter)="triggerChange($event)" [typeOptions]="triggerOptions"
+                           keyword="trigger"></one-admin-type-filter>
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label">Action</label>
+  <div class="row">
+    <one-admin-type-filter (changeFilter)="actionChange($event)" [isSearchFilter]="true" [typeOptions]="actionOptions"
+                           keyword="alertTypes"></one-admin-type-filter>
+  </div>
+</div>

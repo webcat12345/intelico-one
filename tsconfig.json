@@ -1,0 +1,38 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "baseUrl": "src",
+    "paths": {
+      "@one-common/filter": ["app/common/one-filter/one-filter.module.ts"],
+      "@one-common/filter/*": ["app/common/one-filter/*"],
+      "@one-common/window": ["app/common/one-window/one-window.module.ts"],
+      "@one-common/window/*": ["app/common/one-window/*"],
+      "@one-common/ui-kit/*": ["app/common/one-kit/*"],
+      "@one-common/map": ["app/common/one-map/one-map.module.ts"],
+      "@one-common/map/*": ["app/common/one-map/*"],
+      "@one-common/notifications": ["app/common/one-notifications/one-notifications.module.ts"],
+      "@one-common/notifications/*": ["app/common/one-notifications/*"],
+      "@one-common/pipe": ["app/common/one-pipe/one-pipe.module.ts"],
+      "@one-common/directive": ["app/common/one-directive/one-directive.module.ts"],
+      "@one-animation/*": ["app/common/one-animation/*"],
+      "@one-core/service/*": ["app/core/services/*"],
+      "@one-core/model": ["app/core/models/index.ts"]
+    },
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_new</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Messages_Combined" transform="translate(-544.000000, -275.000000)" fill="#fff">
+            <g id="Messages" transform="translate(250.000000, 237.000000)">
+                <g id="Dark-menu">
+                    <g id="ic_new" transform="translate(294.000000, 38.000000)">
+                        <path d="M10,2 L2,2 L2,18 L18,18 L18,10 L20,10 L20,0 L10,0 L10,2 Z M0,0 L20,0 L20,20 L0,20 L0,0 Z" id="Combined-Shape"></path>
+                        <path d="M17.1275961,1.48710671 L18.4993442,2.85505975 L18.4993442,2.85505975 C19.281474,3.63502564 19.2832282,4.90135438 18.5032623,5.68348416 C18.4759978,5.71082425 18.4479474,5.73736907 18.4191462,5.76308524 L10.3636364,12.9557336 L6.0443892,14 L7,9.60416989 L14.2281858,1.56598075 L14.2281858,1.56598075 C14.9667546,0.74464657 16.2313059,0.677552007 17.0526401,1.41612085 C17.078232,1.43913392 17.1032257,1.46280376 17.1275961,1.48710671 Z" id="Rectangle-5"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

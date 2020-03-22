@@ -1,0 +1,29 @@
+<a (click)="close.emit(false)" class="clear-icon">Close</a>
+<h5 class="mb-30 color-white">{{isNew ? 'Add' : 'Edit'}} {{label.label}}</h5>
+<div class="tab-content" style="height: calc(100% - 87px)">
+  <div class="tab-pane fade in active" id="detail-tab" role="tabpanel">
+    <div class="right-sidebar form-group">
+      <input [(ngModel)]="type.name" class="form-control" name="peopleTypeName" placeholder="Name" type="text">
+    </div>
+    <button class="btn btn-primary btn-block" type="button">Add</button>
+  </div>  <!-- end individual tab -->
+  <div *ngIf="label.label === 'Identifier Type' || label.label === 'Asset Type'">
+    <div *ngIf="!type?.iconUrl" class="right-sidebar form-group upload-group">
+      <label class="control-label">Icon</label>
+      <input class="form-control" placeholder="Icon.svg" readonly type="text">
+      <div class="upload-btn-wrap">
+        <button class="btn btn-primary btn-sm" type="button">Browse</button>
+        <input #inputFile (change)="fileChange($event)" placeholder="Upload file" type="file">
+      </div>
+    </div>
+    <div *ngIf="type?.iconUrl" class="img">
+      <img [src]="type?.iconUrl">
+      <button (click)="removeIcon()" class="close--btn">Remove Image</button>
+    </div>
+  </div>
+</div>
+
+<button (click)="onSubmitType()" [disabled]="!type.name" class="btn btn-primary btn-block"
+        type="button">{{isNew ? 'Add' : 'Update'}}</button>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

@@ -1,0 +1,13 @@
+.details-wrapper {
+  overflow: hidden;
+  background-color: #373953;
+}
+
+:host {
+  ::ng-deep {
+    .table-inner-wrapper {
+      overflow-y: auto;
+      height: calc(100% - 42px);
+    }
+  }
+}

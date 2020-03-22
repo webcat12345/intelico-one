@@ -1,0 +1,27 @@
+<div class="left-col">
+  <div class="col-title color-white">Settings</div>
+  <ul class="nav nav-tabs column-tabs">
+    <li *ngFor="let item of meta.menus" [class.active]="selectedMenu === item">
+      <a (click)="selectedMenu = item" [ngClass]="item.className">{{item.title}}</a>
+    </li>
+  </ul>
+</div>  <!-- end left col -->
+
+<div class="right-col">
+  <div class="settings-details">
+    <div [ngSwitch]="selectedMenu.name" class="tab-content nice-scroll">
+      <one-admin-widget-settings-profile-tab *ngSwitchCase="'contact'"
+                                             id="profile-tab"></one-admin-widget-settings-profile-tab>
+      <one-admin-widget-settings-theme-tab *ngSwitchCase="'theme'"
+                                           id="themes-tab"></one-admin-widget-settings-theme-tab>
+      <one-admin-widget-settings-user-settings-tab *ngSwitchCase="'setting'"
+                                                   id="settings-tab"></one-admin-widget-settings-user-settings-tab>
+      <one-admin-widget-settings-password-tab *ngSwitchCase="'password'"
+                                              id="password-tab"></one-admin-widget-settings-password-tab>
+      <div *ngSwitchCase="'notify'" id="notification-tab">
+        <div class="col-title">Notification Rules</div>
+        <button class="btn btn-success btn-block" type="button">Update</button>
+      </div>
+    </div>
+  </div>
+</div>  <!-- end right col -->

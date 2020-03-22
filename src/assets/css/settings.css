@@ -1,0 +1,136 @@
+.col-title {
+    color: #1F2226;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 15px;
+    padding: 30px 30px 0;
+    text-transform: uppercase;
+}
+
+.column-tabs {
+    padding: 20px 0;
+}
+
+.column-tabs > li {
+    float: none;
+   /* border-bottom: #E4E8F0 1px solid;*/
+    margin: 0;
+}
+
+.column-tabs > li a {
+    border-radius: 0 !important;
+    height: auto;
+    line-height: normal;
+    padding: 20px 30px 20px 70px;
+    background-color: transparent;
+    color: #1F2226;
+    background-repeat: no-repeat;
+    background-position: 30px center;
+    border: 0 none !important;
+}
+
+.column-tabs > li a:hover {
+    background-color: rgba(0,0,0,0.01);
+}
+
+.column-tabs > li > a.profile-link {
+    background-image: url(../images/people-icon-hover.svg);
+}
+
+.column-tabs > li.active > a.profile-link {
+    background-image: url(../images/people-icon-active.svg);
+}
+
+.column-tabs > li > a.themes-link {
+    background-image: url(../images/theme-icon.svg);
+}
+
+.column-tabs > li.active > a.themes-link {
+    background-image: url(../images/theme-icon-hover.svg);
+}
+
+.column-tabs > li > a.settings-link {
+    background-image: url(../images/settings-icon.svg);
+}
+
+.column-tabs > li.active > a.settings-link {
+    background-image: url(../images/settings-icon-hover.svg);
+}
+
+.settings-details {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.settings-details form {
+    height: auto;
+}
+
+.settings-details .btn-block.btn-primary {
+    height: 46px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+}
+
+.settings-details .tab-content {
+    flex: 1;
+    overflow: auto;
+    padding: 30px;
+}
+
+.settings-details .col-title {
+    color: #1F2226;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 0 0 20px;
+    text-transform: none;
+}
+
+.settings-details .img {
+    height: 140px;
+    margin: 0 0 10px;
+    border-radius: 6px;
+    background-size: cover;
+}
+
+.theme-img-wrap {
+    position: relative;
+}
+
+.theme-img-wrap .close--btn {
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+    background-image: url(../images/clear-icon-red.svg);
+    background-size: 20px auto;
+    width: 20px;
+    height: 20px;
+}
+
+.upload-btn-wrap {
+    margin: 10px 0 0;
+    position: relative;
+    padding: 0 0 30px;
+    overflow: hidden;
+}
+
+.upload-btn-wrap .btn {
+    padding: 0 30px;
+    height: 40px;
+}
+
+.upload-btn-wrap input[type="file"] {
+    opacity: 0;
+    width: 205px;
+    height: 40px;
+    position: absolute;
+    left: -95px;
+    top: 0;
+    cursor: pointer;
+}

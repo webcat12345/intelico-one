@@ -1,0 +1,75 @@
+<div class="row narrow-row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <input [(ngModel)]="people.metadata" class="form-control" max="80" min="18" name="peopleAge"
+             placeholder="Approx Age" type="number">
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <input #dp="bsDatepicker" [(ngModel)]="people.metadata" bsDatepicker class="form-control"
+             name="peopleBirthday"
+             placeholder="Birthday" type="text">
+    </div>
+  </div>
+</div>  <!-- end row -->
+
+<div class="row narrow-row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <select [(ngModel)]="people.metadata" [compareWith]="byId" class="form-control" name="peopleGender">
+        <option disabled hidden selected value="undefined">Select Gender</option>
+        <option *ngFor="let type of genderTypes$ | async" [ngValue]="type">{{type.name}}</option>
+      </select>
+      <one-admin-loader *ngIf="isGenderTypesLoading" [whiteOverlay]="true"></one-admin-loader>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <input [(ngModel)]="people.metadata" class="form-control" max="80" min="1" name="peopleHeight"
+             placeholder="Height" type="number">
+    </div>
+  </div>
+</div>  <!-- end row -->
+
+<div class="row narrow-row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <select [(ngModel)]="people.metadata" [compareWith]="byId" class="form-control" name="peopleBuild">
+        <option disabled hidden selected value="undefined">Select Build</option>
+        <option *ngFor="let type of buildTypes$ | async" [ngValue]="type">{{type.name}}</option>
+      </select>
+      <one-admin-loader *ngIf="isBuildTypesLoading" [whiteOverlay]="true"></one-admin-loader>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <select [(ngModel)]="people.metadata" [compareWith]="byId" class="form-control" name="peopleEye">
+        <option disabled hidden selected value="undefined">Select Eye Color</option>
+        <option *ngFor="let type of eyeTypes$ | async" [ngValue]="type">{{type.name}}</option>
+      </select>
+      <one-admin-loader *ngIf="isEyeTypesLoading" [whiteOverlay]="true"></one-admin-loader>
+    </div>
+  </div>
+</div>  <!-- end row -->
+
+<div class="row narrow-row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <select [(ngModel)]="people.metadata" [compareWith]="byId" class="form-control" name="peopleHair">
+        <option disabled hidden selected value="undefined">Select Hair Color</option>
+        <option *ngFor="let type of hairTypes$ | async" [ngValue]="type">{{type.name}}</option>
+      </select>
+      <one-admin-loader *ngIf="isHairTypesLoading" [whiteOverlay]="true"></one-admin-loader>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <select [(ngModel)]="people.metadata" [compareWith]="byId" class="form-control" name="peopleEthnicity">
+        <option disabled hidden selected value="undefined">Select Ethnicity</option>
+        <option *ngFor="let type of ethnicityTypes$ | async" [ngValue]="type">{{type.name}}</option>
+      </select>
+      <one-admin-loader *ngIf="isEthnicityTypesLoading" [whiteOverlay]="true"></one-admin-loader>
+    </div>
+  </div>
+</div>  <!-- end row -->

@@ -1,0 +1,11 @@
+<div *ngIf="!widgetAdminPeopleStateService.isUpdateProducts" class="action-title-wrapper clearfix">
+  <one-admin-widget-admin-people-badge></one-admin-widget-admin-people-badge>
+  <h5 class="color-white">{{ isNew ? 'Edit' : 'Add' }} Products</h5>
+</div>
+<div class="nice-scroll add-people-sidebar">
+  <one-admin-widget-admin-people-products-detail (closeAddModal)="closeAddModal.emit($event)"
+                                                 [isNew]="isNew"
+                                                 [person]="person">
+  </one-admin-widget-admin-people-products-detail>
+</div>
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

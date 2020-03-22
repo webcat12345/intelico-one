@@ -1,0 +1,9 @@
+<form [formGroup]="reportTypesForm">
+  <div class="form-group">
+    <label class="control-label">Report Type</label>
+    <select class="form-control" formControlName="type">
+      <!--<option value="-1" selected default></option>-->
+      <option *ngFor="let item of reportTypes" [value]="item.id">{{ item.type }}</option>
+    </select>
+  </div>
+</form>

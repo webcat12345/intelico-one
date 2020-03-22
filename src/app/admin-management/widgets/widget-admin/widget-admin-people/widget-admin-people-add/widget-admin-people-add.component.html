@@ -1,0 +1,12 @@
+<div class="action-title-wrapper clearfix">
+  <one-admin-widget-admin-people-badge></one-admin-widget-admin-people-badge>
+  <h5 class="color-white">{{ isNew ? 'Edit' : 'Add' }} Person</h5>
+</div>
+<div class="nice-scroll add-people-sidebar">
+  <one-admin-widget-admin-people-tab-detail (addressLookup)="addressLookup.emit($event)"
+                                            (nextStep)="nextStepPerson($event)"
+                                            [isNew]="isNew"
+                                            [people]="people">
+  </one-admin-widget-admin-people-tab-detail>
+</div>
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

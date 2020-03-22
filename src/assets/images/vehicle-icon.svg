@@ -1,0 +1,16 @@
+<svg width="23.999999999999996" height="23.999999999999996" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="Frame_-_24px">
+   <rect y="-0.357143" id="svg_1" fill="none" height="24.002" width="24" x="1.072429"/>
+  </g>
+  <g id="Line_Icons">
+   <path id="svg_2" fill="#00A1FD" d="m18.618,5.785714l-13.236,0l-3.382,6.764l0,5.236l2,0c0,1.104 0.897,2 2,2s2,-0.896 2,-2l8,0c0,1.104 0.897,2 2,2s2,-0.896 2,-2l2,0l0,-5.236l-3.382,-6.764zm-12,2l10.764,0l2,4l-14.764,0l2,-4zm8.382,8l-6,0l0,-2l6,0l0,2zm-11,-2l3,0l0,2l-3,0l0,-2zm13,2l0,-2l3,0l0,2l-3,0z"/>
+  </g>
+ </g>
+</svg>

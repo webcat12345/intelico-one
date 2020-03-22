@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="20px" viewBox="0 0 16 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="History" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="History-Filter" transform="translate(-258.000000, -615.000000)" fill="#888991">
+            <g id="Filter" transform="translate(100.000000, 221.000000)">
+                <g id="Group-2" transform="translate(87.000000, 386.000000)">
+                    <g id="Forward" transform="translate(53.000000, 0.000000)">
+                        <path d="M32,26 L20,26 L20,10 L25,10 L25,15.302 C25,16.348 25.84,17.2 26.874,17.2 L32,17.2 L32,26 Z M27,11.463 L30.633,15.2 L27,15.2 L27,11.463 Z M33.715,15.504 L33.717,15.502 L26.717,8.303 L26.715,8.305 C26.533,8.118 26.281,8 26,8 L19,8 C18.448,8 18,8.448 18,9 L18,27 C18,27.552 18.448,28 19,28 L33,28 C33.552,28 34,27.552 34,27 L34,16.2 C34,15.929 33.89,15.684 33.715,15.504 L33.715,15.504 Z" id="Page-1"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

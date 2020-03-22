@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_asset</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Locate" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Locate-History" transform="translate(-207.000000, -102.000000)" fill="#737580">
+            <g id="Navbar" transform="translate(100.000000, 65.000000)">
+                <path d="M117.6,36.9998 L107,42.2648 L107,53.0738 L117.6,58.3398 L128.2,53.0738 L128.2,42.2648 L117.6,36.9998 Z M110.374,42.9508 L117.6,39.3758 L124.777,42.9268 L117.598,46.2528 L110.374,42.9508 Z M118.616,48.0528 L126.166,44.5408 L126.166,51.8108 L118.616,55.5468 L118.616,48.0528 Z M109.034,51.8108 L109.034,44.5908 L116.583,48.0568 L116.583,55.5468 L109.034,51.8108 Z" id="ic_asset"></path>
+            </g>
+        </g>
+    </g>
+</svg>

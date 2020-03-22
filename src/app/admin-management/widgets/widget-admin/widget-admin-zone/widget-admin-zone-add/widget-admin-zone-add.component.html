@@ -1,0 +1,44 @@
+<a (click)="close.emit(false)" class="clear-icon">Close</a>
+<h5 class="color-white">{{isNew ? 'Add' : 'Edit'}} Zone</h5>
+
+<!-- <ul class="nav nav-tabs custom-tabs grey-tabs" role="tablist"></ul> -->
+
+<form (ngSubmit)="onSubmit()" [formGroup]="zoneForm">
+  <div class="tab-content">
+    <div class="right-sidebar form-group">
+      <label class="control-label">Name</label>
+      <input class="form-control" formControlName="name" placeholder="Name" type="text">
+    </div>
+
+    <div class="right-sidebar form-group">
+      <label class="control-label">Description</label>
+      <input class="form-control" formControlName="description" placeholder="Description" type="text">
+    </div>
+
+    <div class="right-sidebar form-group">
+      <label class="control-label">Select Zone Type</label>
+      <select class="form-control" formControlName="typeId">
+        <option disabled hidden selected value="null">Select Zone Type</option>
+        <option *ngFor="let type of types" [value]="type.id">{{type.value}}</option>
+      </select>
+      <one-admin-loader *ngIf="isTypesLoading" [whiteOverlay]="true"></one-admin-loader>
+    </div>
+
+    <div *ngIf="!isAddWindow" class="right-sidebar form-group">
+      <label class="control-label">Select Area</label>
+      <select class="form-control" formControlName="parentId">
+        <option disabled hidden selected value="null">Select Area</option>
+        <option *ngFor="let area of areas" [value]="area.id">{{area.name}}</option>
+      </select>
+      <one-admin-loader *ngIf="isAreasLoading" [whiteOverlay]="true"></one-admin-loader>
+    </div>
+    <!--<one-admin-widget-admin-zone-location-map [isNew]="isNew"
+                                              [zone]="zone"
+                                              (changeLocation)="changeLocation($event)">
+    </one-admin-widget-admin-zone-location-map>-->
+  </div>
+
+  <button [disabled]="zoneForm.invalid" class="btn btn-primary btn-block">Save</button>
+</form>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

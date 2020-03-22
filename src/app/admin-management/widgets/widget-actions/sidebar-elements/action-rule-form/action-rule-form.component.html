@@ -1,0 +1,40 @@
+<form (ngSubmit)="save()" [formGroup]="dateRuleForm">
+  <div class="nice-scroll">
+    <div class="action-title-wrapper clearfix">
+      <button (click)="actionStateService.changeStep(stepInfo.previous)" class="back-btn" type="button">Back</button>
+      <button (click)="actionStateService.closeSidebar()" class="close--btn" type="button">Close</button>
+      <h4>{{ stepInfo.title }}</h4>
+      <div *ngIf="stepInfo.stepNumber" class="steps-counter pull-right">{{ stepInfo.stepNumber }} / 6</div>
+    </div>
+    <div class="ac-step3">
+      <div class="action-title-wrapper clearfix">
+        <h4>Time</h4>
+        <one-admin-ui-switch (select)="toggleTimeMode($event)" [value]="specificTime"></one-admin-ui-switch>
+      </div>
+      <div class="row narrow--row">
+        <div class="col-sm-3 align-center">
+          <one-admin-time-picker (valueChange)="this.dateRuleForm.get('from').setValue($event)"
+                                 [disabled]="!specificTime"
+                                 [value]="this.dateRuleForm.get('from').value"></one-admin-time-picker>
+        </div>
+        <div class="col-sm-1 text-center align-center">
+          <label class="control-label">To</label>
+        </div>
+        <div class="col-sm-3 align-center">
+          <one-admin-time-picker (valueChange)="this.dateRuleForm.get('to').setValue($event)"
+                                 [disabled]="!specificTime"
+                                 [value]="this.dateRuleForm.get('to').value"></one-admin-time-picker>
+        </div>
+      </div>
+      <hr>
+      <div class="action-title-wrapper clearfix">
+        <h4>Day</h4>
+        <one-admin-ui-switch (select)="toggleDateMode($event)" [value]="specificDate"></one-admin-ui-switch>
+      </div>
+      <one-admin-weekday-selector (select)="dateRuleForm.get('days').setValue($event)"
+                                  [values]="dateRuleForm.get('days').value"></one-admin-weekday-selector>
+      <hr>
+    </div>
+  </div>
+  <button [disabled]="dateRuleForm.invalid" class="btn btn-primary footer-btn">{{stepInfo.buttonLabel}}</button>
+</form>

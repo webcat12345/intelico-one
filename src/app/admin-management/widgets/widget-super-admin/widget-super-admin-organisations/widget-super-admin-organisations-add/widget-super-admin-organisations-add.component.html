@@ -1,0 +1,58 @@
+<a (click)="close.emit(false)" class="clear-icon">Close</a>
+<h5 class="mb-30 color-white">{{isNew ? 'Add' : 'Edit'}} Organisation</h5>
+<form #orgForm="ngForm" (ngSubmit)="onSubmit()">
+  <!--<ul class="nav nav-tabs custom-tabs grey-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#detail-tab" aria-controls="Details" role="tab" data-toggle="tab" aria-expanded="true">Details</a></li>
+    <li role="presentation" class=""><a href="#owner-tab" aria-controls="Owner" role="tab" data-toggle="tab" aria-expanded="false" style="width: 210px;">Organisation Admin</a></li>
+  </ul>-->
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="detail-tab" role="tabpanel">
+      <div class="right-sidebar form-group">
+        <input [(ngModel)]="organisation.name" class="form-control" name="orgName" placeholder="Name" required
+               type="text">
+      </div>
+    </div>  <!-- end individual tab -->
+
+    <!--<div role="tabpanel" class="tab-pane" id="owner-tab">-->
+    <!--&lt;!&ndash;<div class="form-group has-btn has-btn-static">&ndash;&gt;-->
+    <!--&lt;!&ndash;<select class="form-control" style="background-position:calc(100% - 100px) center;" name="selectedUser" #userSelect="ngModel" [(ngModel)]="selectedUser.id" (click)="onSelectUser(userSelect)">&ndash;&gt;-->
+    <!--&lt;!&ndash;<option value="" disabled hidden selected>Select Existing User</option>&ndash;&gt;-->
+    <!--&lt;!&ndash;<option *ngFor="let user of existingUsers" [value]="user.id">{{user.firstName + ' ' + user.lastName}}</option>&ndash;&gt;-->
+    <!--&lt;!&ndash;</select>&ndash;&gt;-->
+    <!--&lt;!&ndash;<button type="button" class="btn btn-primary" (click)="openSubwindow()">New</button>&ndash;&gt;-->
+    <!--&lt;!&ndash;<one-admin-loader [whiteOverlay]="true" *ngIf="isUsersLoading"></one-admin-loader>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+    <!--<table class="table table-bordered">-->
+    <!--<thead>-->
+    <!--<tr>-->
+    <!--<th style="width:40%;">User</th>-->
+    <!--<th>Email</th>-->
+    <!--<th></th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+
+    <!--<tbody>-->
+    <!--<tr *ngFor="let user of userList;let i = index">-->
+    <!--<td>{{ user?.firstName + ' ' + user?.lastName }}</td>-->
+    <!--<td>{{ user.email }}</td>-->
+    <!--<td class="dropdown">-->
+    <!--<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" (click)="onRemoveFromList(user, i)"><i class="fa fa-remove"></i></a>-->
+    <!--&lt;!&ndash;<ul class="dropdown-menu">&ndash;&gt;-->
+    <!--&lt;!&ndash;<li><a href="#">Edit</a></li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li><a href="#">Remove</a></li>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+    <!--</td>-->
+    <!--</tr>-->
+    <!--<one-admin-loader [whiteOverlay]="true" *ngIf="isCurrentOrgAdminsLoading"></one-admin-loader>-->
+    <!--</tbody>-->
+    <!--</table>-->
+
+    <!--</div>	&lt;!&ndash; end individual tab &ndash;&gt;-->
+  </div>
+
+  <button [disabled]="!orgForm.form.valid" class="btn btn-primary btn-block">Update</button>
+</form>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

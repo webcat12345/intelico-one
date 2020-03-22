@@ -1,0 +1,68 @@
+<ng-container>
+  <one-admin-date-range-filter #dateFilters
+                               (changeCustomFilter)="changeCustomFilter.emit($event)"
+                               (changeFilter)="filterChangedDateOrLocations($event)"
+                               (customFilterSelected)="customFilterSelected.emit($event)"
+                               [isDateRange]="true"
+                               [isLocation]="false">
+  </one-admin-date-range-filter>
+  <hr>
+  <one-admin-identifier-type-filter (changeFilter)="filterChanged($event, 0)"
+                                    [filteredIdentifiers]="filteredIdentifiers | orderByField : 'value'"
+                                    [isFilteredIdentifiers]="true"
+                                    keyword="historyItemSource"></one-admin-identifier-type-filter>
+  <hr>
+  <one-admin-person-filter (changeFilterPeopleId)="changeFilterPeopleId.emit($event)"></one-admin-person-filter>
+  <hr *ngIf="currentViewReports === 2">
+  <div *ngIf="currentViewReports === 2" [formGroup]="selectCondition" class="form-group">
+    <label class="control-label">Condition</label>
+    <select class="form-control" formControlName="type_condition">
+      <!--  <option value="default" disabled selected>Select Condition</option>-->
+      <option [value]="'Any'">Any</option>
+      <option *ngFor="let type of typesCondition?.data" [value]="type.value">{{type.value}}</option>
+    </select>
+  </div>
+  <hr *ngIf="selectMetaData">
+  <div *ngIf="selectMetaData" [formGroup]="formGroupMetaData" class="form-group">
+    <label class="control-label">Metadata</label>
+    <select class="form-control" formControlName="meta_data">
+      <option disabled selected value="default">Select Identifier Type Metadata</option>
+      <option *ngFor="let item of typesMetaData" [value]="item.value">{{ item.value }}</option>
+    </select>
+  </div>
+  <!-- <div class="form-group" [formGroup]="formGroupMetaData" *ngIf="selectMetaData">
+     <label class="control-label">Metadata</label>
+     <ng-select formControlName="meta_data" [items]="typesMetaData" bindLabel="value" bindValue="id"
+                multiple="true" placeholder="Please Select" [clearable]="false">
+     </ng-select>
+   </div>-->
+  <hr *ngIf="currentViewReports === 2">
+  <div *ngIf="currentViewReports === 2" [formGroup]="selectTypeReason" class="form-group">
+    <label class="control-label">Report type</label>
+    <select class="form-control" formControlName="type_reason">
+      <!--<option value="default" *ngIf="typesReasonsDefault" disabled selected>Select Report Type</option>-->
+      <option *ngFor="let item of typesReasons" [value]="item.value">{{ item.value }}</option>
+    </select>
+  </div>
+  <hr [hidden]="currentViewReports === 2">
+  <one-admin-value-filter (changeFilter)="filterChanged($event, 1)" [fields]="['triggerCondition']"
+                          [hidden]="currentViewReports === 2"></one-admin-value-filter>
+  <hr>
+  <!--  <one-admin-metadata-filter></one-admin-metadata-filter>
+    <hr>-->
+<!--  <one-admin-metadata-filter [isFilteredMetadata]="true"></one-admin-metadata-filter>
+  <hr>-->
+  <one-admin-date-range-filter #locationFilters
+                               (changeCustomFilter)="changeCustomFilter.emit($event)"
+                               (changeFilter)="filterChangedDateOrLocations($event)"
+                               (customFilterSelected)="customFilterSelected.emit($event)"
+                               (filterSourceChanged)="filterChanged($event, 2)"
+                               [isDateRange]="false"
+                               [isLocation]="true">
+  </one-admin-date-range-filter>
+  <div class="streak"></div>
+  <div class="btn-container">
+    <button #clearBtn (click)="clearSearch(locationFilters, dateFilters)" class="btn btn-amber">Clear</button>
+    <button #searchBtn (click)="searchActivity()" class="btn btn-primary">Search</button>
+  </div>
+</ng-container>

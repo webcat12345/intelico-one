@@ -1,0 +1,20 @@
+<form style="height: auto">
+  <one-admin-layer-selector (selectAssets)="selectedZone($event)"
+                            *ngIf="!isLoadingLayer"
+                            [areaId]="asset?.areaId"
+                            [isFilter]="true"
+                            [isShowAll]="false"
+                            [isShowLabel]="true"
+                            [isSource]="true"
+                            [loadFromServer]="true"
+                            [siteId]="asset?.siteId"
+                            [zoneId]="asset?.zoneId">
+  </one-admin-layer-selector>
+  <div [formGroup]="selectSource" class="right-sidebar form-group related-source">
+    <label class="control-label">Related Source</label>
+    <select class="form-control" formControlName="source_name">
+      <option disabled selected value="default">Select Related Source</option>
+      <option *ngFor="let item of sourcesUI" [value]="item.name">{{ item.name }}</option>
+    </select>
+  </div>
+</form>

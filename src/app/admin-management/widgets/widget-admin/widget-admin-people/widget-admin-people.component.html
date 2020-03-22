@@ -1,0 +1,92 @@
+<one-admin-sidebar-window (delete)="onDelete($event)"
+                          [headerTemplateRef]="header"
+                          [sidebarTemplateRef]="sidebar"
+                          [tableTemplateRef]="main">
+  <ng-template #header>
+    <h1 class="pull-left people-header">People<span class="badge">{{ peopleList?.totalCount }}</span></h1>
+    <button (click)="openAddModal()"
+            *ngIf="!showAddModal"
+            class="action-btn addnew pull-right"
+            container="body"
+            placement="bottom"
+            tooltip="Add Person"
+            type="button">List View
+    </button>
+    <div class="global-search pull-right" style="margin-right: 111px;">
+      <one-admin-search-key-filter (changeFilterClearAll)="changeFilterClearAll($event)"
+                                   (changeFilterSearchKey)="changeSearchKeyFilter($event)"
+                                   [fields]="['identifier']"
+                                   [noLabel]="true"></one-admin-search-key-filter>
+    </div>
+  </ng-template>
+  <ng-template #main>
+    <!-- List view -->
+    <ng-container *ngIf="currentView === View.ListView">
+      <one-admin-people-alphabet-filter (filterByFirstName)="filterByFirstName($event)">
+      </one-admin-people-alphabet-filter>
+      <one-admin-people-table (deletePerson)="confirmDelete($event)"
+                              (editPerson)="onEditPerson($event)"
+                              (listPeopleLength)="listPeopleLength($event)"
+                              *ngIf="peopleList?.data.length > 0"
+                              [listPeople]="peopleList?.data | orderByField : 'lastName' | firstLetter : searchKey"
+                              [searchKey]="searchKey">
+      </one-admin-people-table>
+      <!--   <pagination [boundaryLinks]="true" [totalItems]="totalCount" [maxSize]="10" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="20"></pagination>-->
+    </ng-container>
+  </ng-template>
+  <ng-template #sidebar>
+    <one-admin-people-sidebar (changeFilter)="changeSearchKeyFilterSidebar($event)">
+    </one-admin-people-sidebar>
+  </ng-template>
+</one-admin-sidebar-window>
+<!--Steps Admin People-->
+<div [class.add-identifier-modal]="currentStep === enum_addStep.Search" [class.sm-width]="currentStep === enum_addStep.Search"
+     class="custom-modal">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut [class.add-identifier-step]="currentStep === enum_addStep.Search"
+       class="add-people">
+    <a (click)="onClosePanel()" class="clear-icon">Close</a>
+    <ng-container [ngSwitch]="currentStep">
+      <one-admin-widget-admin-people-add (addressLookup)="addressLookup($event)"
+                                         (close)="closeAddSection($event)"
+                                         (nextStep)="nextStepPerson($event)"
+                                         *ngSwitchCase="enum_addStep.Detail"
+                                         [isNew]="isAddModal"></one-admin-widget-admin-people-add>
+      <one-admin-widget-admin-people-identifiers (close)="closeAddSection($event)"
+                                                 (closeAddModal)="closeAddModal($event)"
+                                                 (nextStep)="nextStepPerson($event)"
+                                                 *ngSwitchCase="enum_addStep.Identifiers"
+                                                 [isNew]="isAddModal"></one-admin-widget-admin-people-identifiers>
+      <one-admin-widget-admin-people-groups (closeAddModal)="closeAddModal($event)"
+                                            (nextStep)="nextStepPerson($event)"
+                                            *ngSwitchCase="enum_addStep.Groups"
+                                            [isNew]="isAddModal">
+      </one-admin-widget-admin-people-groups>
+      <one-admin-widget-admin-people-products (closeAddModal)="closeAddModal($event)"
+                                              (nextStep)="nextStepPerson($event)"
+                                              *ngSwitchCase="enum_addStep.Products"
+                                              [isNew]="isAddModal">
+      </one-admin-widget-admin-people-products>
+      <one-admin-widget-admin-people-compliance (closeAddModal)="closeAddModal($event)"
+                                                *ngSwitchCase="enum_addStep.Compliance"
+                                                [isNew]="isAddModal">
+      </one-admin-widget-admin-people-compliance>
+    </ng-container>
+  </div>
+  <div *ngIf="showMapModal" @flyInOut1 class="company-map">
+    <one-admin-one-map [height]="'100%'" [lock]="true" [position]="center"></one-admin-one-map>
+  </div>
+</div>
+<!--Loader-->
+<one-admin-loader *ngIf="isLoading" [size]="'sm'" [whiteOverlay]="true"></one-admin-loader>
+<!--Modal Confirmation-->
+<div *ngIf="showConfirmModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p>Are you sure you want to delete this user?</p>
+      <button (click)="onDelete(true)" class="btn btn-primary" type="button">Yes</button>
+      <button (click)="onDelete(false)" class="btn btn-secondry" type="button">No</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<form [formGroup]="filter">
+  <div *ngIf="!isFilteredIdentifiers" class="form-group">
+    <label class="control-label">Identifier Type</label>
+    <ng-select [clearable]="false"
+               [items]="identifierType$ | async"
+               bindLabel="value"
+               bindValue="id"
+               formControlName="type">
+    </ng-select>
+  </div>
+  <div *ngIf="isFilteredIdentifiers" class="form-group">
+    <label class="control-label">Identifier Type</label>
+    <ng-select [clearable]="false"
+               [items]="filteredIdentifiers"
+               bindLabel="value"
+               bindValue="id"
+               formControlName="type">
+    </ng-select>
+  </div>
+</form>

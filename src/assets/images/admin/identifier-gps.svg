@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_gps</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#AAABB3" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#AAABB3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Identifiers" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="Add-Identifier-Type" transform="translate(-194.000000, -474.000000)" fill-rule="nonzero" fill="url(#linearGradient-1)">
+            <g id="pop-up" transform="translate(100.000000, 61.000000)">
+                <g id="GPS" transform="translate(94.000000, 413.000000)">
+                    <path d="M16,0 C7.1776,0 0,7.1776 0,16 C0,24.8224 7.1776,32 16,32 C24.8224,32 32,24.8224 32,16 C32,7.1776 24.8224,0 16,0 Z M24.3765333,7.70346667 L15.1546667,26.3072 C15.064,26.4912 14.8768,26.6037333 14.6768,26.6037333 C14.6469333,26.6037333 14.6170667,26.6010667 14.5866667,26.5957333 C14.3541333,26.5562667 14.1754667,26.368 14.1472,26.1344 L13.1824,18.1610667 L4.73866667,16.7456 C4.5072,16.7072 4.32853333,16.5221333 4.29813333,16.2901333 C4.26773333,16.0581333 4.39146667,15.8330667 4.60426667,15.7349333 L23.6768,6.98186667 C23.8810667,6.88746667 24.1248,6.93333333 24.2821333,7.09546667 C24.4394667,7.2576 24.4773333,7.5008 24.3765333,7.70346667 Z" id="ic_gps"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

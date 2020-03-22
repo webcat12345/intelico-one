@@ -1,0 +1,41 @@
+<!--<agm-map [ngStyle]="{'height': height}"
+         [latitude]="position.lat"
+         [longitude]="position.lng"
+         [styles]="mapOptions.styles"
+         [zoomControl]="!lock"
+         [mapDraggable]="!lock"
+         [streetViewControl]="false"
+         [mapTypeControl]="false"
+         [fullscreenControl]="false"
+         [clickableIcons]="false"
+         [zoom]="17">-->
+<agm-map (centerChange)="centerChange($event)"
+         (mapReady)="mapReady($event)"
+         backgroundColor="none"
+         [styles]="mapOptions.styles"
+         [clickableIcons]="false"
+         [fullscreenControl]="false"
+         [latitude]="position?.lat + corresponding?.lat"
+         [longitude]="position?.lng + corresponding?.lng"
+         [mapDraggable]="!lock"
+         [mapTypeControl]="false"
+         [ngStyle]="{'height': height}"
+         [streetViewControl]="false"
+         [zoomControl]="!lock"
+         [zoom]="15">
+  <agm-marker (dragEnd)="markerDragEnd($event)"
+              (markerClick)="clickedMarker($event)"
+              [label]="''"
+              [latitude]="position.lat"
+              [longitude]="position.lng"
+              [markerClickable]="markerClickable"
+              [markerDraggable]="markerDraggable"
+              [openInfoWindow]="true"
+              iconUrl="/assets/images/map-pointer.svg">
+    <agm-snazzy-info-window [closeOnMapClick]="false" [closeWhenOthersOpen]="false" [isOpen]="true" [maxWidth]="200">
+      <ng-template>
+        <ng-template [ngTemplateOutlet]="infoTemplateRef"></ng-template>
+      </ng-template>
+    </agm-snazzy-info-window>
+  </agm-marker>
+</agm-map>

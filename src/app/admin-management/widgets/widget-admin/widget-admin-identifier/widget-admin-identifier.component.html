@@ -1,0 +1,45 @@
+<div class="flex-window">
+  <div class="filters clearfix">
+    <h4 class="pull-left">Identifiers ({{idList.totalCount}})</h4>
+
+    <button (click)="showAddModal = true" class="btn btn-primary pull-left" type="button">Add New</button>
+
+    <div class="pull-left">
+      <select class="form-control">
+        <option>Types</option>
+      </select>
+    </div>
+
+    <div class="pull-right">
+      <div class="form-group has-icon">
+        <input class="form-control md-width" placeholder="Search" type="text">
+      </div>
+    </div>
+  </div>  <!-- end filters -->
+
+  <one-admin-frozen-header-table [data]="idList.data" [info]="info"></one-admin-frozen-header-table>
+</div>
+
+<div *ngIf="showAddModal" @flyInOut class="add-identifier-types">
+  <one-admin-widget-admin-identifier-add (close)="closeAddSection($event)"
+                                         (selectType)="selectIdentifierType($event)"
+                                         [types]="types"></one-admin-widget-admin-identifier-add>
+</div>
+
+<div *ngIf="showAddModal" [class.sm-width]="addStep !== enum_AddStep.Content"
+     class="custom-modal add-identifier-modal">
+  <div *ngIf="addStep !== enum_AddStep.Default" class="overlay"></div>
+  <div *ngIf="addStep !== enum_AddStep.Default" @flyInOut class="add-identifier-step">
+    <ng-container [ngSwitch]="addStep">
+      <a (click)="addStep = enum_AddStep.Default" class="clear-icon">Close</a>
+      <one-admin-widget-admin-identifier-search (searchFinished)="onSearchFinished($event)" *ngSwitchCase="enum_AddStep.Search"
+                                                [selectedType]="selectedType"></one-admin-widget-admin-identifier-search>
+      <one-admin-widget-admin-identifier-content (close)="addStep = enum_AddStep.Default"
+                                                 *ngSwitchCase="enum_AddStep.Content"
+                                                 [selectedId]="selectedId"
+                                                 [selectedType]="selectedType"></one-admin-widget-admin-identifier-content>
+    </ng-container>
+  </div>
+</div>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

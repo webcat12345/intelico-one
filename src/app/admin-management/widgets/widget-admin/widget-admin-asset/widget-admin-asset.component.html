@@ -1,0 +1,38 @@
+<div class="flex-window">
+  <div class="filters clearfix">
+    <h4 class="pull-left">Assets ({{data.length}})</h4>
+
+    <button (click)="showAddModal = true" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]" class="btn btn-primary pull-left"
+            type="button">Add New
+    </button>
+
+    <div class="pull-left">
+      <div class="form-group">
+        <select class="form-control">
+          <option>Type</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="pull-left">
+      <select class="form-control">
+        <option>Fixed</option>
+      </select>
+    </div>
+
+    <div class="pull-right">
+      <div class="form-group has-icon">
+        <input class="form-control" placeholder="Search" type="text">
+      </div>
+    </div>
+  </div>  <!-- end filters -->
+
+  <one-admin-frozen-header-table [data]="data" [info]="info"></one-admin-frozen-header-table>
+</div>
+
+<div class="custom-modal">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut class="add-people">
+    <one-admin-widget-admin-asset-add (close)="showAddModal = false"></one-admin-widget-admin-asset-add>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="14px" viewBox="0 0 16 14" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Messages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Chat" transform="translate(-1131.000000, -663.000000)" fill-rule="nonzero" fill="#FFFFFF">
+            <g id="Messages" transform="translate(227.000000, 148.000000)">
+                <g id="White-Message" transform="translate(360.000000, 0.000000)">
+                    <g id="Group" transform="translate(0.000000, 494.000000)">
+                        <path d="M560,27.2222222 L553.777778,21 L553.777778,24.5555556 C547.555556,25.4444444 544.888889,29.8888889 544,34.3333333 C546.222222,31.2222222 549.333333,29.8 553.777778,29.8 L553.777778,33.4444444 L560,27.2222222 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

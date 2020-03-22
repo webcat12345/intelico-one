@@ -1,0 +1,15 @@
+<ng-container>
+  <!-- <one-admin-identifier-type-filter keyword="historyItemSource" (changeFilter)="filterChanged($event, 0)"></one-admin-identifier-type-filter>
+   <hr>
+   <one-admin-value-filter [fields]="['triggerCondition']" (changeFilter)="filterChanged($event, 1)"></one-admin-value-filter>
+   <hr>
+   <one-admin-source-filter (changeFilter)="filterChanged($event, 2)"></one-admin-source-filter>
+   <hr>-->
+  <one-admin-date-range-filter (selectForMapData)="selectForMapDate($event)"
+                               [isDateRange]="false">
+  </one-admin-date-range-filter>
+  <div class="filter-btns-wrap">
+    <button (click)="clearSearch()" class="btn btn-amber">Clear</button>
+    <button (click)="search()" class="btn btn-primary">Search</button>
+  </div>
+</ng-container>

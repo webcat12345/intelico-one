@@ -1,0 +1,11 @@
+<form [formGroup]="typeFilterForm">
+  <div *ngFor="let option of typeOptions" class="col-sm-6">
+    <div [ngClass]="option.additionalClass" class="checkbox">
+      <input [checked]="true"
+             [formControlName]="option.name"
+             [id]="'chb' + now + option.label"
+             type="checkbox">
+      <label [for]="'chb' + now + option.label">{{ option.label }}</label>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,15 @@
+<ng-container>
+  <one-admin-date-range-filter #dateFilters
+                               (changeCustomFilter)="changeCustomFilter.emit($event)"
+                               (changeFilter)="filterChangedDateOrLocations($event)"
+                               (customFilterSelected)="customFilterSelected.emit($event)"
+                               [isDateRange]="true"
+                               [isLocation]="false">
+  </one-admin-date-range-filter>
+  <hr>
+  <div class="streak"></div>
+  <div class="btn-container">
+    <button #clearBtn (click)="clearSearch(dateFilters)" class="btn btn-amber">Clear</button>
+    <button #searchBtn (click)="search()" class="btn btn-primary">Search</button>
+  </div>
+</ng-container>

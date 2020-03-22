@@ -1,0 +1,19 @@
+<div class="row narrow--row">
+  <div class="col-sm-6">
+    <div [chart]="totalAlertsByIdentifiers" class="graph-pie"></div>
+  </div>
+  <div class="col-sm-6">
+    <div [chart]="totalAlertsByName" class="graph-pie"></div>
+  </div>
+</div>
+<div class="row narrow--row">
+  <div class="col-sm-6">
+    <div [chart]="totalAlertsByActionReason" class="graph-pie"></div>
+  </div>
+  <div class="col-sm-6">
+    <div [chart]="totalAlertsByStatus" class="graph-pie"></div>
+  </div>
+</div>
+<div class="load-more-wrap">
+  <button (click)="goBack()"><span>Back</span></button>
+</div>

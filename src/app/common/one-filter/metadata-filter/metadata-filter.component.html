@@ -1,0 +1,20 @@
+<form *ngIf="!isFilteredMetadata" [formGroup]="filter">
+  <div class="form-group">
+    <label class="control-label">Metadata</label>
+    <select class="form-control" formControlName="type">
+      <option *ngIf="isAny" default selected value="-1">Any</option>
+      <option *ngFor="let item of reasonList" [value]="item.id">{{ item.value }}</option>
+    </select>
+  </div>
+</form>
+<form *ngIf="isFilteredMetadata" [formGroup]="filter">
+  <div class="form-group">
+    <label class="control-label">Metadata</label>
+   <!-- <ng-select [clearable]="false" [items]="filteredReasons" bindLabel="value" bindValue="id"
+               formControlName="type"></ng-select>-->
+
+    <ng-select [clearable]="false" [items]="filteredReasons" bindLabel="name" bindValue="id"
+               formControlName="urls" multiple="true" placeholder="Please Select Metadata">
+    </ng-select>
+  </div>
+</form>

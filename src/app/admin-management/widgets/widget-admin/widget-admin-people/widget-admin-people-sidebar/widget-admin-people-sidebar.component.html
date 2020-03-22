@@ -1,0 +1,18 @@
+<ng-container>
+  <!-- <div class="form-group">
+     <label class="control-label">Group</label>
+     <select #select class="form-control">
+     </select>
+   </div>
+   <hr>
+   <div class="form-group">
+     <label class="control-label">Last Edit by</label>
+     <select #select class="form-control">
+     </select>
+   </div>-->
+  <one-admin-identifier-type-filter (chafilterChangedngeFilter)="filterChanged($event, 1)"
+                                    keyword="identifierTypeId"></one-admin-identifier-type-filter>
+  <hr>
+  <one-admin-date-range-filter (changeFilter)="filterChanged($event)"
+                               (customFilterSelected)="scrollToBottom.emit()"></one-admin-date-range-filter>
+</ng-container>

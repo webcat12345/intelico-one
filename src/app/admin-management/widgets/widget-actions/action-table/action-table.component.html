@@ -1,0 +1,46 @@
+<one-admin-expansion-table [columns]="displayColumns"
+                           [data]="actions"
+                           [detailTemplate]="detailPanel">
+
+  <ng-template #typeImage let-item="item">
+    <div class="icon-cell">
+      <img [src]="item?.identifierTypeId | identifierTypeIcon" alt="Identifier">
+    </div>
+  </ng-template>
+
+  <ng-template #isOutput let-item="item">
+    <!--<one-admin-ui-switch [label]="{positive: '', negative: ''}"
+                         [value]="true"one-admin-action-alert-setting
+                         (select)="toggleUiSwitch($event, item)">
+    </one-admin-ui-switch>-->
+    <div class="checkbox pull-left">
+      <input (ngModelChange)="onChangeOption($event)"
+             [(ngModel)]="item.hasOutput"
+             [ngModelOptions]="{standalone: true}"
+             disabled="true" id="aachbEmail"
+             type="checkbox">
+      <label for="aachbEmail"></label>
+    </div>
+  </ng-template>
+
+  <ng-template #priorityBadge let-item="item">
+    <span *ngIf="item.priority === 'High'" class="badge warning">High</span>
+    <span *ngIf="item.priority === 'Critical'" class="badge danger">Critical</span>
+    <span *ngIf="item.priority === 'Normal'" class="badge success">Normal</span>
+  </ng-template>
+
+  <ng-template #detailPanel let-item="item">
+    <div class="btns-block clearfix">
+      <button (click)="editAction.emit(item)" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]" class="btn btn-secondry pull-left"
+              type="button">Edit Action
+      </button>
+      <div *ngIf="item.conditions.length <= 4">
+        <button (click)="addIdentifier.emit(item)" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]" [hidden]="" class="btn btn-secondry pull-left"
+                type="button">
+          Add {{ item.identifierType || 'Identifiers' }}</button>
+      </div>
+      <button (click)="deleteAction.emit(item)" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]" class="action-btn grey remove-btn pull-right"
+              type="button"></button>
+    </div>
+  </ng-template>
+</one-admin-expansion-table>

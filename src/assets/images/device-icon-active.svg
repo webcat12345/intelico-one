@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="24px" viewBox="0 0 18 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_device</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Events" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-223.000000, -564.000000)" fill="#ffffff" id="Group-4">
+            <g transform="translate(150.000000, 42.000000)">
+                <g id="events">
+                    <g id="Content" transform="translate(40.000000, 100.000000)">
+                        <g id="Row-Copy" transform="translate(0.000000, 404.000000)">
+                            <path d="M35,18 L49,18 C50.1045695,18 51,18.8954305 51,20 L51,40 C51,41.1045695 50.1045695,42 49,42 L35,42 C33.8954305,42 33,41.1045695 33,40 L33,20 C33,18.8954305 33.8954305,18 35,18 Z M36,20 C35.4477153,20 35,20.4477153 35,21 L35,39 C35,39.5522847 35.4477153,40 36,40 L48,40 C48.5522847,40 49,39.5522847 49,39 L49,21 C49,20.4477153 48.5522847,20 48,20 L36,20 Z M42,39 C41.4477153,39 41,38.5522847 41,38 C41,37.4477153 41.4477153,37 42,37 C42.5522847,37 43,37.4477153 43,38 C43,38.5522847 42.5522847,39 42,39 Z M40,21 L44,21 C44.5522847,21 45,21.4477153 45,22 C45,22.5522847 44.5522847,23 44,23 L40,23 C39.4477153,23 39,22.5522847 39,22 C39,21.4477153 39.4477153,21 40,21 Z" id="ic_device"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

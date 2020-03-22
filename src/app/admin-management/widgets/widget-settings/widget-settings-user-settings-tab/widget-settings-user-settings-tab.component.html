@@ -1,0 +1,47 @@
+<div class="col-title">User Settings</div>
+
+<div class="row narrow-ro}">
+  <div class="profile-img text-center">
+    <div class="img"><img alt="Profile Picture" class="placeholder" src="assets/images/placeholder-icon.svg"></div>
+    <button class="btn btn-primary sm-btn" type="button">Upload Photo</button>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label class="control-label">Login Email</label>
+      <input [(ngModel)]="contact.email" class="form-control grey" readonly type="text">
+    </div>
+  </div>  <!-- end col -->
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label class="control-label">Role</label>
+      <input [(ngModel)]="contact.role" class="form-control grey" readonly type="text">
+    </div>
+  </div>  <!-- end col -->
+</div>
+
+<!--<div class="change-pass">
+  <button type="button" class="btn btn-primary btn-secondry btn-block" (click)="showPassword()">Change Password</button>
+</div>-->
+
+<!--<div class="row narrow-row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label class="control-label">Password</label>
+      <div class="change-pass">
+        <button type="button" class="btn btn-primary btn-small">Change Password</button>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<!--<div class="row narrow-row">
+  <div class="col-sm-4">
+    <div class="add-img" style="margin:10px 0 20px;"><button type="button" class="btn btn-primary">Add Photo</button></div>
+  </div>
+</div>-->
+
+<button class="btn btn-success btn-block" type="button">Update</button>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

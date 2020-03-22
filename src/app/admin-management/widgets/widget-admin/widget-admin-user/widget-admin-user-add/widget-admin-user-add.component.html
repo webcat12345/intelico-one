@@ -1,0 +1,66 @@
+<ng-container *ngIf="!noMatch">
+  <div>
+    <div>
+      <h5 class="mb-30 color-white">Create New User</h5>
+
+      <p class="color-white">Enter the email of the person you want to add below to check if they already exist in the system</p>
+
+      <div class="sidebar-scroll nice-scroll">
+        <form #searchForm="ngForm" (ngSubmit)="onSearch()" style="height: auto;">
+          <div class="right-sidebar form-group">
+            <input [(ngModel)]="email" class="form-control" name="email" placeholder="Email" required type="text">
+          </div>
+          <button [disabled]="!searchForm.form.valid" class="btn btn-primary btn-block">Continue</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="noMatch">
+  <div class="add-identifier-step">
+    <h5 *ngIf="!isAddWindow" class="mb-30 color-white">User No Match</h5>
+
+    <p class="color-white">Complete the form below to add a new user</p>
+
+    <div class="sidebar-scroll nice-scroll" style="height: calc(100% - 110px);">
+
+      <form #addUserForm="ngForm" (ngSubmit)="onCreate()" style="height: auto;">
+        <div class="right-sidebar form-group">
+          <label class="control-label">First Name</label>
+          <input [(ngModel)]="newUser.firstName" class="form-control" name="newFirstName" placeholder="First Name"
+                 required type="text">
+        </div>
+
+        <div class="right-sidebar form-group">
+          <label class="control-label">Last Name</label>
+          <input [(ngModel)]="newUser.lastName" class="form-control" name="newLastName" placeholder="Last Name"
+                 required type="text">
+        </div>
+
+        <div class="right-sidebar form-group">
+          <label class="control-label">Email</label>
+          <input [(ngModel)]="newUser.email" class="form-control" email name="newEmail" placeholder="Email" required
+                 type="email">
+        </div>
+
+        <div class="right-sidebar form-group">
+          <label class="control-label">Mobile Number</label>
+          <input [(ngModel)]="newUser.mobile" class="form-control" name="newMobile" placeholder="Mobile Number"
+                 type="text">
+        </div>
+
+        <div *ngIf="!isAddWindow" class="right-sidebar form-group">
+          <label class="control-label">Select Role</label>
+          <select [ngModel]="newUser?.role"
+                  (ngModelChange)="newUser.role = $event"
+                  class="form-control" name="newRole" required>
+            <!--<option disabled value="">Select Role</option>-->
+            <option *ngFor="let role of roles" [value]="role.value">{{role.label}}</option>
+          </select>
+        </div>
+        <button [disabled]="!addUserForm.form.valid" class="btn btn-primary btn-block">Continue</button>
+      </form>
+    </div>
+  </div>
+</ng-container>
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

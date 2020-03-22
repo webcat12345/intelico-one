@@ -1,0 +1,16 @@
+<div class="chat-wrapper hidden">
+  <!--<button type="button" class="minimize-chat">Minimize</button>-->
+  <ul #messageList class="msgs-list nice-scroll">
+    <li *ngFor="let item of (messages | slice: (messages.length > 6 ? messages.length - 6 : 0 ))" [class.in-msg]="item.reply"
+        [class.out-msg]="!item.reply" class="in-msg">
+      <div class="msg-wrap">{{ item.text }}</div>
+    </li>
+  </ul>
+  <form (ngSubmit)="send()" [formGroup]="chatBox">
+    <div class="sender-wrap">
+      <input class="form-control" formControlName="message" placeholder="Type your message..." type="text">
+      <one-admin-loader *ngIf="sending" [type]="LoaderType.Ball"></one-admin-loader>
+      <button [disabled]="chatBox.invalid" class="send-btn">Send</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,101 @@
+<div class="fixed-header">
+  <table class="table">
+    <thead>
+    <tr>
+      <th *ngFor="let item of info" [style.width]="item.width">{{item.label}}</th>
+    </tr>
+    </thead>
+  </table>
+</div>
+<div [class.table-scroller]="isTableScroller">
+  <!--<div class="table-scroller">-->
+  <table [ngClass]="'table table-striped ' + customTableClass">
+    <tbody>
+    <tr (click)="itemSelect.emit(dataItem)" *ngFor="let dataItem of data">
+      <ng-container *ngFor="let item of info">
+        <td *ngIf="item.name !== 'action_group' && item.name !== 'avatar' && item.name !== 'color'"
+            [style.width]="item.width">
+          <ng-container *ngIf="item.isLink">
+            <a *ngIf="!item.subFields" class="underline">{{dataItem[item.name]}}</a>
+            <a *ngIf="item.subFields" class="underline">{{dataItem | deepObjectFilter : item.subFields}}</a>
+          </ng-container>
+          <ng-container *ngIf="!item.isLink && !item.isValue">
+            <span *ngIf="item.tooltip" container="body" placement="left"
+                  tooltip="{{dataItem[item.name]}}">{{dataItem[item.name]}}</span>
+            <span *ngIf="!item.tooltip">
+              <ng-container *ngIf="!isObject(dataItem[item.name])">
+                {{toLocale && dataItem[item.name] ? (dataItem[item.name]).toLocaleString() : dataItem[item.name]}}
+              </ng-container>
+              <ng-container *ngIf="dataItem[item.name] && isObject(dataItem[item.name])">
+                <ng-container *ngIf="dataItem[item.name].isLoading">
+                  <ng-container *ngTemplateOutlet="loadingSpinner; context: {width: item.width}"></ng-container>
+                </ng-container>
+                <ng-container *ngIf="!dataItem[item.name].isLoading">
+                  {{toLocale ? (dataItem[item.name].value).toLocaleString() : dataItem[item.name].value}}
+                </ng-container>
+              </ng-container>
+            </span>
+            <one-admin-ui-switch (select)="toggleUiSwitch($event, dataItem)"
+                                 *ngIf="!item.isLink && item.name === 'isEnableD'"
+                                 [label]="{positive: '', negative: ''}"
+                                 [value]="dataItem['isEnabled']">
+            </one-admin-ui-switch>
+          </ng-container>
+          <ng-container *ngIf="!item.isLink && item.isValue">
+            <one-admin-ui-switch (select)="toggleUiSwitchFeature($event, dataItem)"
+                                 *ngIf="!item.isLink && item.name === 'value'"
+                                 [label]="{positive: '', negative: ''}"
+                                 [value]="dataItem['value']">
+            </one-admin-ui-switch>
+          </ng-container>
+        </td>
+
+        <td *ngIf="item.name === 'action_group'" [style.width]="item.width" class="action-col">
+          <ng-container *ngIf="!isUserTable || (currentUserId !== dataItem.userId && isUserTable)">
+            <a (click)="edit.emit(dataItem)" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]"
+               [style.display]="displayOnEditLink" class="edit-icon"><img alt="Edit" src="assets/images/edit-icon.svg"> </a>
+            <a (click)="remove.emit(dataItem)" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]"
+               class="remove-icon"><img alt="Remove" src="assets/images/trash-icon.svg"></a>
+          </ng-container>
+        </td>
+
+        <td *ngIf="item.name === 'avatar'" [style.width]="item.width">
+          <div [style.background-image]="'url(' + dataItem[item.name] + ')'" class="img"></div>
+        </td>
+
+        <td *ngIf="item.name === 'color'" [style.width]="item.width">
+          <div class="level-types cl-8"></div>
+        </td>
+      </ng-container>
+    </tr>
+    </tbody>
+  </table>
+</div>  <!-- end table view -->
+
+<div *ngIf="footerInfo && footerInfo.length" class="fixed-footer">
+  <table class="table">
+    <tfoot>
+    <tr>
+      <ng-container *ngFor="let item of footerInfo">
+        <ng-container *ngIf="item.isLoading">
+          <ng-container *ngTemplateOutlet="loadingSpinner; context: {width: item.width, th: true}"></ng-container>
+        </ng-container>
+        <th *ngIf="!item.isLoading" [style.width]="item.width">
+          {{toLocale && item.label ? (item.label).toLocaleString() : item.label}}
+        </th>
+      </ng-container>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+
+<ng-template #loadingSpinner let-th="th" let-width="width">
+  <ng-container *ngIf="th">
+    <th [style.width]="width">
+      <fa-icon icon="spinner" spin="true"></fa-icon>
+    </th>
+  </ng-container>
+  <ng-container *ngIf="!th">
+    <fa-icon icon="spinner" spin="true"></fa-icon>
+  </ng-container>
+</ng-template>

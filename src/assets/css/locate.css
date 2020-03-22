@@ -1,0 +1,313 @@
+#map-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+ }
+
+ #map {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+ }
+
+ .locate-search-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 440px;
+    border-radius: 10px;
+    background-color: #2B3036;
+    padding: 12px;
+}
+
+.locate-search-wrapper .alert-danger {
+    position: absolute;
+    left: 108px;
+    right: 108px;
+    bottom: -60px;
+    padding: 14px 0;
+    text-align: center;
+    background-color: #F6402B;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 400;
+}
+
+.locate-search-wrapper .alert-danger fa-icon {
+    margin-right: 7px;
+}
+
+.locate-btns-wrapper {
+    padding: 0 0 20px;
+}
+
+.locate-btns-wrapper .action-btn {
+    background-color: transparent;
+    width: 52px;
+    margin-right: 10px;
+}
+
+.locate-btns-wrapper .action-btn.active {
+    background-color: #1B84FA;
+}
+
+.locate-btns-wrapper .btn {
+    background-color: #EBEFF7;
+    border-radius: 6px;
+    width: 81px;
+    height: 26px;
+    padding: 0;
+    color: #ACB3BF !important;
+    float: right;
+    margin: 5px 0 0;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.locate-btns-wrapper .btn:hover {
+    background-color: #1B84FA;
+    color: #fff !important;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-bar > div:nth-child(2) {
+    flex: 1;
+    padding-right: 9px;
+    position: relative;
+}
+
+.search-bar > div:first-child {
+    width: 165px;
+    padding-right: 9px;
+    position: relative;
+}
+
+.search-bar .close--btn {
+    position: absolute;
+    right: 18px;
+    top: 14px;
+}
+
+.search-bar .form-control {
+    margin: 0;
+    height: 37px;
+}
+
+.search-bar .search-btn {
+    border-radius: 6px;
+    padding: 0;
+    width: 50px;
+    height: 37px;
+    text-indent: -9999px;
+    background: #0077BE url(../images/nav-locate.svg) no-repeat scroll center;
+    background-size: 20px auto;
+}
+
+.search-bar .search-btn:hover {
+    background-color: #009af2;
+}
+
+.new-marker-details {
+  min-width: 190px !important;
+  width: max-content !important;
+  left: -98px !important;
+}
+
+.new-marker-details p {
+  text-align: start !important;
+}
+
+.marker-details, .marker-details-top {
+    background-color: #2D2327;
+    border-radius: 6px;
+    position: absolute;
+    width: 360px;
+    color: #fff;
+    left: -184px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 52px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.marker-details {
+    bottom: -114px;
+ }
+
+ .marker-details-top {
+    bottom: -1px;
+ }
+
+ .marker-details:after, .marker-details-top:after {
+    content: "";
+    position: absolute;
+    border: 6px solid #2D2327;
+    border-color: transparent transparent #2D2327 #2D2327;
+    transform-origin: 0 0;
+ }
+
+ .marker-details:after {
+    transform: rotate(135deg);
+    left: 50%;
+    margin-left: 14px;
+    top: 1px;
+ }
+
+ .marker-details-top:after {
+    transform: rotate(-45deg);
+    left: 50%;
+    margin-left: -5px;
+    top: 67px;
+ }
+
+
+
+ .marker-details h5, .marker-details-top h5 {
+    font-weight: 500;
+    line-height: 24px;
+    position: relative;
+    text-align: center;
+ }
+
+ .marker-details p, .marker-details-top p {
+    color: #fff;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 0;
+    text-align: center;
+ }
+
+ .marker-details .btn, .marker-details-top .btn {
+    height: 26px;
+    width: 100px;
+    background-color: #666F80;
+    color: #fff !important;
+    margin: 0 2px;
+    padding: 0;
+    font-size: 11px;
+ }
+
+ .marker-details .btn:hover, .marker-details-top .btn:hover {
+    background-color: #1B84FA;
+ }
+
+ .marker-icon {
+    position: absolute;
+ }
+
+ .locate-side-details {
+    background: linear-gradient(to right, #242434 0%,#212634 100%);
+    position: absolute;
+    right: 0;
+    top: 65px;
+    bottom: 0;
+    width: 400px;
+    z-index: 4;
+    text-align: center;
+}
+
+.locate-side-details .nice-scroll {
+    padding: 15px;
+    height: calc(100% - 0px);
+    text-align: left;
+    overflow: auto;
+}
+
+.locate-side-details .table-row .cell-wrap:first-child {
+    padding-left: 40px;
+    position: relative;
+}
+
+.locate-side-details .cell-wrap.full span {
+    display: block;
+    font-size: 11px;
+    color: #9B9B9B;
+    line-height: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.locate-side-details .cell-wrap.full fa-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: rgba(0,195,242,1);
+}
+
+.locate-details-wrapper .img {
+    height: 198px;
+    margin: 10px 0 10px 10px;
+    width: auto;
+    flex: 1;
+}
+
+.locate-details-wrapper .flex-btn-wrap {
+    flex-direction: column;
+    margin: 0;
+}
+
+.locate-details-wrapper .sm-map-actions {
+    width: 52px;
+    margin-left: 10px;
+}
+
+.locate-details-wrapper .flex-btn-wrap button {
+    margin: 8px 0 0;
+}
+
+.locate-details-wrapper .flex-btn-wrap button:first-child {
+    margin: 10px 0 0;
+}
+
+.locate-details-wrapper .event-info-wrapper {
+    height: 198px;
+    margin: 10px 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #232534;
+  color: #FFFFFF;
+    /*border: 1px solid #DADADA;*/
+    padding: 15px 15px 0;
+    border-radius: 6px;
+}
+
+.locate-details-wrapper .event-info-wrapper .event-info {
+    flex: 1;
+    overflow: auto;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    margin-right: -15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}

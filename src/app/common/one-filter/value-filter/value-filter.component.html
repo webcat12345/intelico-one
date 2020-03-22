@@ -1,0 +1,9 @@
+<form [formGroup]="valueFilterForm">
+  <div class="form-group spacing-fix">
+    <label class="control-label">Condition</label>
+    <select class="form-control" formControlName="value">
+      <option [value]="'Any'">Any</option>
+      <option *ngFor="let type of typesCondition?.data" [value]="type.value">{{type.value}}</option>
+    </select>
+  </div>
+</form>

@@ -1,0 +1,52 @@
+<div class="flex-window">
+  <div class="filters clearfix filters-active">
+    <h4 class="pull-left">{{label.mLabel}} ({{typeList.totalCount}})</h4>
+
+    <button (click)="onCreateType()" class="btn btn-primary pull-left" type="button">Add New</button>
+
+    <div class="pull-right">
+      <div class="form-group has-icon">
+        <input [(ngModel)]="searchKey" class="form-control" name="searchKey" placeholder="Search" type="text">
+      </div>
+    </div>
+  </div>  <!-- end filters -->
+
+  <one-admin-frozen-header-table (edit)="onEditType($event)"
+                                 (remove)="askConfirm($event)"
+                                 [data]="typeList.data | filterBy : ['value'] : searchKey"
+                                 [info]="info"></one-admin-frozen-header-table>
+
+  <one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>
+</div>
+
+<div class="custom-modal">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut class="add--sidebar">
+    <one-admin-widget-super-admin-types-add (close)="onCloseAddSection($event)"
+                                            [apiUrl]="apiUrl"
+                                            [editData]="selectedType"
+                                            [isNew]="isAddModal"
+                                            [label]="label"></one-admin-widget-super-admin-types-add>
+    <!--<one-admin-widget-super-admin-identifier-type-add *ngIf="apiUrl === 'identifierTypes'"></one-admin-widget-super-admin-identifier-type-add>-->
+  </div>
+
+  <div *ngIf="showAddModal && (apiUrl === 'reasonTypes' || apiUrl === 'resolvedTypes')" @flyInOut class="add-sidebar">
+    <one-admin-widget-super-admin-action-reasons-add (close)="onCloseAddSection($event)"
+                                                     [apiUrl]="apiUrl"
+                                                     [editData]="selectedType"
+                                                     [isNew]="isAddModal"
+                                                     [label]="label"></one-admin-widget-super-admin-action-reasons-add>
+  </div>
+
+</div>
+
+<div *ngIf="showConfirmModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p>Are you sure?</p>
+      <button (click)="onDelete(true)" class="btn btn-primary" type="button">Yes</button>
+      <button (click)="onDelete(false)" class="btn btn-secondry" type="button">No</button>
+    </div>
+  </div>
+</div>

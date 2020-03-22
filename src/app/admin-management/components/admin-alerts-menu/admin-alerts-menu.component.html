@@ -1,0 +1,23 @@
+<div class="alerts-menu">
+  <ul [@slider_que]="alerts.length">
+    <ng-template [ngForOf]="alerts" let-i="index" let-item ngFor>
+      <li (click)="openAlert(item)"
+          *ngIf="i > -1"
+          [class.critical]="item.priority === Priority.Critical"
+          [class.high]="item.priority === Priority.High"
+          [class.normal]="item.priority === Priority.Normal"
+          [ngClass]="item.identifierTypeId | identifierTypeIcon : true">
+        <div class="alert-badge"></div>
+        <ul>
+          <li><span>{{ item.name || item.identifier }}</span> {{item?.timeElapsed}}</li>
+        </ul>
+      </li>
+    </ng-template>
+  </ul>
+  <a (click)="toggle()"
+     [@thrilling_alert_circle]="circleState"
+     [class.active]="totalCount" [placement]="settings.menuPosition === 'right' ? 'left' : 'left'" class=""
+     container="body"
+     tooltip="Alerts">{{totalCount > 99 ? '99+' : totalCount }}</a>
+</div>
+

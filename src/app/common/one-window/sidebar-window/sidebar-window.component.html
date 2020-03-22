@@ -1,0 +1,171 @@
+<div [class.collapsed]="isSidebarOpened" [class.static-sidebar]="sidebarOption.type === SidebarType.StaticSidebar"
+     class="flex-window">
+  <div class="page-header clearfix page-header-color">
+    <ng-template [ngTemplateOutlet]="headerTemplateRef"></ng-template>
+    <div class="pull-right">
+      <ng-container *ngIf="sidebarOption.type === SidebarType.HasOverlaySidebar && !isOverlaySidebarOpened">
+        <button (click)="openOverlaySidebar()" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]" class="action-btn addnew"
+                container="body" placement="bottom" tooltip="New Action" type="button">Add New
+        </button>
+      </ng-container>
+      <button (click)="sidebarOpened()" *ngIf="sidebarOption.type !== SidebarType.StaticSidebar && !hideSidebarButton"
+              [class.active]="isSidebarOpened" class="action-btn filter-btn" container="body"
+              placement="bottom"
+              tooltip="Filter"
+              type="button">
+        <fa-icon icon="filter"></fa-icon>
+      </button>
+    </div>
+  </div>
+
+  <ng-template [ngTemplateOutlet]="notificationTemplateRef"></ng-template>
+
+  <!-- Table content -->
+  <div *ngIf="tableTemplateRef" class="flex-window-wrapper nice-scroll">
+    <div class="custom-table">
+      <ng-template [ngTemplateOutlet]="tableTemplateRef"></ng-template>
+    </div>
+  </div>
+
+  <!-- Normal content -->
+  <ng-template [ngTemplateOutlet]="normalTemplateRef"></ng-template>
+</div>
+
+<aside [class.static-sidebar]="sidebarOption.type === SidebarType.StaticSidebar" class="right-sidebar">
+  <ng-container>
+    <div [class.expand]="isSidebarOpened" class="sidebar-wrapper">
+      <div #sidebarRef class="nice-scroll">
+        <button (click)="isSidebarOpened = false;hideSidebarButton = false" *ngIf="sidebarOption.type !== SidebarType.StaticSidebar" class="close--btn"
+                type="button">Close
+        </button>
+        <ng-template [ngTemplateOutlet]="sidebarTemplateRef"></ng-template>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="sidebarOption.type === SidebarType.HasOverlaySidebar">
+    <div *ngIf="isOverlaySidebarOpened" class="sidebar-overlay"></div>
+    <div [class.open]="isOverlaySidebarOpened" [ngClass]="sidebarOption?.classes" class="sidebar-wrapper">
+      <ng-template [ngTemplateOutlet]="overlaySidebarTemplateRef"></ng-template>
+    </div>
+  </ng-container>
+</aside>
+
+<!--Sidebar templates-->
+
+<ng-template #defaultSidebarRef>
+  <div [class.expand]="isSidebarOpened" class="sidebar-wrapper">
+    <div class="nice-scroll">
+      <ng-template [ngTemplateOutlet]="sidebarTemplateRef"></ng-template>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #overlaySidebarRef>
+  <div *ngIf="isSidebarOpened" class="sidebar-overlay"></div>
+  <div [class.open]="isSidebarOpened" [ngClass]="sidebarOption?.classes" class="sidebar-wrapper">
+    <ng-template [ngTemplateOutlet]="sidebarTemplateRef"></ng-template>
+  </div>
+</ng-template>
+
+<div *ngIf="isConfirmModalOpened" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p>Are you sure?</p>
+      <button (click)="onDelete(true)" class="btn btn-primary" type="button">Yes</button>
+      <button (click)="onDelete(false)" class="btn btn-secondry" type="button">No</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isImageModalOpened" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <button (click)="isImageModalOpened = false" class="close--btn" type="button">Close</button>
+    <div (click)="isImageModalOpened = false" class="img-wrapper"><img [src]="imageModalSrc" alt="figure"></div>
+  </div>
+</div>
+
+<div *ngIf="isDetailModalOpened" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <button (click)="isDetailModalOpened = false" class="close--btn" type="button">Close</button>
+    <div class="event-info-wrapper">
+      <div class="event-info nice-scroll">
+        <h6 class="pb-10">DETAILS</h6>
+        <ul>
+          <li>Identifier: {{ detailData?.identifier }}</li>
+          <li>Site Type: {{ detailData?.sourceDetails.type }}</li>
+          <li>Source: {{ detailData?.source }}</li>
+          <li>Reason: {{ detailData?.reason }}</li>
+          <li>Site: {{ detailData?.locationDetails.site }}</li>
+          <li>Area: {{ detailData?.locationDetails.area }}</li>
+          <li>Zone: {{ detailData?.locationDetails.zone }}</li>
+          <li>Condition: {{ detailData?.name }}</li>
+          <li>Created: {{ detailData?.createdAt | date : 'dd MMM yy / HH:mm:ss' }}</li>
+        </ul>
+        <h6 class="pt-10">META DATA</h6>
+        <ul *ngFor="let metaKey of metaDataKeys; let i = index let even = even; let odd = odd">
+          <li
+            [ngClass]="{ odd: odd, even: even } "> {{ metaKey + ': ' | titlecase }} {{ metaDataValues[i] | titlecase }}</li>
+        </ul>
+
+
+        <!--<h6 class="pb-10">SKI DATA</h6>
+        <ul>
+          <li>Ticket Number: {{ detailData?.ticketNumber || 'Unknown'}}</li>
+          <li>Transaction: {{ detailData?.transaction || 'Unknown'}}</li>
+        </ul>
+        <h6 class="pb-10">Vehicle</h6>
+        <ul>
+          <li>Identifier: {{ detailData?.identifier || 'NaN'}}</li>
+          <li>Identifier Owner: {{ detailData?.identifierOwnerFirstName || 'Unknown'}}</li>
+          <li>Location: {{ detailData?.location || 'Unknown'}}</li>
+          <li>Source: {{ detailData?.source || 'Unknown'}}</li>-->
+        <!--<li>Vehicle Class: Car</li>-->
+        <!--<li>SMMT Marque: VAUXHALL</li>-->
+        <!--<li>SMMT Range: CORSA</li>-->
+        <!--<li>Model Variant: EXCLUSIV AC</li>-->
+        <!--<li>Series: 4400</li>-->
+        <!--<li>Gearbox: MANUAL</li>-->
+        <!--<li>No of Gears” 5</li>-->
+        <!--<li>Country of origin: SPAIN</li>-->
+        <!--<li>Engine Size: 1229cc</li>-->
+        <!--<li>Body: HATCHBACK</li>-->
+        <!--<li>No of doors: 5 doors</li>-->
+        <!--<li>Year manufacture: 2012</li>-->
+        <!--<li>Door plan: 5 DOOR HATCHBACK</li>-->
+        <!--<li>Seating capacity: 5 seats</li>-->
+        <!--<li>Max weight: 1625kg</li>-->
+        <!--<li>Driven Axel: FRONT</li>
+      </ul>-->
+        <!--<h6 class="pt-20 pb-10">Emissions</h6>-->
+        <!--<ul>-->
+        <!--<li>Fuel: PETROL</li>-->
+        <!--<li>CO2: 129g/km</li>-->
+        <!--<li>Euro status: 5</li>-->
+        <!--<li>Fuel capacity: na (edited)</li>-->
+        <!--</ul>-->
+        <!--<h6 class="pt-20 pb-10">Ownership</h6>-->
+        <!--<ul>-->
+        <!--<li>Total keepers: 4</li>-->
+        <!--<li>Keeper number Keeper acquisition date</li>-->
+        <!--<li>4 (Current keeper) 09/06/2016</li>-->
+        <!--<li>3 29/07/2015</li>-->
+        <!--<li>2 17/07/2013</li>-->
+        <!--<li>1 (First keeper)2012-10-11</li>-->
+        <!--</ul>-->
+        <!--<h6 class="pt-20 pb-10">Dimensions</h6>-->
+        <!--<ul>-->
+        <!--<li>Length: 3999mm</li>-->
+        <!--<li>Height: 1488mm</li>-->
+        <!--<li>Width: 1944mm</li>-->
+        <!--<li>Load: na</li>-->
+        <!--<li>Boot capacity: na</li>-->
+        <!--<li>Fuel capacity: na</li>-->
+        <!--</ul>-->
+      </div>
+    </div>
+  </div>
+</div>

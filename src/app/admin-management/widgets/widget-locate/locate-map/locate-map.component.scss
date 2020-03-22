@@ -1,0 +1,63 @@
+agm-map {
+  height: 100%;
+}
+
+/*
+.marker-details {
+  left: -104px;
+  bottom: -163px;
+  width: max-content !important;
+  min-width: 190px !important;
+  h3 {
+    color: rgba(0,195,242,1);
+    font-weight: 500;
+    padding: 5px 0 12px;
+    border-bottom: rgba(255,255,255,0.1) 1px solid;
+    margin: 0 0 20px;
+    font-size: 18px;
+
+    img {
+      width: 20px;
+      height: auto;
+      position: relative;
+      top: -1.5pt;
+      margin: 0 2px 0 0;
+    }
+  }
+
+  p {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0 0 8px;
+
+    label {
+      float: left;
+      font-weight: 500;
+      margin: 0;
+      width: 52px;
+    }
+
+    span {
+      float: left;
+      width: calc(100% - 52px);
+    }
+  }
+}
+*/
+
+.marker-details {
+  left: -185px;
+  bottom: -163px;
+  min-height: 76px;
+}
+
+.marker-buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+
+  button:first-child {
+    margin-right: 15px;
+  }
+}

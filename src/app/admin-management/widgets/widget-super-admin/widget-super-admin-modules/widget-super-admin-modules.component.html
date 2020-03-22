@@ -1,0 +1,25 @@
+<one-admin-sidebar-window [headerTemplateRef]="header"
+                          [hideSidebarButton]="true"
+                          [sidebarTemplateRef]="sidebar"
+                          [tableTemplateRef]="main">
+  <ng-template #header>
+    <div class="filters clearfix">
+      <h4 class="pull-left">Modules ({{modulesList?.totalCount}})</h4>
+      <div class="pull-right">
+        <div class="form-group has-icon pull-left"></div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #main>
+    <div class="flex-window">
+      <!-- end filters -->
+      <one-admin-frozen-header-table (toggleSwitchFeature)="toggleSwitchFeature($event)"
+                                     [data]="modulesList?.data"
+                                     [info]="info">
+      </one-admin-frozen-header-table>
+    </div>
+  </ng-template>
+  <ng-template #sidebar></ng-template>
+</one-admin-sidebar-window>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

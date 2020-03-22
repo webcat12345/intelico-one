@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  & > form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.locate-btns-wrapper {
+  padding: 0;
+}
+
+.label-control {
+  padding-bottom: 15px;
+
+  label {
+    padding: 0;
+  }
+}
+
+.footer-btn {
+  flex: 0 0 46px;
+}
+
+.ps-relative {
+  position: relative;
+}

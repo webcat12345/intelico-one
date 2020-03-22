@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  & > form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}
+
+.footer-btn {
+  flex: 0 0 46px;
+}
+
+.ac-step3 {
+  ::ng-deep {
+    .btn {
+      height: auto;
+    }
+  }
+
+  .narrow--row {
+    display: flex;
+    align-items: center;
+
+    .align-center {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

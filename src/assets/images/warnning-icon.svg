@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>warnning</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Notifications" transform="translate(-60.000000, -413.000000)" fill="#FCD158">
+            <g id="Group-Copy" transform="translate(30.000000, 383.000000)">
+                <g id="Card" transform="translate(30.000000, 30.000000)">
+                    <path d="M16,32 C7.163444,32 0,24.836556 0,16 C0,7.163444 7.163444,0 16,0 C24.836556,0 32,7.163444 32,16 C32,24.836556 24.836556,32 16,32 Z M15,8 C14.4477153,8 14,8.44771525 14,9 L14,17 C14,17.5522847 14.4477153,18 15,18 L17,18 C17.5522847,18 18,17.5522847 18,17 L18,9 C18,8.44771525 17.5522847,8 17,8 L15,8 Z M15,20 C14.4477153,20 14,20.4477153 14,21 L14,23 C14,23.5522847 14.4477153,24 15,24 L17,24 C17.5522847,24 18,23.5522847 18,23 L18,21 C18,20.4477153 17.5522847,20 17,20 L15,20 Z" id="warnning"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

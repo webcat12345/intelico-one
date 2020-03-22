@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="24px" viewBox="0 0 32 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#AAABB3" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#AAABB3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Identifiers" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="Add-Identifier-Type" transform="translate(-554.000000, -178.000000)" fill="url(#linearGradient-1)">
+            <g id="pop-up" transform="translate(100.000000, 61.000000)">
+                <g id="Access-Card" transform="translate(428.000000, 117.000000)">
+                    <path d="M28,22 L56,22 L56,10 L28,10 L28,22 Z M28,4 L56,4 L56,2 L28,2 L28,4 Z M56,0 C57.105,0 58,0.895 58,2 L58,22 C58,23.105 57.105,24 56,24 L28,24 C26.895,24 26,23.105 26,22 L26,2 C26,0.895 26.895,0 28,0 L56,0 Z M34,18 C32.897,18 32,17.103 32,16 C32,14.897 32.897,14 34,14 C35.103,14 36,14.897 36,16 C36,17.103 35.103,18 34,18 Z M37.917,15.187 C37.541,13.368 35.93,12 34,12 C31.791,12 30,13.791 30,16 C30,18.209 31.791,20 34,20 C35.93,20 37.541,18.632 37.917,16.813 L37.917,17 L48,17 L48,19 L50,19 L50,17 L52,17 L52,20 L54,20 L54,17 L54,15.427 L54,15 L37.917,15 L37.917,15.187 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

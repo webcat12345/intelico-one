@@ -1,0 +1,45 @@
+<div class="form-group">
+  <select (ngModelChange)="typeChanged()" [(ngModel)]="companyTypeId" class="form-control" name="companyType">
+    <option selected value="0">All Company Type</option>
+    <option *ngFor="let type of companyTypes$ | async" [value]="type.id">{{type.name}}</option>
+  </select>
+  <one-admin-loader *ngIf="isTypesLoading" [whiteOverlay]="true"></one-admin-loader>
+</div>
+
+<div class="form-group has-btn">
+  <select #selectCompanyEl="ngModel" (click)="selectCompany(selectCompanyEl)" [(ngModel)]="selectedId" class="form-control with-btn"
+          name="selectedCompanyId">
+    <option disabled hidden selected value="0">Select Company</option>
+    <option *ngFor="let company of companies" [hidden]="company.selected" [value]="company.id">{{company.name}}</option>
+  </select>
+  <button class="btn btn-primary" type="button">New</button>
+  <one-admin-loader *ngIf="isCompaniesLoading" [whiteOverlay]="true"></one-admin-loader>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th style="width:35%;">Company Name</th>
+    <th>Type</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let item of joinList; let i = index">
+    <td>{{item.name}}</td>
+    <td>{{item.typeName}}</td>
+    <td class="dropdown">
+      <a (click)="removeItem(item, i)" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown"
+         role="button">
+        <!--<img src="assets/images/dropdown-icon.svg" width="16" height="6px" alt="arrow">-->
+        Remove
+      </a>
+      <!--<ul class="dropdown-menu">-->
+      <!--<li><a>Edit</a></li>-->
+      <!--<li><a>Remove</a></li>-->
+      <!--</ul>-->
+    </td>
+  </tr>
+  </tbody>
+</table>

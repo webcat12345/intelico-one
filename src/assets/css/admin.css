@@ -1,0 +1,1295 @@
+.admin-window {
+    background-color: #2B3036;
+}
+
+.activeColor .filters-active {
+  background: linear-gradient(to right,  #171726 0%,#39415B 100%);
+}
+
+.defaultColor .filters {
+  background-color: #303030;
+}
+
+.activeColor .page-header {
+  background: linear-gradient(to right,  #171726 0%,#39415B 100%);
+}
+
+.defaultColor .page-header-color {
+  background-color: #303030;
+}
+
+.page-header.sm-header {
+    background-color: transparent;
+    padding-bottom: 0;
+    height: auto;
+}
+
+.page-header.sm-header h1 {
+    color: #fff;
+}
+
+.admin-window .filters {
+  padding: 16px 104px 0 28px;
+  position: relative;
+  user-select: none;
+  height: 65px;
+}
+
+.admin-window .page-header .filters {
+    padding: 0;
+    background-color: transparent;
+    height: auto;
+}
+
+.admin-window .filters h4 {
+    font-size: 18px;
+    font-family: 'SF-Pro-Medium';
+    color: #fff;
+    padding: 0;
+    position: relative;
+    letter-spacing: 0.16px;
+    line-height: 32px;
+}
+
+.admin-window .filters .btn.pull-left {
+    margin-left: 10px;
+    min-width: 115px;
+    padding: 0 20px;
+    height: 33px;
+}
+
+.admin-window .filters .form-control {
+    height: 33px;
+    width: 190px;
+    color: #fff;
+    background-color: #353b53;
+    border: 0 none;
+    margin: 0;
+    border-radius: 20px;
+    padding: 0 13px;
+}
+
+.admin-window .filters .has-icon .form-control {
+    background-image: url(../images/search-icon-grey.svg);
+    background-repeat: no-repeat;
+    background-size: 12px auto;
+    background-position: calc(100% - 10px) center;
+}
+
+.fixed-header {
+  background: linear-gradient(to right, #242434 0%,#212634 100%);
+}
+
+.fixed-footer {
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 2px 7px 0 0;
+}
+
+.flex-window .table-scroller {
+	flex: 1;
+}
+
+.table-scroller::-webkit-scrollbar,
+.sidebar-scroll::-webkit-scrollbar,
+.add--sidebar .tab-content::-webkit-scrollbar,
+.identifier-scroll::-webkit-scrollbar,
+.admin-list::-webkit-scrollbar {
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 7px;
+	width: 7px;
+	display: block;
+}
+
+.table-scroller::-webkit-scrollbar-thumb,
+.sidebar-scroll::-webkit-scrollbar-thumb,
+.add--sidebar .tab-content::-webkit-scrollbar-thumb,
+.identifier-scroll::-webkit-scrollbar-thumb,
+.admin-list::-webkit-scrollbar-thumb {
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 7px;
+	display: block;
+}
+
+.table-scroller{
+  background: linear-gradient(to right, #242434 0%,#212634 100%);
+	padding: 0 0 64px;
+	overflow: auto;
+}
+
+.table {
+	margin: 0;
+	table-layout: fixed;
+}
+
+.table-bordered {
+    border: 0 none;
+}
+
+.table-bordered td, .table-bordered th {
+    border-bottom: #F7F7F8 1px solid !important;
+}
+
+.table-bordered tr:last-child td {
+    border: 0 none !important;
+}
+
+.table > thead > tr > th,
+.table > tfoot > tr > th {
+	vertical-align: middle;
+	border: 0 none;
+	font-size: 11px;
+	text-transform: uppercase;
+	line-height: 14px;
+	font-weight: 500;
+	color: #ACB3BF;
+	padding: 14px 20px;
+}
+
+.table > tbody > tr > td {
+	color: #1F2226;
+	padding: 14px 20px;
+	font-size: 14px;
+	border: 0 none;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.table > tbody > tr > td.action-col {
+	width: 115px;
+	overflow: inherit;
+	white-space: normal;
+	text-overflow: inherit;
+}
+
+.table > tbody > tr > td.action-col a {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.table > tbody > tr > td.action-col a.edit-icon,
+.table > tbody > tr > td.action-col a.remove-icon {
+    margin-left: 12px;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: #373a53;
+}
+.table-striped > tbody > tr:nth-of-type(odd) > td {
+  color: #FFFFFF;
+}
+
+.table-striped > tbody > tr {
+	background-color: #43444d;
+}
+.table-striped > tbody > tr > td {
+  color: #FFFFFF;
+}
+
+.table > tbody > tr td:first-child,
+.table > thead > tr th:first-child,
+.table > tfoot > tr th:first-child {
+	padding-left: 30px;
+}
+
+.table > tbody > tr td:last-child,
+.table > thead > tr th:last-child,
+.table > tfoot > tr th:last-child {
+	padding-right: 30px;
+}
+
+.admin-list {
+    list-style : none;
+    padding: 20px 30px 40px;
+    margin: 0;
+    height: 100%;
+    overflow: auto;
+}
+
+.admin-window .admin-list {
+    padding: 10px 18px 40px;
+    height: auto;
+    overflow: visible;
+}
+
+.admin-list li {
+    display: block;
+    float: left;
+    width: 16.666%;
+    margin: 20px 0 0;
+}
+
+.admin-list li a {
+    display: block;
+    text-align: center;
+    height: 115px;
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    color: #fff;
+    text-decoration: none !important;
+    border-radius: 6px;
+    background-color: transparent;
+    margin: 0 12px;
+    background-size: auto 34px;
+}
+
+.admin-list li a span {
+    display: block;
+    padding: 75px 0 0;
+}
+
+.admin-list li a:hover {
+    color: #393B47;
+    background-color: #fff;
+}
+
+.sites-link {
+    background-image: url(../images/admin/admin-sites-icon.svg);
+}
+
+.sites-link:hover {
+    background-image: url(../images/admin/admin-sites-icon-hover.svg);
+}
+
+.areas-link {
+    background-image: url(../images/admin/admin-areas-icon.svg);
+}
+
+.areas-link:hover {
+    background-image: url(../images/admin/admin-areas-icon-hover.svg);
+}
+
+.zones-link {
+    background-image: url(../images/admin/admin-zones-icon.svg);
+}
+
+.zones-link:hover {
+    background-image: url(../images/admin/admin-zones-icon-hover.svg);
+}
+
+.companies-link {
+    background-image: url(../images/admin/admin-companies-icon.svg);
+}
+
+.companies-link:hover {
+    background-image: url(../images/admin/admin-companies-icon-hover.svg);
+}
+
+.groups-link {
+    background-image: url(../images/admin/admin-groups-icon.svg);
+}
+
+.groups-link:hover {
+    background-image: url(../images/admin/admin-groups-icon-hover.svg);
+}
+
+.people-link {
+    background-image: url(../images/admin/admin-people-icon.svg);
+}
+
+.people-link:hover {
+    background-image: url(../images/admin/admin-people-icon-hover.svg);
+}
+
+.tags-link {
+    background-image: url(../images/admin/admin-tags-icon.svg);
+}
+
+.tags-link:hover {
+    background-image: url(../images/admin/admin-tags-icon-hover.svg);
+}
+
+.identifier-link {
+    background-image: url(../images/admin/admin-identifiers-icon.svg);
+}
+
+.identifier-link:hover {
+    background-image: url(../images/admin/admin-identifiers-icon-hover.svg);
+}
+
+.nodes-link {
+    background-image: url(../images/admin/admin-nodes-icon.svg);
+}
+
+.nodes-link:hover {
+    background-image: url(../images/admin/admin-nodes-icon-hover.svg);
+}
+
+.inputs-link {
+    background-image: url(../images/admin/admin-inputs-icon.svg);
+}
+
+.inputs-link:hover {
+    background-image: url(../images/admin/admin-inputs-icon-hover.svg);
+}
+
+.log-link {
+    background-image: url(../images/admin/admin-log-icon.svg);
+}
+
+.log-link:hover {
+    background-image: url(../images/admin/admin-log-icon-hover.svg);
+}
+
+.actions-link {
+    background-image: url(../images/admin/admin-actions-icon.svg);
+}
+
+.actions-link:hover {
+    background-image: url(../images/admin/admin-actions-icon-hover.svg);
+}
+
+.assets-link {
+    background-image: url(../images/admin/admin-assets-icon.svg);
+}
+
+.assets-link:hover {
+    background-image: url(../images/admin/admin-assets-icon-hover.svg);
+}
+
+.teams-link {
+    background-image: url(../images/admin/admin-teams-icon.svg);
+}
+
+.teams-link:hover {
+    background-image: url(../images/admin/admin-teams-icon-hover.svg);
+}
+
+.roles-link {
+    background-image: url(../images/admin/user-roles-icon.svg);
+}
+
+.roles-link:hover {
+    background-image: url(../images/admin/user-roles-icon-hover.svg);
+}
+
+.people2-link {
+    background-image: url(../images/admin/people-type-icon.svg);
+}
+
+.people2-link:hover {
+    background-image: url(../images/admin/people-type-icon-hover.svg);
+}
+
+.companies2-link {
+    background-image: url(../images/admin/company-type-icon.svg);
+}
+
+.companies2-link:hover {
+    background-image: url(../images/admin/company-type-icon-hover.svg);
+}
+
+.identifier2-link {
+    background-image: url(../images/admin/ident-type-icon.svg);
+}
+
+.identifier2-link:hover {
+    background-image: url(../images/admin/ident-type-icon-hover.svg);
+}
+
+.area-link {
+    background-image: url(../images/admin/area-icon.svg);
+}
+
+.area-link:hover {
+    background-image: url(../images/admin/area-icon-hover.svg);
+}
+
+.input-link {
+    background-image: url(../images/admin/input-icon.svg);
+}
+
+.input-link:hover {
+    background-image: url(../images/admin/input-icon-hover.svg);
+}
+
+.action-link {
+    background-image: url(../images/admin/action-icon.svg);
+}
+
+.action-link:hover {
+    background-image: url(../images/admin/action-icon-hover.svg);
+}
+
+.site-link {
+    background-image: url(../images/admin/site-icon.svg);
+}
+
+.site-link:hover {
+    background-image: url(../images/admin/site-icon-hover.svg);
+}
+
+.resolved-link {
+    background-image: url(../images/admin/resolved-icon.svg);
+}
+
+.resolved-link:hover {
+    background-image: url(../images/admin/resolved-icon-hover.svg);
+}
+
+.input-agent-link {
+    background-image: url(../images/admin/inputagent-icon.svg);
+}
+
+.input-agent-link:hover {
+    background-image: url(../images/admin/inputagent-icon-hover.svg);
+}
+
+.alert-level-link {
+
+    background-image: url(../images/admin/alertlevel-icon.svg);
+}
+
+.alert-level-link:hover {
+    background-image: url(../images/admin/alertlevel-icon-hover.svg);
+}
+
+.alert-templates-link {
+    background-image: url(../images/admin/alerts-template-icon.svg);
+}
+
+.alert-templates-link:hover {
+    background-image: url(../images/admin/alerts-template-icon-hover.svg);
+}
+
+.assets-link2 {
+    background-image: url(../images/admin/superadmin-assets-icon.svg);
+}
+
+.assets-link2:hover {
+    background-image: url(../images/admin/superadmin-assets-icon-hover.svg);
+}
+
+.zone-link {
+    background-image: url(../images/admin/admin-zone-icon.svg);
+}
+
+.zone-link:hover {
+    background-image: url(../images/admin/admin-zone-icon-hover.svg);
+}
+
+.people-source-link {
+    background-image: url(../images/admin/peoplesource-icon.svg);
+}
+
+.people-source-link:hover {
+    background-image: url(../images/admin/peoplesource-icon-hover.svg);
+}
+
+.action-trigger-link {
+    background-image: url(../images/admin/action-trigger-icon.svg);
+}
+
+.action-trigger-link:hover {
+    background-image: url(../images/admin/action-trigger-icon-hover.svg);
+}
+
+.output-agent-link {
+    background-image: url(../images/admin/out-agnt-icon.svg);
+}
+
+.output-agent-link:hover {
+    background-image: url(../images/admin/out-agnt-icon-hover.svg);
+}
+
+.identifier-source-link {
+    background-image: url(../images/admin/identifier-source-icon.svg);
+}
+
+.identifier-source-link:hover {
+    background-image: url(../images/admin/identifier-source-icon-hover.svg);
+}
+
+.super-user-link {
+    background-image: url(../images/admin/super-user-icon.svg);
+}
+
+.super-user-link:hover {
+    background-image: url(../images/admin/super-user-icon-hover.svg);
+}
+
+.config-link {
+    background-image: url(../images/admin/config-icon.svg);
+}
+
+.config-link:hover {
+    background-image: url(../images/admin/config-icon-hover.svg);
+}
+
+.custom-modal .overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 0;
+    background-color: rgba(31,32,38,0.8);
+    z-index: 102;
+}
+
+.custom-modal .narrow-row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.custom-modal .narrow-row div[class*="col-"] {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.add-company,
+.add-product,
+.add-team,
+.add-people,
+.add--sidebar,
+.add-identifier-step {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 30px 30px 0;
+  background: linear-gradient(to right, #242434 0%,#212634 100%);
+    width: 460px;
+    z-index: 103;
+}
+
+.add-team {
+    width: 580px;
+}
+
+.add-identifier-step {
+    width: 700px;
+}
+
+.add-identifier-modal.sm-width .add-identifier-step {
+    width: 460px;
+}
+
+.add-identifier-modal.sm-width .narrow-row .btn-secondry {
+    width: 100%;
+    display: block;
+    padding: 0;
+    margin: 5px 0 15px;
+}
+
+.add-identifier-modal.sm-width h4,
+.add-identifier-modal .table-scroller h4 {
+    font-size: 18px;
+    color: #393B47;
+    font-weight: 500;
+    padding: 0 0 15px;
+}
+
+.add-company .btn-block,
+.add-product .btn-block,
+.add-team .btn-block,
+.add-people .btn-block,
+.add--sidebar .btn-block,
+.add-identifier-modal .btn-block {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    height: 46px;
+    border-radius: 0;
+}
+
+.add-company h5,
+.add-product h5,
+.add-team h5,
+.add-people h5,
+.add--sidebar h5,
+.add-identifier-types h5,
+.add-identifier-step h5 {
+    color: #393B47;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.custom-modal .clear-icon,
+.add-identifier-types .clear-icon {
+    position: absolute;
+    top: 25.5px;
+    right: 30px;
+}
+
+.add-identifier-modal .table-scroller {
+    height: calc(100% - 144px);
+    margin-right: -30px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+}
+
+.sidebar-scroll {
+    margin: 0 -30px;
+    padding: 0 30px 20px;
+    height: calc(100% - 92px);
+    overflow: auto;
+}
+
+.add-identifier-step .identifier-scroll {
+    height: calc(100% - 151px);
+    overflow: auto;
+    margin-right: -30px;
+    padding-right: 30px;
+}
+
+.add-company .table tr td:first-child,
+.add-company .table tr th:first-child,
+.add-product .table tr td:first-child,
+.add-product .table tr th:first-child,
+.add-team .table tr td:first-child,
+.add-team .table tr th:first-child,
+.add--sidebar .table tr td:first-child,
+.add--sidebar .table tr th:first-child,
+.add-identifier-modal .table tr td:first-child,
+.add-identifier-modal .table tr th:first-child,
+.add-people .table tr td:first-child,
+.add-people .table tr th:first-child {
+    padding-left: 20px !important;
+}
+
+.add-company .table tr td:last-child,
+.add-company .table tr th:last-child,
+.add-product .table tr td:last-child,
+.add-product .table tr th:last-child,
+.add-team .table tr td:last-child,
+.add-team .table tr th:last-child,
+.add--sidebar .table tr td:last-child,
+.add--sidebar .table tr th:last-child,
+.add-identifier-modal .table tr td:last-child,
+.add-identifier-modal .table tr th:last-child,
+.add-people .table tr td:last-child,
+.add-people .table tr th:last-child {
+    padding-right: 20px !important;
+}
+
+.add-company .table td.dropdown,
+.add-product .table td.dropdown,
+.add-team .table td.dropdown,
+.add-people .table td.dropdown,
+.add--sidebar .table td.dropdown,
+.add-identifier-step .table td.dropdown {
+    width: 56px !important;
+}
+
+.custom-modal .nav-tabs {
+    padding: 30px 0 25px;
+}
+
+.add-identifier-modal .nav-tabs {
+    padding: 0 0 25px;
+}
+
+.custom-modal .nav-tabs > li > a {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.add--sidebar .tab-content {
+    height: calc(100% - 80px);
+    overflow: auto;
+    margin: 20px -30px 0;
+    padding: 0 30px 15px;
+}s
+
+.settings-table {
+    margin: 0 0 20px;
+}
+
+.settings-table > thead > tr > th,
+.settings-table > tbody > tr > td {
+    padding: 5px 12px 6px;
+    vertical-align: middle;
+}
+
+.settings-table .checkbox {
+    margin: 0 auto !important;
+}
+
+.company-map {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: calc(100% - 460px);
+	z-index: 102;
+}
+
+.company-map .btn-danger,
+.company-map .btn-primary {
+	border-radius: 2px;
+	position: absolute;
+	bottom: 30px;
+	left: 30px;
+	height: 26px;
+	padding: 0 15px;
+	z-index: 102;
+}
+
+.company-map .btn-danger {
+	left: auto;
+	right: 50px;
+}
+
+.invite-view {
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.invite-view .messages-btn, .invite-view .search-btn {
+    background: url(../images/nav-messages-active.svg) no-repeat scroll center top;
+    background-size: 64px auto;
+    width: 64px;
+    height: 50px;
+    margin: 0 auto 25px;
+}
+
+.personlist {
+    list-style: none;
+    padding: 0;
+    margin: 10px -30px 0;
+}
+
+.personlist li {
+    display: block;
+    position: relative;
+    padding: 30px 30px 5px;
+    cursor: pointer;
+    background-color: #F7F7F8;
+    margin: 0 0 10px;
+}
+
+.personlist li .user-info {
+    position: relative;
+    padding: 0 0 0 113px;
+}
+
+.personlist li .add-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    width: 83px;
+    height: 83px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.personlist li .add-img:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: url(../images/placeholder-icon.svg) no-repeat scroll center;
+    background-size: 32px 48px;
+    opacity: 0.3;
+}
+
+.personlist li h4 {
+    font-size: 18px;
+    color: #1F2226;
+    padding: 0 120px 20px 0 !important;
+    font-weight: 500;
+    position: relative;
+}
+
+.personlist li h4 span {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #AAABB3;
+}
+
+.personlist li .control-label {
+    padding: 0 0 5px;
+}
+
+.personlist li p {
+    padding: 0 0 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#position-tab .company-map {
+    top: 206px;
+    bottom: 46px;
+    width: 100%;
+}
+
+.level-types {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
+
+.modal-flex {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 31px);
+    position: relative;
+}
+
+.modal-flex h4 {
+    color: #393B47;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 30px 0 0;
+}
+
+.modal-flex p {
+    color: #888991;
+    padding: 20px 0 10px;
+}
+
+.btn-static {
+    position: static !important;
+    border-radius: 6px !important;
+    height: 46px !important;
+}
+
+.icons-row {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.icons-row div[class*="col-"] {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.icons-row .img {
+    background: 0 none;
+    background-color: #F7F7F8;
+    height: 92px;
+    margin: 10px 0 0;
+}
+
+.icons-row .img img {
+    width: 60%;
+    height: auto;
+}
+
+.add-more {
+    background: url(../images/addmore-icon.svg) no-repeat scroll center;
+    height: 24px;
+    width: 24px;
+    display: block;
+    text-indent: -9999px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.add-more:hover {
+    background-image: url(../images/addmore-icon-hover.svg);
+}
+
+.colors-list {
+    padding: 5px 0 30px;
+}
+
+.colors-list .checkbox {
+    width: 20px;
+    height: 20px;
+    margin: 0 14px 0 0;
+}
+
+.colors-list .checkbox:last-child {
+    margin: 0;
+}
+
+.colors-list .checkbox input ~ label:before {
+    padding: 0;
+    border-radius: 50%;
+}
+
+.cl-1,
+.checkbox.cl-1 input ~ label:before {
+	background-color: #4A90E2;
+}
+
+.cl-2,
+.checkbox.cl-2 [type="checkbox"] + label:before{
+	background-color: #9013FE;
+}
+
+.cl-3,
+.checkbox.cl-3 [type="checkbox"] + label:before{
+	background-color: #BD10E0;
+}
+
+.cl-4,
+.checkbox.cl-4 [type="checkbox"] + label:before{
+	background-color: #417505;
+}
+
+.cl-5,
+.checkbox.cl-5 [type="checkbox"] + label:before{
+	background-color: #7ED321;
+}
+
+.cl-6,
+.checkbox.cl-6 [type="checkbox"] + label:before{
+	background-color: #F8E71C;
+}
+
+.cl-7,
+.checkbox.cl-7 [type="checkbox"] + label:before{
+	background-color: #F5A623;
+}
+
+.cl-8,
+.checkbox.cl-8 [type="checkbox"] + label:before{
+	background-color: #FC6058;
+}
+
+.cl-9,
+.checkbox.cl-9 [type="checkbox"] + label:before{
+	background-color: #50E3C2;
+}
+
+.cl-10,
+.checkbox.cl-10 [type="checkbox"] + label:before{
+	background-color: #B8E986;
+}
+
+.cl-11,
+.checkbox.cl-11 [type="checkbox"] + label:before{
+	background-color: #000000;
+}
+
+.cl-12,
+.checkbox.cl-12 [type="checkbox"] + label:before{
+	background-color: #9B9B9B;
+}
+
+.colors-list .checkbox [type="checkbox"] + label:hover {
+    transform: scale(1.5);
+    transform-origin: center;
+}
+
+.checkbox.cl-1, .checkbox.cl-2, .checkbox.cl-3, .checkbox.cl-4, .checkbox.cl-5, .checkbox.cl-6, .checkbox.cl-7, .checkbox.cl-8, .checkbox.cl-9, .checkbox.cl-10, .checkbox.cl-11, .checkbox.cl-12 {
+    background-color: transparent;
+}
+
+#people-tab {
+    position: relative;
+}
+
+#people-tab .btn-xs {
+    position: absolute;
+    right: 0;
+    top: 15px;
+}
+
+.add-identifier-step .tab-content > div,
+.add-identifier-step .tab-content .table-scroller {
+    height: 100%;
+}
+
+#images-tab .img, #images-tab .add-img {
+    margin: 10px 0;
+    height: 180px;
+}
+
+.custom-modal .img .clear-icon {
+    top: 10px;
+    right: 10px;
+}
+
+.add-img {
+    height: 180px;
+    border-radius: 6px;
+    background-color: #F7F7F8;
+    position: relative;
+}
+
+.add-img .btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -12px;
+    border-radius: 2px;
+    height: 26px;
+    padding: 0 10px;
+    min-width: 140px;
+}
+
+.add-img:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: url(../images/placeholder-icon.svg) no-repeat scroll center;
+    background-size: 80px auto;
+    opacity: 0.3;
+}
+
+.add-identifier-modal.sm-width .add-img:after {
+    background-size: 56px auto;
+}
+
+.add-identifier-modal.sm-width .img,
+.add-identifier-modal.sm-width .add-img {
+    height: 120px;
+    margin: 10px 0;
+}
+
+.add-identifier-modal.sm-width .add-img .btn {
+    width: 104px;
+    min-width: 104px;
+}
+
+.add-identifier-types {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 102;
+    padding: 30px;
+}
+
+.add-identifier-types .admin-list {
+	padding: 20px 22px 0 0;
+	margin: 0 -30px 0 -8px;
+	height: 100%;
+	overflow: auto;
+}
+
+.add-identifier-types .admin-list li {
+	margin: 10px 0 0;
+}
+
+.add-identifier-types .admin-list li a {
+	color: #75767E;
+	height: 130px;
+	margin: 0 8px;
+}
+
+.add-identifier-types .admin-list li a span {
+	padding: 80px 0 0;
+}
+
+.add-identifier-types .admin-list li a:hover,
+.add-identifier-types .admin-list li a.active {
+	color: #fff;
+	background-color: #1B84FA;
+}
+
+.identifier-type-1 {
+	background-image: url(../images/admin/identifier-macaddress.svg);
+}
+
+.identifier-type-1:hover,
+.identifier-type-1.active {
+	background-image: url(../images/admin/identifier-macaddress-hover.svg);
+}
+
+.identifier-type-2 {
+	background-image: url(../images/admin/identifier-numberplate.svg);
+}
+
+.identifier-type-2:hover,
+.identifier-type-2.active {
+	background-image: url(../images/admin/identifier-numberplate-hover.svg);
+}
+
+.identifier-type-3 {
+	background-image: url(../images/admin/identifier-accesscard.svg);
+	pointer-events: none;
+}
+
+.identifier-type-4 {
+	background-image: url(../images/admin/identifier-address.svg);
+	background-size: 32px 30px;
+	pointer-events: none;
+}
+
+.identifier-type-5 {
+	background-image: url(../images/admin/identifier-barcode.svg);
+	pointer-events: none;
+}
+
+.identifier-type-6 {
+	background-image: url(../images/admin/identifier-bluetooth.svg);
+	pointer-events: none;
+}
+
+.identifier-type-7 {
+	background-image: url(../images/admin/identifier-container.svg);
+	pointer-events: none;
+}
+
+.identifier-type-8 {
+	background-image: url(../images/admin/identifier-email.svg);
+	pointer-events: none;
+}
+
+.identifier-type-9 {
+	background-image: url(../images/admin/identifier-fingerprint.svg);
+	pointer-events: none;
+}
+
+.identifier-type-10{
+	background-image:url(../images/admin/identifier-face.svg);
+	pointer-events:none;
+}
+
+.identifier-type-11 {
+	background-image: url(../images/admin/identifier-gps.svg);
+	pointer-events: none;
+}
+
+.identifier-type-12 {
+	background-image: url(../images/admin/identifier-hand.svg);
+	pointer-events: none;
+}
+
+.identifier-type-13 {
+	background-image: url(../images/admin/identifier-IMEI.svg);
+	pointer-events: none;
+}
+
+.add-people .action-title-wrapper h5 {
+    float: left;
+}
+
+.add-people .action-title-wrapper .badge {
+    margin: -6px 35px 0 0;
+}
+
+.add-people .action-title-wrapper .back-btn {
+    margin-top: -6px;
+}
+
+.add-people .has-btn .btn {
+    top: auto;
+    bottom: 4px;
+    right: 5px;
+}
+
+.add-people-sidebar h3 {
+    font-family: 'SF-Pro-Medium';
+    padding: 0 0 10px;
+}
+
+.add-people-sidebar p {
+    padding: 15px 0 10px;
+}
+
+.add-people-sidebar p small {
+    display: block;
+    font-size: 12px;
+}
+
+.add-people .fixed-header {
+    display: none;
+}
+
+.add-people table > tbody > tr > td {
+    padding: 8px 12px !important;
+}
+
+.add-people one-admin-frozen-header-table {
+    height: auto;
+}
+
+.add-people-sidebar {
+    height: calc(100% - 86px);
+    margin: 20px -30px 0;
+    overflow: auto;
+    padding: 0 30px;
+}
+
+.alphabet-filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 13px 0 0;
+}
+
+.alphabet-filter button {
+    width: 28px;
+    height: 28px;
+    border: 0 none;
+    border-radius: 8px;
+    background-color: #3a4059;
+    font-family: 'SF-Pro-Bold';
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+    outline: none !important;
+}
+
+.alphabet-filter li:first-child button {
+    width: 50px;
+}
+
+
+.alphabet-filter button:hover,
+.alphabet-filter button.active {
+    background-color: #0077be;
+}
+
+.add-people-sidebar .form-control {
+    margin: 0 0 5px;
+    height: 36px;
+    padding: 0 13px;
+}
+
+.table .switch label {
+    margin: 0;
+    float: none !important;
+}
+
+.table .switch span.pull-left {
+    display: none !important;
+}
+
+.admin-window .flex-window-wrapper {
+    padding: 0;
+}
+
+.admin-window .flex-window-wrapper .table-inner-wrapper {
+    margin: 0;
+}
+
+.admin-window .flex-window-wrapper .header-row {
+    padding-left: 28px;
+    padding-right: 28px;
+}
+
+.map-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 65px;
+    bottom: 0;
+    z-index: 99;
+}
+
+.map-wrapper one-admin-one-cluster-map {
+    margin: 0 !important;
+}

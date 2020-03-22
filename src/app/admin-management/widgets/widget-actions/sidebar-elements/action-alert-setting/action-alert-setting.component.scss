@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  & > form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+}
+
+.footer-btn {
+  flex: 0 0 46px;
+}
+
+.d-flex-align-center {
+  display: flex;
+  align-items: center;
+  & > .checkbox {
+    margin-left: 20px;
+  }
+}

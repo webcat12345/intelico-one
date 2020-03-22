@@ -1,0 +1,47 @@
+<!--<agm-map [styles]="mapOptions.styles"
+         [latitude]="center.lat"
+         [longitude]="center.lng"
+         [zoomControl]="false"
+         [streetViewControl]="false"
+         [mapTypeControl]="false"
+         [fullscreenControl]="false"
+         [clickableIcons]="false"
+         [zoom]="17"
+         [maxZoom]="17"
+         (mapReady)="mapReady($event)">-->
+
+<agm-map (mapReady)="mapReady($event)"
+         [clickableIcons]="false"
+         [fullscreenControl]="false"
+         [latitude]="center.lat"
+         [longitude]="center.lng"
+         [mapTypeControl]="false"
+         [maxZoom]="17"
+         [styles]="mapOptions.styles"
+         [streetViewControl]="false"
+         [zoomControl]="false"
+         [zoom]="17">
+  <agm-marker *ngFor="let item of data"
+              [latitude]="item.lat"
+              [longitude]="item.long"
+              [openInfoWindow]="true"
+              iconUrl="/assets/images/map-pointer.svg">
+    <agm-snazzy-info-window (beforeOpen)="beforeOpen(item)" [closeWhenOthersOpen]="true" [maxWidth]="200">
+      <ng-template>
+        <div [style.bottom.px]="styleBottomPx" class="marker-details">
+          <h3><img [src]="'/assets/images/site-info-icon.svg'" alt="Info"> {{ typeInformation }} information </h3>
+          <p *ngIf="displayedData.site"
+             class="clearfix white-color"><label>{{ 'Site Info: ' + item?.site }}</label></p>
+          <p *ngIf="displayedData.area"
+             class="clearfix white-color"><label>{{ 'Area Info: ' + item?.area }}</label></p>
+          <p *ngIf="displayedData.zone"
+             class="clearfix white-color"><label>{{ 'Zone Info: ' + item?.zone }}</label></p>
+          <p *ngIf="displayedData.source"
+             class="clearfix white-color"><label>{{ 'Source Info: ' + item?.sourceName }}</label></p>
+          <p *ngIf="displayedData.total"
+             class="clearfix white-color"><label>{{ 'Total count: ' + item?.total }}</label></p>
+        </div>
+      </ng-template>
+    </agm-snazzy-info-window>
+  </agm-marker>
+</agm-map>

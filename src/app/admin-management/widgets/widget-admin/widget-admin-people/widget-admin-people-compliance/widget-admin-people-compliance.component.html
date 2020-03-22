@@ -1,0 +1,20 @@
+<form>
+  <div class="action-title-wrapper clearfix">
+    <one-admin-widget-admin-people-badge></one-admin-widget-admin-people-badge>
+    <h5 class="color-white">{{ isNew ? 'Edit' : 'Add' }} GDPR Compliance</h5>
+  </div>
+  <div class="nice-scroll add-people-sidebar color-white">
+    <h3>{{ person.firstName + ' ' + person.lastName }}</h3>
+    <p>I agree that by clicking the complete button below to add/edit this person's data to this system under the
+      organisation
+      {{ selectedOrg.name ? selectedOrg.name : 'Organisation Name'}} that this organisation is legally responsible for
+      any GDPR usage and not Intelico Limited or any of its partners.</p>
+    <p *ngIf="(person)?.createdDate"><small>Created by: {{ person.firstName + ' ' + person.lastName }}
+      {{ (person)?.createdDate | date: ' dd MMM y HH:mm:ss' }}</small>
+      <small>Last Edit by: {{ person.firstName + ' ' + person.lastName }}
+        {{ (person)?.modifiedDate | date: ' dd MMM y HH:mm:ss' }}</small>
+    </p>
+  </div>
+</form>
+<button (click)="compliance()" class="btn btn-primary btn-block"
+        type="button">{{ isNew ? 'Complete' : 'Complete' }}</button>

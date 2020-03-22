@@ -1,0 +1,31 @@
+<one-admin-sidebar-window (delete)="deleteAction($event)"
+                          (toggleOverlaySidebar)="openAddAction()"
+                          [headerTemplateRef]="header"
+                          [overlaySidebarTemplateRef]="overlaySidebar"
+                          [sidebarOption]="sidebarOption"
+                          [sidebarTemplateRef]="sidebar"
+                          [tableTemplateRef]="main">
+  <ng-template #header>
+    <div class="global-search pull-right" style="position: absolute; right: 305px">
+      <one-admin-search-key-filter (changeFilter)="changeSearchKeyFilter($event)"
+                                   (changeFilterClearAll)="changeFilterClearAll($event)"
+                                   (changeFilterSearchKey)="identifier = $event"
+                                   [fields]="['identifiers']"
+                                   [noLabel]="true"></one-admin-search-key-filter>
+    </div>
+    <h1 class="pull-left actions-header">Actions <span *ngIf="totalCount" class="badge">{{ totalCount }}</span></h1>
+  </ng-template>
+  <ng-template #main>
+    <one-admin-action-table (addIdentifier)="addIdentifier($event)"
+                            (deleteAction)="confirmDelete($event)"
+                            (editAction)="editAction($event)"
+                            [actions]="actions | orderByField : 'name'"></one-admin-action-table>
+  </ng-template>
+  <ng-template #overlaySidebar>
+    <one-admin-action-sidebar [actions]="actions"></one-admin-action-sidebar>
+  </ng-template>
+  <ng-template #sidebar>
+    <one-admin-action-filter (changeFilter)="changeFilter($event)"></one-admin-action-filter>
+  </ng-template>
+</one-admin-sidebar-window>
+<one-admin-loader *ngIf="isLoading" [size]="'sm'" [whiteOverlay]="true"></one-admin-loader>

@@ -1,0 +1,21 @@
+h1 {
+  color: grey;
+
+  &.active-window {
+    color: #fff;
+  }
+}
+
+.active {
+  color: white;
+}
+
+.badge {
+  cursor: pointer;
+}
+
+ul li {
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+}

@@ -1,0 +1,32 @@
+<div class="tab-content identifier-scroll">
+  <div id="details-tab">
+    <div class="row narrow-row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="control-label">Identifier</label>
+          <input [(ngModel)]="identifier.name" class="form-control" name="identifierName" placeholder="Identifier Name"
+                 required type="text">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="control-label">Identifier Type</label>
+          <input [ngModel]="identifier.typeName" class="form-control" name="identifierName" placeholder="Identifier Type" readonly
+                 required type="text">
+        </div>
+      </div>
+    </div>  <!-- end row -->
+
+    <div class="row narrow-row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="control-label">Source</label>
+          <select [(ngModel)]="identifier.identifierSourceId" class="form-control" name="identifierSource" required>
+            <option disabled hidden selected value="0">Select Source</option>
+            <option *ngFor="let item of idSource$ | async" [value]="item.id">{{item.name}}</option>
+          </select>
+        </div>
+      </div>
+    </div>  <!-- end row -->
+  </div>  <!-- end individual tab -->
+</div>

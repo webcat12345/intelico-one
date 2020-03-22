@@ -1,0 +1,44 @@
+<div class="row narrow--row container-type">
+  <div class="type-data-title col-xs-4">
+    <span class="title-type">Top Alerts by Identifier Type</span>
+  </div>
+  <div class="type-data-title col-xs-4">
+    <span class="title-type">Alerts by Identifier</span>
+  </div>
+  <div class="type-data-title col-xs-4">
+    <span class="title-type">Top Alerts by Reason Type</span>
+  </div>
+</div>
+
+<div class="row narrow--row container-type">
+  <div class="col-xs-4 border-right">
+    <one-admin-loader *ngIf="alertsByIdentifierTypeLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div *ngFor="let item of alertsByIdentifierType" class="type-data">
+      <div class="type-data-detail color-columns">
+        <img [src]="item?.row[0].identifierTypeId | identifierTypeIcon" alt="Identifier">
+        <span>{{ (item?.row[0].identifierType.length > 20) ? (item?.row[0].identifierType | slice:0:20) + '...' : (item?.row[0].identifierType) }}</span>
+        <span class="pull-right">{{ item?.row[0].count }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-4 border-right">
+    <one-admin-loader *ngIf="alertsByIdentifierLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div *ngFor="let item of alertsByIdentifier" class="type-data">
+      <div class="type-data-detail color-columns">
+        <span>{{ item?.row[0].identifier }}</span>
+        <span class="pull-right">{{ item?.row[0].count }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-4 custom-padding">
+    <one-admin-loader *ngIf="alertsByReasonTypeLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div *ngFor="let item of alertsByReasonType" class="type-data">
+      <div class="type-data-detail color-columns">
+        <span>{{ item?.row[0].actionReason }}</span>
+        <span class="pull-right">{{ item?.row[0].count }}</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<a (click)="close.emit(false)" class="clear-icon">Close</a>
+<h5 class="color-white">{{isNew ? 'Add' : 'Edit'}} Source</h5>
+<div class="sidebar-scroll nice-scroll">
+  <form (ngSubmit)="onSubmit()" [formGroup]="sourceForm">
+    <!--<ul class="nav nav-tabs custom-tabs grey-tabs" role="tablist"></ul>-->
+
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="details-tab" role="tabpanel">
+        <div class="right-sidebar form-group">
+          <label class="control-label">Name</label>
+          <input class="form-control" formControlName="name" placeholder="Name" type="text">
+        </div>
+        <div class="right-sidebar form-group">
+          <label class="control-label">Description</label>
+          <input class="form-control" formControlName="description" placeholder="Description" type="text">
+        </div>
+        <one-admin-zone-selector (zonesLocation)="setZonesLocationCenter($event)"
+                                 formControlName="zoneId"></one-admin-zone-selector>
+
+        <div class="right-sidebar form-group">
+          <label class="control-label">Identifier</label>
+          <ng-select [clearable]="false"
+                     [items]="identifierTypes$ | async"
+                     bindLabel="value"
+                     bindValue="id"
+                     formControlName="identifierTypeId"
+                     placeholder="Select Identifier">
+          </ng-select>
+        </div>
+
+        <div class="right-sidebar form-group">
+          <label class="control-label">Condition</label>
+          <select class="form-control" formControlName="typeId">
+            <option disabled hidden selected value="">Select Condition</option>
+            <option *ngFor="let type of sourceTypes?.data" [value]="type.id">{{type.value}}</option>
+          </select>
+        </div>
+
+        <div *ngIf="!isNew" class="right-sidebar form-group">
+          <label class="control-label">Key</label>
+          <input #keyInput (click)="copySourceKey(keyInput)" [value]="selectedSource?.key" class="form-control copy-content" placeholder="Key"
+                 readonly type="text">
+          <span class="copy-icon">
+            <fa-icon icon="clipboard"></fa-icon>
+          </span>
+        </div>
+        <one-admin-widget-admin-source-location-map (changeLocation)="changeLocation($event)"
+                                                    [isNew]="isNew"
+                                                    [source]="source"
+                                                    [zonesLocation]="getZonesLocationCenter">
+        </one-admin-widget-admin-source-location-map>
+        <div class="row narrow-row"></div>
+        <!-- end row -->
+      </div>
+      <!-- end individual tab -->
+    </div>
+    <button [disabled]="sourceForm.invalid" class="btn btn-primary btn-block">{{isNew ? 'Create' : 'Update'}}</button>
+  </form>
+</div>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

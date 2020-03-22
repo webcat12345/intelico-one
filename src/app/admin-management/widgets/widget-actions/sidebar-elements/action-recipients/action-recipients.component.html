@@ -1,0 +1,82 @@
+<form>
+  <div class="nice-scroll">
+    <div class="action-title-wrapper clearfix">
+      <button (click)="actionStateService.changeStep(stepInfo.previous)" class="back-btn" type="button">Back</button>
+      <button (click)="actionStateService.closeSidebar()" class="close--btn" type="button">Close</button>
+      <h4>{{ stepInfo.title }}</h4>
+      <div *ngIf="stepInfo.stepNumber" class="steps-counter pull-right">{{ stepInfo.stepNumber }}
+        / {{ stepInfo.allStepsNumber }}</div>
+    </div>
+    <div class="ac-step5">
+      <h4>Send Alerts To</h4>
+      <div class="row narrow--row">
+        <div [formGroup]="sendAlertsTo" class="col-sm-5">
+          <select class="form-control" formControlName="type_send_alert">
+            <option disabled selected value="default">Select Type</option>
+            <option *ngFor="let item of typesSendAlertsTo" [value]="item.id">{{ item.value }}</option>
+          </select>
+        </div>
+
+        <div class="col-sm-7">
+          <select (ngModelChange)="onSelectUser($event)"
+                  [(ngModel)]="selectedUser"
+                  [disabled]="sendAlertsTo.get('type_send_alert').value === 'default'"
+                  [ngModelOptions]="{standalone: true}" class="form-control">
+            <option default disabled hidden selected value="-1">Select Users/Team</option>
+            <ng-container *ngFor="let user of usersUI" [hidden]="usersUI.length === 0">
+              <option *ngIf="!user.selected" [value]="user.id">{{ user.firstName + ' ' + user.lastName + ' - ' + user.email }}</option>
+            </ng-container>
+            <ng-container *ngFor="let team of teamsUsersUI" [hidden]="teamsUsersUI.length === 0">
+              <option *ngIf="!team.selected" [value]="team.id">{{ team.name + ' ' + team.description }}</option>
+            </ng-container>
+          </select>
+          <one-admin-loader *ngIf="isUsersLoading" [whiteOverlay]="true" size="sm"></one-admin-loader>
+        </div>
+      </div>
+      <div class="custom-table default-table default-table-striped">
+        <div *ngIf="actionStateService.action.users" class="table-row header-row pl-20">
+          <div class="cell-wrap full">User Name</div>
+          <div class="cell-wrap" style="width: 230px">User Email</div>
+          <div class="cell-wrap" style="width: 180px">User Phone</div>
+          <div class="cell-wrap" style="width: 95px"></div>
+        </div>
+        <div class="table-row-wrapper">
+          <ng-container *ngFor="let user of users">
+            <div *ngIf="user.selected" class="table-row pl-20">
+              <div class="cell-wrap full">{{ user.firstName + ' ' + user.lastName }}</div>
+              <div class="cell-wrap" style="width: 230px">{{ user.email }}</div>
+              <div class="cell-wrap" style="width: 180px">{{ user.mobile }}</div>
+              <div class="cell-wrap action-cell-wrap" style="width: 95px;">
+                <a (click)="deselectUser(user)" class="remove-identifier-btn">
+                  <img alt="remove" src="assets/images/trash-icon.svg">
+                </a>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="custom-table default-table default-table-striped">
+        <div *ngIf="actionStateService.action.teams" class="table-row header-row pl-20">
+          <div class="cell-wrap full">Team Name</div>
+          <div class="cell-wrap" style="width: 326px">Team Description</div>
+        </div>
+        <div class="table-row-wrapper">
+          <ng-container *ngFor="let team of teamsUsers">
+            <div *ngIf="team.selected" class="table-row pl-20">
+              <div class="cell-wrap full">{{ team.name }}</div>
+              <div class="cell-wrap" style="width: 230px">{{ team.description }}</div>
+              <div class="cell-wrap action-cell-wrap" style="width: 95px;">
+                <a (click)="deselectTeam(team)" class="remove-identifier-btn">
+                  <img alt="remove" src="assets/images/trash-icon.svg">
+                </a>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button (click)="save()" class="btn btn-primary footer-btn" type="button">{{stepInfo.buttonLabel}}</button>
+</form>
+<one-admin-loader *ngIf="isLoading" [whiteOverlay]="true" size="sm"></one-admin-loader>

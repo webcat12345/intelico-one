@@ -1,0 +1,9 @@
+<form [formGroup]="filter">
+  <div class="form-group">
+    <label class="control-label">Resolved Reason</label>
+    <select class="form-control" formControlName="type">
+      <option *ngIf="isAny" default selected value="-1">Any</option>
+      <option *ngFor="let item of resolvedReasonList" [value]="item.id">{{ item.value }}</option>
+    </select>
+  </div>
+</form>

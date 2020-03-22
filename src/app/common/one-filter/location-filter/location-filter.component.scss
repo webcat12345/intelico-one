@@ -1,0 +1,14 @@
+one-admin-layer-selector {
+  ::ng-deep form {
+    height: auto;
+
+    .row {
+      display: flex;
+      flex-direction: column;
+
+      & > div {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<!--Search result shows here-->
+<h5>Add Person</h5>
+<div class="modal-flex">
+  <h4>We found {{ searchResult?.totalCount }} records
+    for {{ searchResult?.data[0]?.firstName + ' ' + searchResult?.data[0]?.lastName }}</h4>
+  <p>Select a record below to continue or create new record if person is incorrect</p>
+  <ul class="personlist">
+    <li (click)="onSelectPeople(people)" *ngFor="let people of searchResult.data">
+      <div class="user-info clearfix">
+        <div class="add-img"></div>
+        <h4>{{ people?.firstName + ' ' + people?.lastName }} <span>{{ people?.typeName }}</span></h4>
+        <div class="row">
+          <div class="col-sm-4">
+            <label class="control-label">Height</label>
+            <p>{{ people?.metaData?.height }}</p>
+          </div>
+
+          <div class="col-sm-4">
+            <label class="control-label">Birthday</label>
+            <p>{{ people?.metaData?.birthday }}</p>
+          </div>
+
+          <div class="col-sm-4">
+            <label class="control-label">Gender</label>
+            <p>{{ people?.metaData?.gender?.name }}</p>
+          </div>
+        </div>  <!-- end row -->
+
+        <div class="row">
+          <div class="col-sm-4">
+            <label class="control-label">Hair Colour</label>
+            <p>{{ people?.metaData?.hairColor?.name }}</p>
+          </div>
+
+          <div class="col-sm-4">
+            <label class="control-label">Ethnicity</label>
+            <p>{{ people?.metaData?.ethnicity?.name }}</p>
+          </div>
+
+          <div class="col-sm-4">
+            <label class="control-label">Eye Colour</label>
+            <p>{{ people?.metaData?.eyeColor?.name }}</p>
+          </div>
+        </div>  <!-- end row -->
+      </div>
+    </li>
+  </ul>  <!-- end person list -->
+</div>
+<button (click)="onCreateNew()" class="btn btn-primary btn-block" type="button">Add</button>

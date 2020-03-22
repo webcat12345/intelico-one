@@ -1,0 +1,30 @@
+<div class="page-content">
+  <div [ngGrid]="gridConfig">
+    <div [contextMenu]="desktopmenu" class="context-overlay"></div>
+    <div (click)="activeWidget(i)" (onDrag)="onDrag(i, $event)"
+         *ngFor="let box of boxes; let i = index"
+         [(ngGridItem)]="box.config"
+         [class.active]="box.active"
+         [class.hidden]="box.state==='minimized'"
+         [class.maximized]="box.state==='maximized'"
+         [ngClass]="{'activeColor' : box?.active, 'defaultColor': true}"
+         class="modal-window">
+      <div [class.admin-window]="box.type === 'superAdmin' || box.type === 'admin' || box.menuType === 'admin' || box.menuType === 'intelico' || box.type === 'help' || box.type === 'logo' || box.type === 'security' || box.type === 'assets'"
+           class="modal-window-body">
+        <div class="handle"></div>
+        <div class="window-actions">
+          <button (click)="minimizeWidget(i)" class="minimize-btn" type="button"></button>
+          <button (click)="changeState(i)" *ngIf="!box.noMaxBtn" class="maximize-btn" type="button"></button>
+          <button (click)="closeWindow(i, box)" class="close-btn" type="button"></button>
+        </div>
+        <one-admin-admin-window-content (close)="closeWindow(i, box)" [box]="box"></one-admin-admin-window-content>
+      </div>
+    </div>
+  </div>
+</div>
+
+<context-menu #desktopmenu class="context-menu">
+  <ng-template (execute)="openSettingsWindowBackgroundTab()" *ngFor="let dMenu of desktopMenu" contextMenuItem let-item>
+    <i aria-hidden="true"></i>{{dMenu.label}}
+  </ng-template>
+</context-menu>

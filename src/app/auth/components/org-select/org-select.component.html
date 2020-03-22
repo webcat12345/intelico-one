@@ -1,0 +1,30 @@
+<div class="info-pages" id="wrapper">
+  <div class="info-window-wrap">
+    <one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>
+    <div class="info-window login-organization-window">
+      <div class="logo"></div>
+      <form #orgForm="ngForm" (ngSubmit)="submit()">
+        <div class="form-group">
+          <select [(ngModel)]="selectedOrg.id" class="form-control has-icon" name="orgId" required>
+            <option disabled hidden selected value="">Select Organisation</option>
+            <option *ngFor="let org of orgs" [ngValue]="org.id">{{org.name}}</option>
+          </select>
+          <div class="icons organization-icon"></div>
+        </div>
+        <div class="checkbox mt-0">
+          <input [(ngModel)]="selectedOrg.selectedDefault" id="chbDefaultCompany" name="defaultCompany" type="checkbox">
+          <label for="chbDefaultCompany">Make company default</label>
+        </div>
+        <div class="row">
+          <div class="col-xs-6"><a class="password-link" routerLink="/login">Back</a></div>
+          <div class="col-xs-6 text-right">
+            <button (click)="submit()" [disabled]="!orgForm.form.valid"
+                    class="btn btn-primary" type="button">Select
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="copyinfo">(c) Intelico - All rights reserved</div>
+  </div>
+</div> <!-- end wrapper contents -->

@@ -1,0 +1,46 @@
+<form (ngSubmit)="save()" [formGroup]="actionNameForm">
+  <div class="nice-scroll">
+    <div class="action-title-wrapper clearfix">
+      <!--  <button type="button" class="back-btn" (click)="stateService.changeStep(stepInfo.previous)">Back</button>-->
+      <button (click)="stateService.closeSidebar()" class="close--btn" type="button">Close</button>
+      <h4>{{ stepInfo.title }}</h4>
+      <div *ngIf="stepInfo.stepNumber" class="steps-counter pull-right">{{ stepInfo.stepNumber }}
+        / {{ stepInfo.allStepsNumber }}</div>
+    </div>
+    <div class="ac-step1">
+      <div class="right-sidebar form-group">
+        <label class="control-label">Identifier Type</label>
+        <ng-select [clearable]="false"
+                   [items]="filteredIdentifiers"
+                   bindLabel="value"
+                   bindValue="id"
+                   formControlName="identifierTypeId"
+                   placeholder="Select Identifier Type">
+        </ng-select>
+      </div>
+      <div class="right-sidebar form-group">
+        <label class="control-label">Action name</label>
+        <input class="form-control" formControlName="name" type="text">
+      </div>
+      <div class="right-sidebar form-group">
+        <label class="control-label">Description<span
+          class="counter">{{ actionNameForm.get('description').value.length }}/65</span></label>
+        <input class="form-control" formControlName="description" maxlength="65" type="text">
+      </div>
+
+      <div class="right-sidebar form-group ps-relative">
+        <div class="label-control" fxLayout="row" fxLayoutAlign="space-between center">
+          <label class="control-label">Condition</label>
+        </div>
+
+        <select class="right-sidebar form-control" formControlName="typeTrigger">
+          <option default hidden selected value="">Select Condition</option>
+          <option [value]="'Any'">Any</option>
+          <option *ngFor="let type of sourceTypes?.data" [value]="type.value">{{type.value}}</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
+  <button [disabled]="actionNameForm.invalid || !isValidName" class="btn btn-primary footer-btn">Next</button>
+</form>

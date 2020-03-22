@@ -1,0 +1,10 @@
+<a (click)="close.emit(false)" class="clear-icon">Close</a>
+<h5 class="mb-30">{{isNew ? 'Add' : 'Edit'}} Input Agent</h5>
+<form #agentForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input [(ngModel)]="agent.name" class="form-control" name="agentName" placeholder="Name" required type="text">
+  </div>
+  <button [disabled]="!agentForm.form.valid" class="btn btn-primary btn-block">{{isNew ? 'Add' : 'Update'}}</button>
+</form>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

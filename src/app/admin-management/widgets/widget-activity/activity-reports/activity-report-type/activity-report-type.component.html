@@ -1,0 +1,41 @@
+<div class="row narrow--row container-type">
+  <div class="type-data-title col-xs-4">
+    <span class="title-type">Top Identifier Type</span>
+  </div>
+  <div class="type-data-title col-xs-4">
+    <span class="title-type">Top Identifier</span>
+  </div>
+  <div class="type-data-title col-xs-4">
+    <span class="title-type">Top Source</span>
+  </div>
+</div>
+<div class="row narrow--row container-type">
+  <div class="col-xs-4 border-right">
+    <one-admin-loader *ngIf="activityByIdentifierTypeLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div *ngFor="let item of activityByIdentifierType" class="type-data">
+      <div class="type-data-detail color-columns">
+        <img [src]="item?.row[0].historyItemSource | identifierTypeIcon" alt="Identifier">
+        <span>{{ (item?.row[0].identifierType.length > 25) ? (item?.row[0].identifierType | slice:0:25) + '...' : (item?.row[0].identifierType) }}</span>
+        <span class="pull-right">{{ item?.row[0].count }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4 border-right">
+    <one-admin-loader *ngIf="activityByIdentifierLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div *ngFor="let item of activityByIdentifier" class="type-data">
+      <div class="type-data-detail color-columns">
+        <span>{{ item?.row[0].identifier }}</span>
+        <span class="pull-right">{{ item?.row[0].count }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4 custom-padding">
+    <one-admin-loader *ngIf="activityBySourceLoading" [whiteOverlay]="true"></one-admin-loader>
+    <div *ngFor="let item of activityBySource" class="type-data">
+      <div class="type-data-detail color-columns">
+        <span>{{ (item?.row[0].source.length > 25) ? (item?.row[0].source | slice:0:25) + '...' : (item?.row[0].source) }}</span>
+        <span class="pull-right">{{ item?.row[0].count }}</span>
+      </div>
+    </div>
+  </div>
+</div>

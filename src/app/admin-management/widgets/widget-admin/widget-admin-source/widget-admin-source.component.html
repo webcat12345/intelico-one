@@ -1,0 +1,77 @@
+<one-admin-sidebar-window [headerTemplateRef]="header"
+                          [sidebarTemplateRef]="sidebar"
+                          [tableTemplateRef]="main">
+
+  <ng-template #header>
+    <div class="filters clearfix">
+      <h4 class="pull-left">Source ({{sourceListUI?.totalCount}})</h4>
+      <div class="pull-right">
+        <div class="form-group has-icon pull-left">
+          <input [(ngModel)]="searchKey" class="form-control" name="searchKey" placeholder="Search" type="text">
+        </div>
+        <button (click)="onExport()" class="action-btn export-btn" container="body" placement="bottom" style="margin-right: 20px;"
+                tooltip="Export to CSV" type="button">Export
+        </button>
+        <button (click)="toggleCurrentView(View.ListView)" [class.active]="currentView === View.ListView" class="action-btn list-view-btn" container="body" placement="bottom"
+                tooltip="List View" type="button">List View
+        </button>
+        <button (click)="toggleCurrentView(View.MapView)" [class.active]="currentView === View.MapView" class="action-btn map-view-btn" container="body" placement="bottom"
+                tooltip="Map View" type="button">Map View
+        </button>
+        <button (click)="onCreateSource()" *oneAdminAllowedRole="[UserRole.SuperAdmin, UserRole.Admin]" [hidden]="showAddModal" class="action-btn addnew" container="body"
+                placement="bottom" tooltip="New Source"
+                type="button">Add New
+        </button>
+      </div>
+      <angular2csv [data]="sourceListUI?.data" [options]="{
+      fieldSeparator: ',',
+      decimalseparator: '.',
+      headers: ['id', 'Name', 'TenantKey', 'Description', 'Key', 'Type', 'Zone', 'Area', 'Site', 'Created Date', 'Modified Date'],
+      keys: ['id', 'name', 'tenantKey', 'description', 'key', 'typeName', 'zoneName', 'areaName', 'siteName', 'createdDate', 'modifiedDate']
+    }" filename="Sources" hidden></angular2csv>
+    </div>
+  </ng-template>
+  <ng-template #main>
+    <div class="flex-window">
+      <!-- end filters -->
+      <one-admin-frozen-header-table (edit)="onEditSource($event)"
+                                     (remove)="onDeleteConfirm($event)"
+                                     (toggleSwitch)="toggleSwitch($event)"
+                                     [data]="sourceListUI?.data | filterBy: ['name', 'key']: searchKey"
+                                     [info]="info">
+      </one-admin-frozen-header-table>
+    </div>
+  </ng-template>
+  <ng-template #sidebar>
+    <one-admin-widget-admin-source-filter
+      (changeFilter)="changeFilter($event)"
+      (searchSelectedMapData)="searchSelectedMapData($event)">
+    </one-admin-widget-admin-source-filter>
+  </ng-template>
+</one-admin-sidebar-window>
+
+
+<div class="custom-modal">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut class="add-people">
+    <one-admin-widget-admin-source-add (close)="onCloseAddSection($event)" [isNew]="isAddModal"
+                                       [selectedSource]="selectedSource"></one-admin-widget-admin-source-add>
+  </div>
+</div>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>
+
+<div *ngIf="showConfirmModal" class="general-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <div class="modal-wrapper-contents text-center">
+      <p>Are you sure you want to delete this source?</p>
+      <button (click)="onRemoveSource(true)" class="btn btn-primary" type="button">Yes</button>
+      <button (click)="onRemoveSource(false)" class="btn btn-secondry" type="button">No</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showHideMap" class="map-wrapper">
+  <one-admin-one-cluster-map [data]="dataClusterMap" [styleBottomPx]="-224"></one-admin-one-cluster-map>
+</div>

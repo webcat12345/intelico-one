@@ -1,0 +1,259 @@
+.details-wrapper {
+    user-select: none;
+}
+
+.btns-block {
+    padding: 20px 30px;
+}
+
+.btns-block .row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.btns-block .col-sm-3 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.btns-block .btn {
+    display: block;
+    width: 100%;
+    color: #fff !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.btns-block .btn.pull-left {
+    width: 180px;
+    padding: 0 10px;
+    margin-right: 20px;
+}
+
+.btns-block .btn.btn-mini {
+    width: 144px;
+    padding: 0 8px;
+    margin-right: 15px;
+    font-size: 11px;
+    height: 38px;
+}
+
+.details-wrapper .img {
+    width: 307px;
+    height: 206px;
+    margin: 11px 0 11px 13px;
+}
+
+.event-detail-info {
+    width: calc(100% - 320px);
+    padding: 11px 13px;
+    display: flex;
+}
+
+.sm-map {
+    height: 206px;
+    overflow: hidden;
+    border-radius: 6px;
+    position: relative;
+    flex: 1;
+}
+
+.event-detail-info .btn {
+    margin-bottom: 10px;
+    padding: 0 15px;
+    text-align: right;
+    position: relative;
+    height: 36px;
+}
+
+.sm-map-actions .btn.btn-primary {
+    margin: 0;
+    height: 44px;
+    background: #4CAF50 url(../images/success-btn-icon.svg) no-repeat scroll center !important;
+    background-size: 22px auto !important;
+    border-radius: 8px;
+}
+
+.event-detail-info .event-info-wrapper {
+    height: 200px;
+    border-radius: 6px;
+  color: #FFFFFF;
+    flex: 1;
+	background-color: #232534;
+	/*border: 1px solid #DADADA;*/
+    padding: 15px 15px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-info-wrapper .expand-btn {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    z-index: 1;
+}
+
+.event-info-wrapper h6:first-child {
+    padding-top: 0;
+}
+
+.event-info-wrapper .event-info {
+    flex: 1;
+    overflow: auto;
+    overflow-x: hidden;
+    margin-right: -15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}
+
+.event-info-wrapper .event-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.event-info-wrapper .event-info ul li {
+    line-height: 15px;
+    padding: 8px 15px 7px;
+    min-height: 30px;
+    font-size: 13px;
+}
+
+.event-info-wrapper .event-info ul li:nth-child(odd) {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.sm-map-actions {
+    width: 96px;
+    margin-left: 13px;
+}
+
+.sm-map-actions hr {
+    margin: 12px 0;
+    border-color: #EBEBEB;
+}
+
+.flex-btn-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 10px;
+}
+
+.flex-btn-wrap .block {
+  background-color: #565656;
+}
+
+.flex-btn-wrap button {
+    background-color: #232534;
+	border: 0 none;
+    background-size: 22px auto;
+    width: 43px;
+    height: 44px;
+    border-radius: 8px;
+}
+
+.flex-btn-wrap button[disabled] {
+    background-color: #232534;
+	border: 0 none;
+    background-size: 22px auto;
+    width: 43px;
+    height: 44px;
+    border-radius: 8px;
+}
+
+.flex-btn-wrap button:hover {
+	background-color: #0077BE;
+}
+
+.flex-btn-wrap button.active {
+	background-color: #0077BE;
+}
+
+.resolve-form {
+  color: #FFFFFF;
+    height: 206px;
+    border-radius: 6px;
+    flex: 1;
+  background: linear-gradient(to right, #242434 0%,#212634 100%);
+	/*border: 1px solid #DADADA;*/
+    padding: 12px 15px 15px;
+    position: relative;
+}
+
+.resolve-form h6,
+.event-info-wrapper h6 {
+    font-size: 12px;
+    line-height: 18px;
+	letter-spacing: 0.44px;
+    padding: 5px 0 10px;
+    text-transform: uppercase;
+}
+
+.resolve-form .close--btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.resolve-form .form-control {
+    height: 43px;
+    margin: 0 0 9px;
+    padding: 0 12px;
+}
+
+.event-detail-info .resolve-form .btn {
+    text-align: center;
+    margin: 0;
+    height: 42px;
+}
+
+.static-sidebar .flex-window-wrapper {
+    padding-right: 265px;
+}
+
+.static-sidebar .sidebar-wrapper {
+    width: 240px;
+    top: 80px;
+    right: 0;
+}
+
+.static-sidebar .sidebar-wrapper .nice-scroll {
+    padding: 0 25px 15px;
+}
+
+.right-sidebar.static-sidebar .form-control {
+    height: 36px;
+    padding: 0 15px;
+}
+
+.right-sidebar.static-sidebar .form-group .close--btn {
+    bottom: 6pt;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+}
+
+.details-wrapper-activity .sm-map,
+.details-wrapper-activity .event-info-wrapper {
+    height: 200px;
+}
+
+.details-wrapper-activity .sm-map-actions {
+    width: 42px;
+}
+
+.details-wrapper-activity .flex-btn-wrap {
+    flex-direction: column;
+    margin: 0;
+}
+
+.details-wrapper-activity .flex-btn-wrap button {
+    margin: 12px 0 0;
+}
+
+.flex-btn-wrap button[disabled] {
+    background-color: #33354c !important;
+    pointer-events: none;
+}

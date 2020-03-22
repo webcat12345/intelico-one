@@ -1,0 +1,25 @@
+<div class="home-badges">
+  <ul>
+    <li>
+      <span (click)="openNotificationWindow('normal')" class="badge normal" container="body" placement="right"
+            tooltip="Normal">
+        {{notifyCount?.normal > 99 ? '99+' : notifyCount?.normal}}
+        <one-admin-loader *ngIf="isLoading"></one-admin-loader>
+      </span>
+    </li>
+    <li>
+      <span (click)="openNotificationWindow('high')" class="badge high" container="body" placement="right"
+            tooltip="High">
+        {{notifyCount?.high > 99 ? '99+' : notifyCount?.high}}
+        <one-admin-loader *ngIf="isLoading"></one-admin-loader>
+      </span>
+    </li>
+    <li>
+      <span (click)="openNotificationWindow('critical')" class="badge critical" container="body" placement="right"
+            tooltip="Critical">
+        {{notifyCount?.critical > 99 ? '99+' : notifyCount?.critical}}
+        <one-admin-loader *ngIf="isLoading"></one-admin-loader>
+      </span>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,8 @@
+<ng-container>
+  <one-admin-date-range-filter (changeFilter)="filterChanged($event, 5)" [defaultOption]="defaultOptionDate"
+                               [isDateRange]="true"></one-admin-date-range-filter>
+  <div class="filter-btns-wrap">
+    <button (click)="clearSearch()" class="btn btn-amber">Clear</button>
+    <button (click)="searchLocate()" class="btn btn-primary">Search</button>
+  </div>
+</ng-container>

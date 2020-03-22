@@ -1,0 +1,84 @@
+.notes-search-wrapper {
+    padding: 30px 30px 15px;
+    margin: 0;
+}
+
+.notes-search-wrapper .form-control {
+    margin: 0;
+    height: 40px;
+}
+
+.notes-list {
+    list-style: none;
+    padding: 0 0 1px;
+    margin: 0;
+    flex: 1;
+    overflow: auto;
+}
+
+.notes-list > li {
+    border-bottom: #E4E8F0 1px solid;
+    padding: 0 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+.notes-list > li:hover {
+    background-color: rgba(0,0,0,0.01);
+}
+
+.notes-list > li h5 {
+    padding: 15px 0 0;
+    color: #1F2226;
+    font-weight: 500;
+    line-height: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.notes-list > li p {
+    color: #ACB3BF;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    padding: 5px 0 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.new-button-wrap {
+    padding: 0 25px 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.notes-detail-wrapper {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    overflow: auto;
+    flex: 1;
+}
+
+.notes-detail h4 {
+    color: #1F2226;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.notes-detail h6 {
+    color: #ACB3BF;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    padding: 0 0 27px;
+}
+
+.notes-detail p {
+    font-weight: 500;
+}

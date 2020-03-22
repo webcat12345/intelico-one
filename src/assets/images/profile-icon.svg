@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="24px" viewBox="0 0 18 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_profile</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Messages_Combined" transform="translate(-1359.000000, -665.000000)" fill="url(#linearGradient-1)">
+            <g id="Menu" transform="translate(785.000000, 653.000000)">
+                <g id="ic_profile" transform="translate(559.000000, 0.000000)">
+                    <path d="M24,24 C21.2385763,24 19,19.7614237 19,17 C19,14.2385763 21.2385763,12 24,12 C26.7614237,12 29,14.2385763 29,17 C29,19.7614237 26.7614237,24 24,24 Z M22,24 L26,24 C29.8659932,24 33,25.3027433 33,29.3768836 L33,31.7734177 C33.0000051,34.1015009 31.2091418,35.9887851 29,35.9887851 C28.8516014,35.9887851 28.7033178,35.9800822 28.5558369,35.9627167 C27.0679603,35.7875233 25.5698558,35.6999266 24.0615234,35.6999266 C22.52328,35.6999266 20.9850366,35.791032 19.4467932,35.9732426 C17.2514791,36.2332847 15.271789,34.5686203 15.0250315,32.2551095 C15.0083569,32.0987748 15,31.941579 15,31.7842598 L15,29.3768836 C15,25.3027433 18.1340068,24 22,24 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

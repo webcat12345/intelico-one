@@ -1,0 +1,30 @@
+<div class="flex-window">
+  <div class="filters clearfix">
+    <h4 class="pull-left">Input Agents ({{agentList.totalCount}})</h4>
+
+    <button (click)="onCreateAgent()" class="btn btn-primary pull-left" type="button">Add New</button>
+
+    <div class="pull-right">
+      <div class="form-group has-icon">
+        <input [(ngModel)]="searchKey" class="form-control" name="searchKey" placeholder="Search" type="text">
+      </div>
+    </div>
+  </div>  <!-- end filters -->
+
+  <one-admin-frozen-header-table
+    (edit)="onEditAgent($event)"
+    (remove)="onRemoveAgent($event)"
+    [data]="agentList.data | filterBy: ['name']: searchKey"
+    [info]="info"></one-admin-frozen-header-table>
+
+</div>
+
+<div class="custom-modal">
+  <div *ngIf="showAddModal" class="overlay"></div>
+  <div *ngIf="showAddModal" @flyInOut class="add--sidebar">
+    <one-admin-widget-super-admin-input-agents-add (close)="onCloseAddSection($event)" [isNew]="isAddModal"
+                                                   [selectedAgent]="selectedAgent"></one-admin-widget-super-admin-input-agents-add>
+  </div>
+</div>
+
+<one-admin-loader *ngIf="isLoading" size="sm"></one-admin-loader>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="48px" viewBox="0 0 32 48" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: sketchtool 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>7C4954A2-6882-4721-9EA8-1C8F59A407F6</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Locate-1.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Locate-1.1-Main" transform="translate(-234.000000, -377.000000)" fill="url(#linearGradient-1)">
+            <g id="People" transform="translate(180.000000, 345.000000)">
+                <path d="M74.6699,68 C79.0689,68 83.0619,68.928 85.9999,71.294 C82.7289,76.512 76.7869,80 69.9999,80 C63.2129,80 57.2709,76.512 53.9999,71.294 C56.9379,68.928 60.9309,68 65.3299,68 L74.6699,68 Z M70,66 C62.268,66 56,53.991 56,46.167 C56,38.343 62.268,32 70,32 C77.732,32 84,38.343 84,46.167 C84,53.991 77.732,66 70,66 Z" id="ic_people"></path>
+            </g>
+        </g>
+    </g>
+</svg>

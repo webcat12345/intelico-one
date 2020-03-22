@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_add</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="131.426968%" y1="-34.1782798%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Message" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Messages_Combined" transform="translate(-42.000000, -72.000000)" fill="url(#linearGradient-1)">
+            <g id="ic_alerts-*Not-pushed" transform="translate(30.000000, 60.000000)">
+                <path d="M26,22 L26,14 C26,12.8954305 25.1045695,12 24,12 C22.8954305,12 22,12.8954305 22,14 L22,14 L22,22 L14,22 C12.8954305,22 12,22.8954305 12,24 C12,25.1045695 12.8954305,26 14,26 L22,26 L22,34 C22,35.1045695 22.8954305,36 24,36 C25.1045695,36 26,35.1045695 26,34 L26,26 L34,26 C35.1045695,26 36,25.1045695 36,24 C36,22.8954305 35.1045695,22 34,22 L26,22 Z" id="ic_add"></path>
+            </g>
+        </g>
+    </g>
+</svg>

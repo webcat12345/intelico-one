@@ -1,0 +1,88 @@
+<one-admin-expansion-table (rowExpanded)="expandRow($event)"
+                           [columns]="displayColumns"
+                           [data]="history"
+                           [detailTemplate]="detailTemplate"
+                           [scrollToTop]="getScrollTop"
+                           tableName="Activity">
+  <ng-template #carImage let-item="item">
+    <div class="icon-cell">
+      <img [src]="item?.historyItemSource | identifierTypeIcon" alt="Identifier">
+    </div>
+    <span class="identifier-name">{{ item.identifier }}</span>
+  </ng-template>
+
+  <ng-template #peopleImage let-item="item">
+    <div class="icon-cell">
+      <img [src]="item?.peopleId === '00000000-0000-0000-0000-000000000000' || !item?.peopleId ? 'assets/images/nav-people-disabled.svg' : 'assets/images/nav-people.svg'" alt="Identifier">
+    </div>
+  </ng-template>
+
+  <ng-template #detailTemplate let-item="item">
+    <div (click)="openImage.emit(item?.pictureUrl)" class="img pull-left">
+      <button (click)="openImage.emit(item?.pictureUrl)" *ngIf="item?.pictureUrl"
+              [disabled]="!item?.pictureUrl"
+              [ngClass]="{'disabled-expand-btn': !item.pictureUrl}"
+              class="expand-btn"
+              type="button">Expand
+      </button>
+      <img [src]="item?.pictureUrl ? item?.pictureUrl : 'assets/images/img-placeholder.jpg'" alt="Picture">
+    </div>
+    <div class="event-detail-info pull-right">
+      <ng-container>
+        <div *ngIf="currentView === View.MapView" class="sm-map">
+          <button (click)="openLocateWindow(item, $event)" class="expand-btn" type="button">Expand</button>
+          <ng-container>
+            <one-admin-one-map *ngIf="!item.showDetail && selectedEvent"
+                               [corresponding]="{lat: 0.0015, lng: 0}"
+                               [height]="'206px'"
+                               [infoTemplateRef]="infoBox"
+                               [lock]="true"
+                               [position]="{lat: selectedEvent?.latitude, lng: selectedEvent.longitude}">
+              <ng-template #infoBox let-item>
+                <div class="marker-details-top new-marker-details text-center">
+                  <h5>{{ item?.site }}</h5>
+                  <p>{{ (selectedEvent?.locationDetails | locationDetailAddress :  'site') || 'Unknown Address' }}</p>
+                  <p>{{ (selectedEvent?.locationDetails | locationDetailAddress : 'area') || 'Unknown Address' }}</p>
+                  <p>{{ (selectedEvent?.locationDetails | locationDetailAddress : 'zone') || 'Unknown Address' }}</p>
+                  <!--   <p>{{ (selectedEvent?.locationDetails | locationDetailAddress) || 'Unknown Address' }}</p>-->
+                </div>
+              </ng-template>
+            </one-admin-one-map>
+          </ng-container>
+        </div>
+        <one-admin-event-detailed-info-panel (expand)="onExpand(item)" *ngIf="isEventDetailed()"
+                                             [action]="getActions"
+                                             [config]="eventDetailedConfig()"></one-admin-event-detailed-info-panel>
+        <div class="sm-map-actions">
+          <div class="flex-btn-wrap">
+            <button (click)="currentView = View.MapView" [class.active]="currentView === View.MapView" class="action-btn locate-btn"
+                    container="body" placement="top" tooltip="Map" type="button">Locate
+            </button>
+            <!--<button type="button" class="action-btn history-btn" (click)="currentView = View.ActivityView" placement="top" container="body" tooltip="Activity">Activity</button>-->
+          </div>
+          <div class="flex-btn-wrap">
+            <button (click)="currentView = View.DetailView" [class.active]="currentView === View.DetailView" class="action-btn info-btn"
+                    container="body" placement="top" tooltip="Details" type="button">Details
+            </button>
+            <button (click)="currentView = View.ActionsView" [class.active]="currentView === View.ActionsView" [disabled]="!isAction"
+                    class="action-btn actions-btn" container="body" placement="top" tooltip="Actions"
+                    type="button">Actions
+            </button>
+          </div>
+          <div class="flex-btn-wrap">
+            <button (click)="currentView = View.PeopleView" [class.active]="currentView === View.PeopleView" [disabled]="!item.peopleId ||  item.peopleId == '00000000-0000-0000-0000-000000000000'"
+                    class="action-btn people-btn" container="body" placement="top"
+                    tooltip="People"
+                    type="button">People
+            </button>
+            <button (click)="currentView = View.GroupView" [class.active]="currentView === View.GroupView" [disabled]="!item.peopleId ||  item.peopleId == '00000000-0000-0000-0000-000000000000'"
+                    class="action-btn groups-btn" container="body" placement="top"
+                    tooltip="Groups"
+                    type="button">Groups
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-template>
+</one-admin-expansion-table>

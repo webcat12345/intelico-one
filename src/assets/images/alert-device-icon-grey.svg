@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="16px" viewBox="0 0 12 16" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_device</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Messages_Combined" transform="translate(-61.000000, -795.000000)" fill="#888991">
+            <g id="Alerts" transform="translate(40.000000, 788.000000)">
+                <g id="Device-alert">
+                    <path d="M23,7 L31,7 C32.1045695,7 33,7.8954305 33,9 L33,21 C33,22.1045695 32.1045695,23 31,23 L23,23 C21.8954305,23 21,22.1045695 21,21 L21,9 L21,9 C21,7.8954305 21.8954305,7 23,7 L23,7 Z M24,9 C23.4477153,9 23,9.44771525 23,10 L23,20 C23,20.5522847 23.4477153,21 24,21 L30,21 C30.5522847,21 31,20.5522847 31,20 L31,10 C31,9.44771525 30.5522847,9 30,9 L24,9 Z M27,19 C26.4477153,19 26,18.5522847 26,18 C26,17.4477153 26.4477153,17 27,17 C27.5522847,17 28,17.4477153 28,18 C28,18.5522847 27.5522847,19 27,19 Z" id="ic_device"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
